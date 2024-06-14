@@ -12,9 +12,9 @@
 
 ```Taxonomic NCBI``` is designed to annotate a Blast hit results file with each query sequence's description used to search a local copy of the NCBI taxonomy data. Once annotated the blast hit file can then be combined to a read count matrix file such that the resultant file contains both the sequences read counts in an array of samples and the likely taxonomic origin of the sequence. 
 
-```Taxonomic NCBI``` is written to be flexible and so can process sequence descriptors from a range as sources such as the SILVA data set or standard GenBank sequence description. The only requirement for automated analysis is that the the descriptions have a roughly consist format across the samples.
+```Taxonomic NCBI``` is written to be flexible and so can process sequence descriptors from a range of sources such as the SILVA data set or standard GenBank sequence description. The only requirement for automated analysis is that the the descriptions have a roughly consist format.
 
-As well as allowing the automated annotation of a file, ```Taxonomic NCBI``` will also allow you to perform manual searchers using either common English or Latin names or the species' NCBI taxonomy ID number. 
+As well as allowing the automated annotation of a file, ```Taxonomic NCBI``` will also allow you to perform manual searchers using either names (common English or Latin) or the species' NCBI taxonomy ID number. 
 
 
 ## Guide

@@ -3,17 +3,17 @@
 ## Prerequisites 
 
 ### NCBI taxonomy data
-```Taxonomy NCBI``` annotates files using taxonomic data downloaded from the NCBI taxonomy [webpagee](https://www.ncbi.nlm.nih.gov/taxonomy). The NCBI Taxonomy webpage contains a link to the ***Taxonomy FTP*** page, which contains a number of different files compressed by various algorithms: download one of the taxdump files (taxdmp.zip, taxdumptar.Z or taxdump.tar.gz) and decompress it. ```Taxonomy_NCBI``` only requires the names.dmp and nodes.dmp files, so the others can be deleted to save space. These files are regularly updated so this process should be performed frequently, but an archive of of the files may be required if you plan to publish the results etc.
+```Taxonomy NCBI``` annotates files using taxonomic data downloaded from the NCBI taxonomy [webpage](https://www.ncbi.nlm.nih.gov/taxonomy). The this page contains a link to the ***Taxonomy FTP*** page, which contains a number of different files compressed by various algorithms: download one of the taxdump files (taxdmp.zip, taxdumptar.Z or taxdump.tar.gz) and decompress it. ```Taxonomy_NCBI``` only requires the names.dmp and nodes.dmp files, so the others can be deleted to save space. These files are regularly updated so this process should be performed frequently, but an archive of the files may be required if you plan to publish the results etc.
 
 ### Read counts matrix file
-There are a number of programs that can determine the number of reads linked to specific sequences in a series of sample files. ```Taxonomy_NCBI``` is able to process read count matrix files where the rows and columns represent samples and sequences respectively as well as files where the rows and columns represent sequences and samples respectively. However, it expects the first row and column contain the data's IDs. ```Taxonomy_NCBI``` does not convert the read count values in to any number type so they can be decimal or integer values.
+There are a number of programs that can determine the number of reads linked to specific sequences in a series of sample files. ```Taxonomy_NCBI``` is able to process read count matrix files where the rows and columns represent the samples and sequences  as well as files where the rows and columns represent sequences and samples. However, it expects the first row and column contain the data's IDs. ```Taxonomy_NCBI``` does not convert the read count values in to any number type so they can be decimal or integer values.
 
 ### Blast hit file
 The blast hit file can have just about any character delimited format, but was tested on blastn results formatted with the outfmt 5 option for example: 
 
 > $blastn -query inputFile.fasta -db databaseName -dust no -outfmt 6 -num_alignments 10 -num_threads 2 > results.txt"
 
-The command returns the best 10 hits since many database not contain sequence with names such as __uncultured sample__ or __environmental sample__ that have no relevant taxonomic information. If you have 10 hits, hopefully one hit will have links to a species or family. The query sequence id in the blast hit can link to species data in the matrix file by having the same name or by the value in the blast results file been a number that corresponds to the species's position in the matrix file(i.e. if the blast hit qseqid value is 4, the same sequence is represented as the 4th species in the matrix file. Figure 1)
+The command returns the best 10 hits since many databases not contain sequence with names such as __uncultured sample__ or __environmental sample__ that have no relevant taxonomic information. If you have 10 hits, hopefully one hit will have links to a species or family. The query sequence id in the blast hit can link to species data in the matrix file by having the same name or by the value in the blast results file is a number that corresponds to the sequence's position in the matrix file(i.e. if the blast hit qseqid value is 4, the same sequence is represented as the 4th sequence in the matrix file. Figure 1)
 
 ![Figure 1](images/figure1.jpg)
 
@@ -25,11 +25,11 @@ Figure 1: The qseqid value of 4 links to the 4th sequence data column in the mat
 
 ### Running on non-Windows PCs
 
-```Taxonomy_NCBI``` is written in C# which is geared towards Windows computers, but can be used on macOS ot Linux/BSD computers using Wine as described [here](https://github.com/msjimc/RunningWindowsProgramsOnLinux).
+```Taxonomy_NCBI``` is written in C# which as strong links to Windows computers, but can be used on macOS ot Linux/BSD computers using Wine as described [here](https://github.com/msjimc/RunningWindowsProgramsOnLinux).
 
 ## The user interface
 
-Figure 2 shows the ```Taxonomy_NCBI``` user interface which consists of 4 regions: [```Import Taxonomic NCBI```](#importing-and-saving-the-ncbi-taxonomic-data), [```Automated analysis```](#annotating-a-blast-hit-file-with-ncbi-taxonomic-data), [```Combine annotation file read count matrix```](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file) and [```Manual search```](#manually-searching-the-taxonomy-data).
+Figure 2 shows the ```Taxonomy_NCBI``` user interface which consists of 4 regions: [```Import Taxonomic data```](#importing-and-saving-the-ncbi-taxonomic-data), [```Automated analysis```](#annotating-a-blast-hit-file-with-ncbi-taxonomic-data), [```Combine annotation file read count matrix```](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file) and [```Manual search```](#manually-searching-the-taxonomy-data).
 
 ![Figure 2](images/figure2.jpg)
 
