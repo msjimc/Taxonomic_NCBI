@@ -408,7 +408,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(528, 565);
+            this.MinimumSize = new System.Drawing.Size(528, 637);
             this.Name = "columnSelection";
             this.Text = "Name location";
             this.Load += new System.EventHandler(this.columnSelection_Load);

@@ -58,7 +58,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cboSamples);
             this.groupBox1.Controls.Add(this.cboSpecies);
@@ -191,8 +191,8 @@
             // 
             // gbCombine
             // 
-            this.gbCombine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gbCombine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbCombine.Controls.Add(this.label8);
             this.gbCombine.Controls.Add(this.btnNext);
@@ -338,6 +338,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gbCombine);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(631, 489);
             this.Name = "countMatrix";
             this.Text = "Combine files";
             this.groupBox1.ResumeLayout(false);
