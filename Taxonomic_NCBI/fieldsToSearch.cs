@@ -20,7 +20,9 @@ namespace Taxonomic_NCBI
         private int itemsCount = -1;
         private bool combinetwoFields = false;
         private bool reverseOrder = false;
-        public fieldsToSearch(char First, bool SecondPresent, char Second, bool FirstFromEnd, int FirstFirstIndex, int FirstSecondIndex, bool SecondFromEnd, int SecondFirstIndex, int SecondSecondIndex, int ItemsCount, bool CombinetwoFields, bool ReverseOrder)
+        private bool ignoreNones;
+
+        public fieldsToSearch(char First, bool SecondPresent, char Second, bool FirstFromEnd, int FirstFirstIndex, int FirstSecondIndex, bool SecondFromEnd, int SecondFirstIndex, int SecondSecondIndex, int ItemsCount, bool CombinetwoFields, bool ReverseOrder, bool IgnoreNones)
         {
             first = First;
             secondPresent = SecondPresent;
@@ -34,6 +36,7 @@ namespace Taxonomic_NCBI
             itemsCount = ItemsCount;
             combinetwoFields = CombinetwoFields;
             reverseOrder = ReverseOrder;
+            ignoreNones = IgnoreNones;
         }
 
         public int ItemsCount { get { return itemsCount; } }
@@ -62,6 +65,9 @@ namespace Taxonomic_NCBI
 
             if (secondPresent == true)
             {
+
+                if (ignoreNones == true) { items = RemoveNones(items); }
+
                 items = items[localFF].Split(second);
 
                 if (secondFromEnd)
@@ -117,6 +123,23 @@ namespace Taxonomic_NCBI
             { answer = ReverseOrder(answer); }    
 
             return answer;
+        }
+
+        private string[] RemoveNones(string[] itemsIn)
+        {
+            int place = itemsIn.Length;
+            for (int index = itemsIn.Length - 1; index > -1; index--)
+            {
+                if (itemsIn[index].ToLower().Equals("none") == false)
+                {
+                    place = index + 1;
+                    break;
+                }
+            }
+
+            string[] itemsOut = new string[place];
+            Array.Copy(itemsIn, itemsOut, itemsOut.Length);
+            return itemsOut;
         }
 
         private List<string> ReverseOrder(List<string> answer)
