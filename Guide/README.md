@@ -1,19 +1,19 @@
-# Annotating read count matrixes with taxonomic data with ```Taxonomy NCBI```
+# Annotating read count matrixes with taxonomic data with ```Taxonomy_NCBI```
 
 ## Prerequisites 
 
 ### NCBI taxonomy data
-```Taxonomy NCBI``` annotates files using taxonomic data downloaded from the NCBI taxonomy [webpage](https://www.ncbi.nlm.nih.gov/taxonomy). The this page contains a link to the ***Taxonomy FTP*** page, which contains a number of different files compressed by various algorithms: download one of the taxdump files (taxdmp.zip, taxdumptar.Z or taxdump.tar.gz) and decompress it. ```Taxonomy_NCBI``` only requires the names.dmp and nodes.dmp files, so the others can be deleted to save space. These files are regularly updated so this process should be performed frequently, but an archive of the files may be required if you plan to publish the results etc.
+```Taxonomy_NCBI``` annotates files using taxonomic data downloaded from the NCBI taxonomy [webpagee](https://www.ncbi.nlm.nih.gov/taxonomy). The NCBI Taxonomy webpage contains a link to the ***Taxonomy FTP*** page, which contains a number of different files compressed by various algorithms: download one of the taxdump files (taxdmp.zip, taxdumptar.Z or taxdump.tar.gz) and decompress it. ```Taxonomy_NCBI``` only requires the names.dmp and nodes.dmp files, so the others can be deleted to save space. These files are regularly updated so this process should be performed frequently, but an archive of of the files may be required if you plan to publish the results etc.
 
 ### Read counts matrix file
-There are a number of programs that can determine the number of reads linked to specific sequences in a series of sample files. ```Taxonomy_NCBI``` is able to process read count matrix files where the rows and columns represent the samples and sequences  as well as files where the rows and columns represent sequences and samples. However, it expects the first row and column contain the data's IDs. ```Taxonomy_NCBI``` does not convert the read count values in to any number type so they can be decimal or integer values.
+There are a number of programs that can determine the number of reads linked to specific sequences in a series of sample files. ```Taxonomy_NCBI``` is able to process read count matrix files where the rows and columns represent samples and sequences respectively as well as files where the rows and columns represent sequences and samples respectively. However, it expects the first row and column contain the data's IDs. ```Taxonomy_NCBI``` does not convert the read count values in to any number type so they can be decimal or integer values.
 
 ### Blast hit file
 The blast hit file can have just about any character delimited format, but was tested on blastn results formatted with the outfmt 5 option for example: 
 
 > $blastn -query inputFile.fasta -db databaseName -dust no -outfmt 6 -num_alignments 10 -num_threads 2 > results.txt"
 
-The command returns the best 10 hits since many databases not contain sequence with names such as __uncultured sample__ or __environmental sample__ that have no relevant taxonomic information. If you have 10 hits, hopefully one hit will have links to a species or family. The query sequence id in the blast hit can link to species data in the matrix file by having the same name or by the value in the blast results file is a number that corresponds to the sequence's position in the matrix file(i.e. if the blast hit qseqid value is 4, the same sequence is represented as the 4th sequence in the matrix file. Figure 1)
+The command returns the best 10 hits since many database not contain sequence with names such as __uncultured sample__ or __environmental sample__ that have no relevant taxonomic information. If you have 10 hits, hopefully one hit will have links to a species or family. The query sequence id in the blast hit can link to species data in the matrix file by having the same name or by the value in the blast results file been a number that corresponds to the species's position in the matrix file(i.e. if the blast hit qseqid value is 4, the same sequence is represented as the 4th species in the matrix file. Figure 1)
 
 ![Figure 1](images/figure1.jpg)
 
@@ -25,11 +25,11 @@ Figure 1: The qseqid value of 4 links to the 4th sequence data column in the mat
 
 ### Running on non-Windows PCs
 
-```Taxonomy_NCBI``` is written in C# which as strong links to Windows computers, but can be used on macOS ot Linux/BSD computers using Wine as described [here](https://github.com/msjimc/RunningWindowsProgramsOnLinux).
+```Taxonomy_NCBI``` is written in C# which is geared towards Windows computers, but can be used on macOS ot Linux/BSD computers using Wine as described [here](https://github.com/msjimc/RunningWindowsProgramsOnLinux).
 
 ## The user interface
 
-Figure 2 shows the ```Taxonomy_NCBI``` user interface which consists of 4 regions: [```Import Taxonomic data```](#importing-and-saving-the-ncbi-taxonomic-data), [```Automated analysis```](#annotating-a-blast-hit-file-with-ncbi-taxonomic-data), [```Combine annotation file read count matrix```](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file) and [```Manual search```](#manually-searching-the-taxonomy-data).
+Figure 2 shows the ```Taxonomy_NCBI``` user interface which consists of 4 regions: [```Import taxonomic data```](#importing-and-saving-the-ncbi-taxonomic-data), [```Automated analysis```](#annotating-a-blast-hit-file-with-ncbi-taxonomic-data), [```Combine annotation file read count matrix```](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file) and [```Manual search```](#manually-searching-the-taxonomy-data).
 
 ![Figure 2](images/figure2.jpg)
 
@@ -40,9 +40,9 @@ Figure 2 the user interface.
 The taxonomic data from the NCBI website is present in two files. The nodes.dmp contains the taxonomic id of each taxonomic grouping (i.e. each species, family or clade) with its parent term, for instance homo sapiens is linked to the homo genus, which in turn is linked to the 
 Homininae subfamily. The names.dmp file contains the latin and common names for each term.
 
-Pressing the ```Nodes``` in the ```Import taxonomic data``` panel, allows you to select the nodes.dmp file which it then imports, linking each term to its parent to form a tree where a species is a leaf while the roots are the terms like ***Eukaryota***. While importing the data the status is given in the windows title bar. When the data has been imported the title will return to ***Taxonomic NCBI*** and the ```Names``` button will be activated. 
+Pressing the ```Nodes``` in the ```Import taxonomic data``` panel, allows you to select the nodes.dmp file which it then imports, linking each term to its parent to form a tree where a species is a leaf while the roots are the terms like ***Eukaryota***. While importing the data the status is given in the windows title bar. When the data has been imported the title will return to ***Taxonomic data*** and the ```Names``` button will be activated. 
 
-Pressing the ```Names``` button will allow you to select and import the names.dmp file. This wiil add the names to the nodes previously imported. Again, the status is shown in the title bar and when completed the title will revert to ***Taxonomic NCBI*** and the ```Save``` button will be activated. The program is now ready to be used.
+Pressing the ```Names``` button will allow you to select and import the names.dmp file. This wiil add the names to the nodes previously imported. Again, the status is shown in the title bar and when completed the title will revert to ***Taxonomic data*** and the ```Save``` button will be activated. The program is now ready to be used.
 
 ### Saving the node and names data to allow quick import times
 
@@ -72,7 +72,7 @@ The annotation of a blast hit file is performed by pressing the ```Annotate``` b
 
 ![Figure 4](images/figure4.jpg)
 
-Figure 4: The ```Name location``` form allows you to select the species name in the hit sequence's database description text.
+Figure 4: The ```Name location``` form allows you to select the hit sequence's name.
 
 Due to the diverse sources of Blast databases, the description of each sequence hit can vary widely. For example the SILVA data base of 16S and 18S sequences has a sequence descriptor format of:
 
@@ -92,7 +92,7 @@ In Figure 4, it is apparent that each line is split in to a range of columns by 
 
 1) First enter the text delimiter that splits the line in a range of fields in this case it is a tab character. Since pressing tab on the key board will move the cursor to a new control, enter \\t in the top text area (blue box in figure 5a).
 2) Then select the field you are interested in using the two number controls (red box in figure 5a).
-If the two numbers are the same only one field will be selected (Figure 5a), but if the numbers differ more then one field will be selected (Figure 5b). By default the numbering starts from the first field, but checking the linked tick box, counts the from the end. This is important if the number of items in the list is very variable, but the name is a fix relative to the end of the text as seen in SILVA descriptions.
+If the two numbers are the same only one field will be selected (Figure 5a), but if the numbers differ more then one field will be selected (Figure 5b).
 
 ![Figure 5a](images/figure5a.jpg)
 
@@ -100,17 +100,17 @@ Figure 5a: The line is split in to fields by entering the delimiter character (a
 
 ![Figure 5b](images/figure5b.jpg)
 
-Figure 5b: The line is split in to fields by entering the delimiter character (a tab) in the upper text area as before. However, the seventh and eighth fields is then selected using the number controls in the blue box. The selected fields are shown in the lowest text area (green box) with each value separated by the word ***OR*** (red line).
+Figure 5a: The line is split in to fields by entering the delimiter character (a tab) in the upper text area as before. However, the seventh and eighth fields is then selected using the number controls in the blue box. The selected fields are shown in the lowest text area (green box) with each value separated by the word ***OR*** (red line).
 
 <hr /> 
 
-3) Since we need split the final field to select the species text, enter the ';' character in the 2nd text area (blue box in figure 6a). Entering a second delimiter character will cause ```Taxonomic NCBI``` to select only one field rather than two as shown in figure 5b. 
+3) Since we need split the final field to select the species text, enter the ';' character in the 2nd text area (blue box in figure 6a). Entering a second delimiter character will cause ```Taxonomic data``` to select only one field rather than two as shown in figure 5b. 
 
-4) Since the number of sub-fields in a SILVA sequence descriptor varies, select the ```Count from the end of the line``` option (red box in Figure 6a). This counts the fields from the end rather then the start and will always select the correct field irrespective of the number of sub-fields in the description. Since the last field may contain a generic phrase, select the the last three fields as shown in figure 6b (red box). The lowest text area, now contains three terms separated by the word ***OR*** (Green box in Figure 6b).
+4) Since the number of sub-fields in a SILVA sequence descriptor varies, select the ```Count from the end of the line``` option (red box in Figure 6a). This counts the fields from the end rather then the start and sill will always select the correct irrespective of the number of sub-fields in the description. Since the last field some times contains a generic phrase, select the the last two fields as shown in figure 6b (red box). The lowest text area, not contains two terms separated by the word ***OR*** (Green box in Figure 6b).
  
 ![Figure 6a](images/figure6a.jpg)
 
-Figure 6a: Entering the ';' in the 2nd text area (blue box) splits the selected field in to sub-fields. Checking the  ```Count from the end of the line``` options selects the fields counting from the end of the field (red box). The selected sub-filed (Underlined in black) is shown in the lowest text area (green box).
+Figure 6a: Entering the ';' in the 2nd text area (blue box) splits the selected field in to sub-fields. Checking the  ```Count from the end of the line``` options selects the fields counting from the end of the field (red box). The selected sub-filed is shown in the lowest text area (green box).
 
 ![Figure 6b](images/figure6b.jpg)
 
@@ -122,7 +122,7 @@ When working with GenBank descriptions, the data line is split into fields using
 
 Figure 7: Using a space character (or \\s) will break a GenBank description in to single words. The selecting the first four fields (words)(blue box) should allow the analysis of a sequence prefixed with a generic phrase. Finally selecting the combine two terms options (red box) creates search terms consisting of two words.
 
-When searching for taxonomic data in the NCBI data set, ```Taxonomic NCBI``` processes the terms from left to right, for example in Figure 7 it would first search for matches to ***Peridiniales***, then ***Amphidiniopsis*** and finally ***Amphidiniopsis uroensis***. If it finds a match, it returns it and stops searching for possibly better ones. Consequently, it is important to check the search order is appropriate: if the probable best search term is at the end of the text (***Amphidiniopsis uroensis***) rather than the start (***Peridiniales***) in the lower text area select, the reverse search term option (blue box in Figure 8) should be selected  to reverse the order (green box Figure 8) so ***Amphidiniopsis uroensis*** is the first search term and not **Peridiniales***.
+When searching for a taxonomic data in the NCBI data set, ```Taxonomic data``` processes the terms from right to left, for example in Figure 7 it would first search for matches to ***strain CCAP***, then ***micans strain*** and finally ***Prorocentrum micans***. If it finds a match, it returns it and stops searching for possibly better ones. Consequently, it is important to check the search order is appropriate: if the probable best search term is at the start of the text in the lower text area select the reverse search term option  (blue box in Figure 8) to reverse the order (green box Figure 8).
 
 ![Figure 8](images/figure8.jpg)
 
@@ -132,7 +132,7 @@ Figure 8
 
 Finally, pressing the Accept button will process the entire blast hits file and create a new file with the same name as the blast hit file, but with ***_annotated*** appended to its name, in the same folder. In the new file the field from which the search term is derived is removed and the taxonomic string is appended to the end of the line after a delimiter character.
 
-Since not all entries contain all the taxonomic sub-divisions ```Taxonomic NCBI``` pads missing fields using the previous term prefixed by a '.' character, for example a search for ***Gyrodinium*** returned a genus, but not a species name, consequently the taxonomic string ended with: ***Gyrodinium***\<tab>***.Gyrodinium***. The term ***.Gyrodinium*** is substituted for a species name with the '.' character indicating the substitution. A value of: ***Eucalanidae***\<tab>***.Eucalanidae***\<tab>***..Eucalanidae*** indicates that the nest two terms following ***Eucalanidae*** are absent.
+Since not all entries contain all the taxonomic sub-divisions ```Taxonomic data``` pads missing fields using the previous term prefixed by a '.' character, for example a search for ***Gyrodinium*** returned a genus, but not a species name, consequently the taxonomic string ended with: ***Gyrodinium***\<tab>***.Gyrodinium***. The term ***.Gyrodinium*** is substituted for a species name with the '.' character indicating the substitution. A value of: ***Eucalanidae***\<tab>***.Eucalanidae***\<tab>***..Eucalanidae*** indicates that the nest two terms following ***Eucalanidae*** are absent.
 
 ## Combining the annotated blast hit file and the read count matrix file
 
