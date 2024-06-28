@@ -386,6 +386,11 @@ namespace Taxonomic_NCBI
             SplitCurrentLine();
         }
 
+        private void chkIgnoreNones_CheckedChanged(object sender, EventArgs e)
+        {
+            SplitCurrentLine();
+        }
+
         public fieldsToSearch getFieldsToSearch()
         {
             if (firstSet == true)
@@ -396,6 +401,5 @@ namespace Taxonomic_NCBI
             else
             { return null; }
         }
-
     }
 }

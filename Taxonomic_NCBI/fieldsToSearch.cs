@@ -65,10 +65,10 @@ namespace Taxonomic_NCBI
 
             if (secondPresent == true)
             {
-
-                if (ignoreNones == true) { items = RemoveNones(items); }
-
+ 
                 items = items[localFF].Split(second);
+
+               if (ignoreNones == true) { items = RemoveNones(items); }
 
                 if (secondFromEnd)
                 {

@@ -412,6 +412,7 @@
             this.chkIgnoreNones.TabIndex = 6;
             this.chkIgnoreNones.Text = "Ignore \"None\" items";
             this.chkIgnoreNones.UseVisualStyleBackColor = true;
+            this.chkIgnoreNones.CheckedChanged += new System.EventHandler(this.chkIgnoreNones_CheckedChanged);
             // 
             // columnSelection
             // 
