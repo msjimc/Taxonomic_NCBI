@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(columnSelection));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkIgnoreNones = new System.Windows.Forms.CheckBox();
             this.chkReverseOrder = new System.Windows.Forms.CheckBox();
             this.chkCombinefields = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.chkIgnoreNones = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondSecondColumn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondFirstColumn)).BeginInit();
@@ -96,6 +96,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Name field select";
+            // 
+            // chkIgnoreNones
+            // 
+            this.chkIgnoreNones.AutoSize = true;
+            this.chkIgnoreNones.Location = new System.Drawing.Point(6, 209);
+            this.chkIgnoreNones.Name = "chkIgnoreNones";
+            this.chkIgnoreNones.Size = new System.Drawing.Size(122, 17);
+            this.chkIgnoreNones.TabIndex = 6;
+            this.chkIgnoreNones.Text = "Ignore \"None\" items";
+            this.chkIgnoreNones.UseVisualStyleBackColor = true;
+            this.chkIgnoreNones.CheckedChanged += new System.EventHandler(this.chkIgnoreNones_CheckedChanged);
             // 
             // chkReverseOrder
             // 
@@ -359,7 +370,6 @@
             this.txtFirstSplit.Name = "txtFirstSplit";
             this.txtFirstSplit.Size = new System.Drawing.Size(75, 20);
             this.txtFirstSplit.TabIndex = 2;
-            this.txtFirstSplit.Text = "1";
             this.txtFirstSplit.TextChanged += new System.EventHandler(this.txtFirstSplit_TextChanged);
             // 
             // label2
@@ -402,17 +412,6 @@
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // chkIgnoreNones
-            // 
-            this.chkIgnoreNones.AutoSize = true;
-            this.chkIgnoreNones.Location = new System.Drawing.Point(6, 209);
-            this.chkIgnoreNones.Name = "chkIgnoreNones";
-            this.chkIgnoreNones.Size = new System.Drawing.Size(122, 17);
-            this.chkIgnoreNones.TabIndex = 6;
-            this.chkIgnoreNones.Text = "Ignore \"None\" items";
-            this.chkIgnoreNones.UseVisualStyleBackColor = true;
-            this.chkIgnoreNones.CheckedChanged += new System.EventHandler(this.chkIgnoreNones_CheckedChanged);
             // 
             // columnSelection
             // 

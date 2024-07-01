@@ -395,7 +395,7 @@ namespace Taxonomic_NCBI
         {
             if (firstSet == true)
             {
-                fieldsToSearch fts = new fieldsToSearch(first, secondSet, second, chkFirstFromEnd.Checked, firstFirstIndex, firstSecondIndex, chkSecondFromEnd.Checked, secondFirstIndex, secondSecondIndex, itemsCount, chkCombinefields.Checked, chkReverseOrder.Checked, chkIgnoreNones.Checked);
+               fieldsToSearch fts = new fieldsToSearch(first, secondSet, second, chkFirstFromEnd.Checked, firstFirstIndex, firstSecondIndex, chkSecondFromEnd.Checked, secondFirstIndex, secondSecondIndex, itemsCount, chkCombinefields.Checked, chkReverseOrder.Checked, chkIgnoreNones.Checked);
                 return fts;
             }
             else
