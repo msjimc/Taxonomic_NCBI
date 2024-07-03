@@ -68,7 +68,7 @@ namespace Taxonomic_NCBI
  
                 items = items[localFF].Split(second);
 
-               if (ignoreNones == true) { items = RemoveNones(items); }
+                if (ignoreNones == true) { items = RemoveNones(items); }
 
                 if (secondFromEnd)
                 {
