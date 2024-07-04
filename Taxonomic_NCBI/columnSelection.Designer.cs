@@ -122,8 +122,6 @@
             // 
             // chkCombinefields
             // 
-            this.chkCombinefields.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkCombinefields.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkCombinefields.Location = new System.Drawing.Point(9, 232);
             this.chkCombinefields.Name = "chkCombinefields";
@@ -208,7 +206,6 @@
             // 
             // chkSecondFromEnd
             // 
-            this.chkSecondFromEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkSecondFromEnd.AutoSize = true;
             this.chkSecondFromEnd.Location = new System.Drawing.Point(155, 209);
             this.chkSecondFromEnd.Name = "chkSecondFromEnd";
@@ -220,7 +217,6 @@
             // 
             // chkFirstFromEnd
             // 
-            this.chkFirstFromEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkFirstFromEnd.AutoSize = true;
             this.chkFirstFromEnd.Location = new System.Drawing.Point(155, 162);
             this.chkFirstFromEnd.Name = "chkFirstFromEnd";
