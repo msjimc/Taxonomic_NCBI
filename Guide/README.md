@@ -52,7 +52,7 @@ Loading the data from the node and names files is slow as the internal structure
 
 Once the taxonomic data has been imported it is possible to enter a list of names or NCBI taxonomic id in the left hand text area of the ```Manual search``` panel and determine each species's taxonomic lineage by pressing the ```Name``` button for text names (Figure 3a) or the ```Taxo ID``` for NCBI taxonomic ID's (Figure 3b). 
 
-***Note***:The texts must be all text names or all NCBI terms.
+***Note***:The texts must be all text names or all NCBI ID numbers.
 
 ![Figure 3a](images/figure3a.jpg)
 
@@ -64,7 +64,8 @@ Figure 3b: Manually searching for taxonomic data based on a NCBI taxonomic ID by
 
 <hr />
 
-The taxonomic data is written to the right hand text area, which does not word wrap the text so that the lines in the left hand area correspond to those in the right hand area. The whole line can be read using the horizontal scroll bar below the text area.
+The taxonomic data is written to the right hand text area, which does not word wrap the text so that the lines in the left hand area correspond to those in the right hand area. However, when searching using names, if empty lines are pressent you will be give the option to ignore them, if you do ignore them the input values and results will no longer align. The whole line can be read using the horizontal scroll bar below the text area.
+These functions may be of particular use if you want to annotated species in an Excel file, in which case, copy the values in the column of interest in the Excel file and paste them into Taxonomic_NCBI and search for the terms. If given the option do not ignore empty lines. When the search is complete, copy the results from Taxonomic_NCBI to the Excel spreadsheet.
 
 ### Annotating a blast hit files with NCBI taxonomic data
 
