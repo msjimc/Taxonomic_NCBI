@@ -60,7 +60,7 @@ Figure 3a: Manually searching for taxonomic data based on a species name by pres
 
 ![Figure 3b](images/figure3b.jpg)
 
-Figure 3b: Manually searching for taxonomic data based on a NCBI taxonomic ID by pressing the ```Taxo ID``` button(9606 = human)
+Figure 3b: Manually searching for taxonomic data based on a NCBI taxonomic ID by pressing the ```Taxo ID``` button (9606 = human)
 
 <hr />
 
