@@ -65,7 +65,7 @@ namespace Taxonomic_NCBI
                             if (rdoColumn.Checked == true)
                             { matrix.Add(rowCount.ToString() + ":" + (index - 1).ToString(), items[index]); }
                             else
-                            { matrix.Add((index - 1).ToString() + ":" + rowCount.ToString(), items[index]); }
+                            { matrix.Add((index).ToString() + ":" + rowCount.ToString(), items[index]); }
                         }
                     }
                     rowCount++;
