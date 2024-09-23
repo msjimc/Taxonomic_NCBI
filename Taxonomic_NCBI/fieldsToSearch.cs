@@ -86,13 +86,17 @@ namespace Taxonomic_NCBI
                             { answer.Add(items[index].Replace("\"","")); }
                         }
                     }
-                    else
+                    else if (items.Length > 1)
                     {
                         for (int index = localSS; index > localSF; index--)
                         {
                             if (index > -1 && index < items.Length)
                             { answer.Add(items[index - 1].Replace("\"", "") + " " + items[index].Replace("\"", "")); }
                         }
+                    }
+                    else
+                    {
+                        answer.Add(items[0].Replace("\"", ""));
                     }
                 }                
             }
@@ -130,7 +134,7 @@ namespace Taxonomic_NCBI
             List<string> answer = new List<string>();
             for (int index = 0; index < itemsIn.Length; index++)
             {
-                if (itemsIn[index].ToLower().Equals("none") == false)
+                if (itemsIn[index].ToLower().Equals("none") == false && itemsIn[index].ToLower().Equals("NA") == false)
                 {
                     answer.Add(itemsIn[index]);
                 }
