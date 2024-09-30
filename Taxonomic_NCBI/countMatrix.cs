@@ -32,6 +32,9 @@ namespace Taxonomic_NCBI
             string fileName = FileString.OpenAs("Select the read counts matrix file", "*.txt|*.txt");
             if (System.IO.File.Exists(fileName) == false) { return; }
 
+            if (testTitleCount(fileName) == false) { return; }
+
+
             List<string> columnNames = new List<string>();
             List<string> rowNames = new List<string>();
             matrix = new Dictionary<string, string>();
@@ -89,6 +92,38 @@ namespace Taxonomic_NCBI
             catch (Exception ex) { MessageBox.Show("Couldn't process the file:" + ex.Message, "Error"); }
             finally
             { if (sf != null) { sf.Close(); } }
+        }
+
+        private bool testTitleCount(string  FileName)
+        {
+            bool answer = true;
+            System.IO.StreamReader sf = null;
+                try
+                {
+                    sf = new System.IO.StreamReader(FileName);
+                    string[] line1 = sf.ReadLine().TrimEnd().Split(split);
+                    string[] line2 = sf.ReadLine().TrimEnd().Split(split); ;
+                    string[] line3 = sf.ReadLine().TrimEnd().Split(split); ;
+                    string[] line4 = sf.ReadLine().TrimEnd().Split(split); ;
+
+                    int[] counts = { line1.Length, line2.Length, line3.Length, line4.Length };
+                    Array.Sort(counts);
+
+                    if (counts[0] != counts[3])
+                    {
+                        MessageBox.Show("The number of tiles is different from the number of colunms. If the data was created in R you may have to add an empty column at the start of the title line in the file.", "Error");
+                        answer = false;
+                    }
+
+                }
+                catch
+                {
+                    MessageBox.Show("Could not process file", "Error");
+                    answer = false;
+                }
+                finally { if (sf != null) { sf.Close(); } }
+
+            return answer;
         }
 
         private void setUpcomboList()
@@ -289,16 +324,19 @@ namespace Taxonomic_NCBI
                     else
                     { speciesIndex = 1 + speciesNamesLowerCase.IndexOf(items[cboFields.SelectedIndex - 1].Trim().ToLower()); }
 
-
-                    fw.Write(items[cboFields.SelectedIndex - 1].Trim() + "_" + speciesName[speciesIndex - 1] + delimiter);
-                    for (int sample = 0; sample < sampleNames.Count; sample++)
+                    if (speciesIndex > 0)
                     {
-                        if (matrix.ContainsKey(speciesIndex.ToString() + ":" + sample.ToString()) == true)
-                        { fw.Write(matrix[speciesIndex.ToString() + ":" + sample.ToString()] + delimiter); }
-                        else
-                        { fw.Write("NA" + delimiter); }
+                        fw.Write(items[cboFields.SelectedIndex - 1].Trim() + delimiter);
+                        for (int sample = 0; sample < sampleNames.Count; sample++)
+                        {
+                            if (matrix.ContainsKey(speciesIndex.ToString() + ":" + sample.ToString()) == true)
+                            { fw.Write(matrix[speciesIndex.ToString() + ":" + sample.ToString()] + delimiter); }
+                            else
+                            { fw.Write("NA" + delimiter); }
+                        }
+                        fw.Write(line + "\n");
                     }
-                    fw.Write(line + "\n");
+                    else { fw.Write(items[cboFields.SelectedIndex - 1].Trim() + delimiter + "Not found\n"); }
                 }
 
                 MessageBox.Show("Task completed", "Success");

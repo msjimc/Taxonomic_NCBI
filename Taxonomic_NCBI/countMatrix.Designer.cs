@@ -136,7 +136,7 @@
             this.rdoRow.TabIndex = 6;
             this.rdoRow.TabStop = true;
             this.rdoRow.Text = "The sample\'s data is written on one line and the counts for each sequence are wri" +
-    "ttne in columns";
+    "tten in columns";
             this.rdoRow.UseVisualStyleBackColor = true;
             this.rdoRow.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
