@@ -34,7 +34,6 @@ namespace Taxonomic_NCBI
 
             if (testTitleCount(fileName) == false) { return; }
 
-
             List<string> columnNames = new List<string>();
             List<string> rowNames = new List<string>();
             matrix = new Dictionary<string, string>();
