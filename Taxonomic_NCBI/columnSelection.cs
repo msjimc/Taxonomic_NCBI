@@ -81,6 +81,8 @@ namespace Taxonomic_NCBI
         private void txtSecondSplit_TextChanged(object sender, EventArgs e)
         {
             string value = txtSecondSplit.Text;
+            if (value == " ")
+            { value = "\\s"; }
             if (value.Length > 0)
             {
                 secondSet = true;
