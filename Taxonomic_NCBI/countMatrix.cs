@@ -160,6 +160,8 @@ namespace Taxonomic_NCBI
 
         private void txtSplit_TextChanged(object sender, EventArgs e)
         {
+            if (txtSplit.Text == " ")
+            { txtSplit.Text = "\\s"; }
             if (string.IsNullOrEmpty(txtSplit.Text.Trim()) == true)
             { splitSet = false; }
             else

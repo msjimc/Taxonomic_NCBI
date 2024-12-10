@@ -60,6 +60,8 @@ namespace Taxonomic_NCBI
         private void txtFirstSplit_TextChanged(object sender, EventArgs e)
         {
             string value = txtFirstSplit.Text;
+            if (value == " ")
+            { value = "\\s"; }
             if (value.Length > 0)
             {
                 firstSet = true;
