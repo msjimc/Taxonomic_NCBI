@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>First select charatacter to split data line with by typing the cahearcter in the first text box, then is needed enter a secong character the 2nd text box if the selected field requires to be split as well. Finally select the index(es) odf the field the names should be in. </value>
+    <value>To extract the species name from a data line composed of a series of field entries, first enter the character that delimits the fields (e.g., a tab character) in the upper text area. If the species name field needs to be split into a series of words, enter the character that separates the words (e.g., a space – " ") in the second text area. Finally, enter the indexes needed to select the name column and the words in the field. For a tab character enter \t</value>
   </data>
 </root>
