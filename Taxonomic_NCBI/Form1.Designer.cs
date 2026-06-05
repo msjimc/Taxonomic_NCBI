@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnGetNodes = new System.Windows.Forms.Button();
             this.btnGetNames = new System.Windows.Forms.Button();
             this.btnTaxoIDSearch = new System.Windows.Forms.Button();
@@ -179,8 +180,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(636, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Enter speices name or NCBI taxonomic ID in first text box and then press the rele" +
-    "vant button on the right to search for the speices tree";
+            this.label2.Text = "Enter the species name or NCBI taxonomic ID in the first text box, then press the" +
+    " relevant button on the right to search for the species tree.";
             // 
             // groupBox2
             // 
@@ -308,6 +309,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(855, 656);
             this.Name = "Form1";
             this.Text = "NCBI Taxonomic data";

@@ -52,8 +52,13 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>taxonomy2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +85,12 @@
     </Compile>
     <Compile Include="fieldsToSearch.cs" />
     <Compile Include="FileString.cs" />
+    <Compile Include="FilterData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterData.Designer.cs">
+      <DependentUpon>FilterData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="countMatrix.resx">
       <DependentUpon>countMatrix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterData.resx">
+      <DependentUpon>FilterData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -123,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="taxonomy2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

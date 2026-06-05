@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(488, 544);
+            this.groupBox1.Size = new System.Drawing.Size(567, 544);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Name field select";
@@ -100,7 +100,7 @@
             // chkIgnoreNones
             // 
             this.chkIgnoreNones.AutoSize = true;
-            this.chkIgnoreNones.Location = new System.Drawing.Point(6, 209);
+            this.chkIgnoreNones.Location = new System.Drawing.Point(97, 209);
             this.chkIgnoreNones.Name = "chkIgnoreNones";
             this.chkIgnoreNones.Size = new System.Drawing.Size(122, 17);
             this.chkIgnoreNones.TabIndex = 6;
@@ -115,8 +115,8 @@
             this.chkReverseOrder.Name = "chkReverseOrder";
             this.chkReverseOrder.Size = new System.Drawing.Size(473, 17);
             this.chkReverseOrder.TabIndex = 11;
-            this.chkReverseOrder.Text = "Reverse the order of the terms: terms at the start of the list are processed firs" +
-    "t";
+            this.chkReverseOrder.Text = "Reverse the order of the terms in the list: items at the start of the list are pr" +
+    "ocessed first.";
             this.chkReverseOrder.UseVisualStyleBackColor = true;
             this.chkReverseOrder.CheckedChanged += new System.EventHandler(this.chkReverseOrder_CheckedChanged);
             // 
@@ -127,8 +127,8 @@
             this.chkCombinefields.Name = "chkCombinefields";
             this.chkCombinefields.Size = new System.Drawing.Size(473, 35);
             this.chkCombinefields.TabIndex = 10;
-            this.chkCombinefields.Text = "If a field is split on a space for example, it may split a name in two. Check thi" +
-    "s option if you wish to combine two fields per search";
+            this.chkCombinefields.Text = "If a field is split on a space, it may divide a name into two parts. Check this o" +
+    "ption to combine two fields during the search.";
             this.chkCombinefields.UseVisualStyleBackColor = true;
             this.chkCombinefields.CheckedChanged += new System.EventHandler(this.chkCombinefields_CheckedChanged);
             // 
@@ -157,13 +157,13 @@
             this.txtLine.Location = new System.Drawing.Point(9, 359);
             this.txtLine.Multiline = true;
             this.txtLine.Name = "txtLine";
-            this.txtLine.Size = new System.Drawing.Size(473, 65);
+            this.txtLine.Size = new System.Drawing.Size(552, 65);
             this.txtLine.TabIndex = 14;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(407, 330);
+            this.btnNext.Location = new System.Drawing.Point(486, 330);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 13;
@@ -174,7 +174,7 @@
             // btnPervious
             // 
             this.btnPervious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPervious.Location = new System.Drawing.Point(326, 330);
+            this.btnPervious.Location = new System.Drawing.Point(405, 330);
             this.btnPervious.Name = "btnPervious";
             this.btnPervious.Size = new System.Drawing.Size(75, 23);
             this.btnPervious.TabIndex = 12;
@@ -188,9 +188,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Location = new System.Drawing.Point(6, 301);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(476, 26);
+            this.label6.Size = new System.Drawing.Size(555, 26);
             this.label6.TabIndex = 14;
-            this.label6.Text = "The selected column should appear below. Press the Next and Pervious buttons to c" +
+            this.label6.Text = "The selected data terms will appear below. Use the Next and Previous buttons to c" +
     "ycle through the first twenty lines.";
             // 
             // txtSelected
@@ -201,13 +201,13 @@
             this.txtSelected.Location = new System.Drawing.Point(9, 443);
             this.txtSelected.Multiline = true;
             this.txtSelected.Name = "txtSelected";
-            this.txtSelected.Size = new System.Drawing.Size(473, 95);
+            this.txtSelected.Size = new System.Drawing.Size(552, 95);
             this.txtSelected.TabIndex = 15;
             // 
             // chkSecondFromEnd
             // 
             this.chkSecondFromEnd.AutoSize = true;
-            this.chkSecondFromEnd.Location = new System.Drawing.Point(155, 209);
+            this.chkSecondFromEnd.Location = new System.Drawing.Point(234, 209);
             this.chkSecondFromEnd.Name = "chkSecondFromEnd";
             this.chkSecondFromEnd.Size = new System.Drawing.Size(165, 17);
             this.chkSecondFromEnd.TabIndex = 7;
@@ -218,7 +218,7 @@
             // chkFirstFromEnd
             // 
             this.chkFirstFromEnd.AutoSize = true;
-            this.chkFirstFromEnd.Location = new System.Drawing.Point(155, 162);
+            this.chkFirstFromEnd.Location = new System.Drawing.Point(234, 162);
             this.chkFirstFromEnd.Name = "chkFirstFromEnd";
             this.chkFirstFromEnd.Size = new System.Drawing.Size(165, 17);
             this.chkFirstFromEnd.TabIndex = 3;
@@ -229,7 +229,7 @@
             // nudSecondSecondColumn
             // 
             this.nudSecondSecondColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudSecondSecondColumn.Location = new System.Drawing.Point(407, 208);
+            this.nudSecondSecondColumn.Location = new System.Drawing.Point(486, 208);
             this.nudSecondSecondColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -253,7 +253,7 @@
             // nudSecondFirstColumn
             // 
             this.nudSecondFirstColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudSecondFirstColumn.Location = new System.Drawing.Point(326, 208);
+            this.nudSecondFirstColumn.Location = new System.Drawing.Point(405, 208);
             this.nudSecondFirstColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -277,16 +277,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 182);
+            this.label5.Location = new System.Drawing.Point(10, 182);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(213, 13);
+            this.label5.Size = new System.Drawing.Size(311, 13);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Select the range of the columns to be used.";
+            this.label5.Text = "Select the range of the values to be used in the selected column";
             // 
             // nudFirstSecondColumn
             // 
             this.nudFirstSecondColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudFirstSecondColumn.Location = new System.Drawing.Point(407, 161);
+            this.nudFirstSecondColumn.Location = new System.Drawing.Point(486, 161);
             this.nudFirstSecondColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -310,7 +310,7 @@
             // nudFirstFirstColumn
             // 
             this.nudFirstFirstColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudFirstFirstColumn.Location = new System.Drawing.Point(326, 161);
+            this.nudFirstFirstColumn.Location = new System.Drawing.Point(405, 161);
             this.nudFirstFirstColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -336,15 +336,15 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(482, 13);
+            this.label4.Size = new System.Drawing.Size(457, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Select the range of the columns to be used, if selectect column is split only one" +
-    " field can be selected)";
+            this.label4.Text = "Select the range of columns to use. If the selected column is split, only one fie" +
+    "ld can be chosen.";
             // 
             // txtSecondSplit
             // 
             this.txtSecondSplit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSecondSplit.Location = new System.Drawing.Point(407, 117);
+            this.txtSecondSplit.Location = new System.Drawing.Point(486, 117);
             this.txtSecondSplit.Name = "txtSecondSplit";
             this.txtSecondSplit.Size = new System.Drawing.Size(75, 20);
             this.txtSecondSplit.TabIndex = 2;
@@ -355,14 +355,15 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(338, 13);
+            this.label3.Size = new System.Drawing.Size(479, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Split the selected column using this charater (if empty whole filed used)";
+            this.label3.Text = "Split the selected column using this character (leave empty to use the whole fiel" +
+    "d). For a tab enter \'\\t\'";
             // 
             // txtFirstSplit
             // 
             this.txtFirstSplit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstSplit.Location = new System.Drawing.Point(407, 91);
+            this.txtFirstSplit.Location = new System.Drawing.Point(486, 91);
             this.txtFirstSplit.Name = "txtFirstSplit";
             this.txtFirstSplit.Size = new System.Drawing.Size(75, 20);
             this.txtFirstSplit.TabIndex = 2;
@@ -373,9 +374,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(287, 13);
+            this.label2.Size = new System.Drawing.Size(441, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Split data line using this character (If empty whole line used)";
+            this.label2.Text = "Split the data line using this character (leave empty to use the whole line). For" +
+    " a tab, enter \\t.";
             // 
             // label1
             // 
@@ -383,7 +385,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(476, 63);
+            this.label1.Size = new System.Drawing.Size(555, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -391,7 +393,7 @@
             // 
             this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(338, 562);
+            this.btnAccept.Location = new System.Drawing.Point(417, 562);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 16;
@@ -402,7 +404,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(419, 563);
+            this.btnCancel.Location = new System.Drawing.Point(498, 563);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 17;
@@ -413,11 +415,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 598);
+            this.ClientSize = new System.Drawing.Size(591, 598);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(528, 637);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(570, 637);
             this.Name = "columnSelection";
             this.Text = "Name location";
             this.Load += new System.EventHandler(this.columnSelection_Load);

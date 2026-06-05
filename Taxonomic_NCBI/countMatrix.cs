@@ -29,12 +29,14 @@ namespace Taxonomic_NCBI
 
         private void btnFile_Click(object sender, EventArgs e)
         {
-            string fileName = FileString.OpenAs("Select the read counts matrix file", "*.txt|*.txt");
+            string fileName = FileString.OpenAs("Select the read counts matrix file (tab delimited text file)", "*.txt:*.xls|*.txt:*.xls");
             if (System.IO.File.Exists(fileName) == false) { return; }
 
-            if (testTitleCount(fileName) == false) { return; }
-
             List<string> columnNames = new List<string>();
+            int answer = testTitleCount(fileName);
+            if (answer == 2) { return; }
+            
+
             List<string> rowNames = new List<string>();
             matrix = new Dictionary<string, string>();
 
@@ -47,6 +49,8 @@ namespace Taxonomic_NCBI
                 sf = new System.IO.StreamReader(fileName);
 
                 line = sf.ReadLine();
+                if (answer == 2)
+                { line = split + line; }
                 int indexSplit = line.IndexOf(split);
                 if (indexSplit != -1)
                 { line = line.Substring(indexSplit + 1); }
@@ -93,34 +97,40 @@ namespace Taxonomic_NCBI
             { if (sf != null) { sf.Close(); } }
         }
 
-        private bool testTitleCount(string  FileName)
+        private int testTitleCount(string FileName)
         {
-            bool answer = true;
+            int answer = 0;
             System.IO.StreamReader sf = null;
-                try
+            try
+            {
+                sf = new System.IO.StreamReader(FileName);
+                string[] line1 = sf.ReadLine().TrimEnd().Split(split);
+                string[] line2 = sf.ReadLine().TrimEnd().Split(split); ;
+                string[] line3 = sf.ReadLine().TrimEnd().Split(split); ;
+                string[] line4 = sf.ReadLine().TrimEnd().Split(split); ;
+
+                int[] counts = { line1.Length, line2.Length, line3.Length, line4.Length };
+                Array.Sort(counts);
+
+                if (counts[0] + 1 == counts[3])
                 {
-                    sf = new System.IO.StreamReader(FileName);
-                    string[] line1 = sf.ReadLine().TrimEnd().Split(split);
-                    string[] line2 = sf.ReadLine().TrimEnd().Split(split); ;
-                    string[] line3 = sf.ReadLine().TrimEnd().Split(split); ;
-                    string[] line4 = sf.ReadLine().TrimEnd().Split(split); ;
-
-                    int[] counts = { line1.Length, line2.Length, line3.Length, line4.Length };
-                    Array.Sort(counts);
-
-                    if (counts[0] != counts[3])
-                    {
-                        MessageBox.Show("The number of tiles is different from the number of colunms. If the data was created in R you may have to add an empty column at the start of the title line in the file.", "Error");
-                        answer = false;
-                    }
-
+                   if (MessageBox.Show("There is one less header title than data coumns. \nSome files omit a name for the first column if it is the sequence name. \nDo you want to add one for this analysis.", "Missing title", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    { answer = 1; }
+                   else { answer = 2; }
                 }
-                catch
+                else if (counts[0] != counts[3])
                 {
-                    MessageBox.Show("Could not process file", "Error");
-                    answer = false;
+                    MessageBox.Show("The number of titles is different from the number of colunms. \nIf the data was created in R you may have to add an empty column at the start of the title line in the file.", "Error");
+                    answer = 2;
                 }
-                finally { if (sf != null) { sf.Close(); } }
+
+            }
+            catch
+            {
+                MessageBox.Show("Could not process file", "Error");
+                answer = 2;
+            }
+            finally { if (sf != null) { sf.Close(); } }
 
             return answer;
         }
