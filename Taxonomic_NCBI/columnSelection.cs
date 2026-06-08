@@ -405,5 +405,15 @@ namespace Taxonomic_NCBI
             else
             { return null; }
         }
+
+        private void txtSelected_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

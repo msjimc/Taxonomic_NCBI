@@ -50,10 +50,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGetNodes
@@ -97,7 +101,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(161, 372);
+            this.textBox1.Size = new System.Drawing.Size(161, 322);
             this.textBox1.TabIndex = 3;
             this.textBox1.WordWrap = false;
             // 
@@ -110,7 +114,7 @@
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
             this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtData.Size = new System.Drawing.Size(626, 372);
+            this.txtData.Size = new System.Drawing.Size(626, 322);
             this.txtData.TabIndex = 4;
             this.txtData.WordWrap = false;
             // 
@@ -167,9 +171,9 @@
             this.groupBox1.Controls.Add(this.txtData);
             this.groupBox1.Controls.Add(this.btnTaxoIDSearch);
             this.groupBox1.Controls.Add(this.btnNameSearch);
-            this.groupBox1.Location = new System.Drawing.Point(17, 181);
+            this.groupBox1.Location = new System.Drawing.Point(17, 231);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(810, 424);
+            this.groupBox1.Size = new System.Drawing.Size(810, 374);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Manual search";
@@ -300,11 +304,42 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "To combine annotations with counts matrix press the Combine button.";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnFilter);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Location = new System.Drawing.Point(17, 181);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(804, 44);
+            this.groupBox5.TabIndex = 15;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Filter and aggreagate species data";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(203, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "annotated read count file press the \'Filter\' ";
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(720, 14);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnFilter.TabIndex = 1;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 617);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -321,6 +356,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -348,6 +385,9 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chkFolder;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -315,16 +315,24 @@ namespace Taxonomic_NCBI
                 string description = "";
 
 
+                fs = new System.IO.StreamReader(filesToProcesss[0]);
+                line = fs.ReadLine();
+                string[] headers = line.Split(fts.FirstDelimitor);
+                fs?.Close();
                 fw = new System.IO.StreamWriter(filesToProcesss[0].Substring(0, filesToProcesss[0].LastIndexOf(".")) + "_annotated.txt");
+                fw.WriteLine((string.Join("\t", headers) + "\t" + string.Join("\t", order)).Replace("(","").Replace(")",""));
+
+                
                 foreach (string fileToProcesss in filesToProcesss)
                 {
                     fs = new System.IO.StreamReader(fileToProcesss);
                     string taxonomy = string.Join("\t", order);
                     taxonomy = taxonomy.Replace("(", "").Replace(")", "");
                     char delimitor = fts.FirstDelimitor;
-
+                                       
                     while (fs.Peek() > 0)
                     {
+                        
                         line = fs.ReadLine().Trim();
                         List<string> words = fts.words(line);
 
@@ -589,6 +597,12 @@ namespace Taxonomic_NCBI
                 if (sf != null) { sf.Close(); }
                 Text = title;
             }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            FilterData fd = new FilterData();
+            fd.ShowDialog();
         }
     }
 }

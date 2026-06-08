@@ -29,7 +29,7 @@ namespace Taxonomic_NCBI
 
         private void btnFile_Click(object sender, EventArgs e)
         {
-            string fileName = FileString.OpenAs("Select the read counts matrix file (tab delimited text file)", "*.txt:*.xls|*.txt:*.xls");
+            string fileName = FileString.OpenAs("Select the read counts matrix file (tab delimited text file)", "*.txt;*.xls|*.txt;*.xls");
             if (System.IO.File.Exists(fileName) == false) { return; }
 
             List<string> columnNames = new List<string>();
@@ -114,7 +114,7 @@ namespace Taxonomic_NCBI
 
                 if (counts[0] + 1 == counts[3])
                 {
-                   if (MessageBox.Show("There is one less header title than data coumns. \nSome files omit a name for the first column if it is the sequence name. \nDo you want to add one for this analysis.", "Missing title", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                   if (MessageBox.Show("There is one less header title than data coumns. \nSome files omit a column name for the first column if it is the sequence name. \nDo you want to add a sequence column header for this analysis.", "Missing title", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     { answer = 1; }
                    else { answer = 2; }
                 }
@@ -322,9 +322,11 @@ namespace Taxonomic_NCBI
                 string[] items = null;
                 int speciesIndex = -1;
 
+                line = sfBlast.ReadLine();
                 foreach (string name in sampleNames)
                 { fw.Write("\t" + name); }
-                fw.Write("\n");
+                fw.Write( "\t" + line +  "\n");
+                
 
                 while (sfBlast.Peek() > 0)
                 {
