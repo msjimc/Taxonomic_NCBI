@@ -29,7 +29,12 @@ Figure 1: The qseqid value of 4 links to the 4th sequence data column in the mat
 
 ## The user interface
 
-Figure 2 shows the ```Taxonomy_NCBI``` user interface which consists of 4 regions: [```Import taxonomic data```](#importing-and-saving-the-ncbi-taxonomic-data), [```Automated analysis```](#annotating-a-blast-hit-file-with-ncbi-taxonomic-data), [```Combine annotation file read count matrix```](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file) and [```Manual search```](#manually-searching-the-taxonomy-data).
+Figure 2 shows the ```Taxonomy_NCBI``` user interface which consists of 5 regions: 
+- [```Import taxonomic data```](#importing-and-saving-the-ncbi-taxonomic-data), 
+- [```Automated analysis```](#annotating-a-blast-hit-file-with-ncbi-taxonomic-data), 
+- [```Combine annotation file read count matrix```](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file), 
+- [```Filer and aggregate species data```](#filter-and-aggregate-species-data) and 
+- [```Manual search```](#manually-searching-the-taxonomy-data).
 
 ![Figure 2](images/figure2.jpg)
 
@@ -188,3 +193,26 @@ If the selected field in the blast hit annotated file contains the name of the s
 Pressing the ```Combine``` button will create a third file whose name is made from combining the names of the input files. This will contain the read matrix organised such that the sample data is in columns and the sequence data is on each row. The annotated blast hit data is appended to the end of each row with the same character used to split the read count matrix data in to individual fields (blue box in Figure 9).
 
 The first column will consist of the sequence's name in the species sequence ID appended to the end of the blast hit file's species sequence ID, allowing the accuracy of the combining to be determined. Figure 12 shows a combined data file opened in Excel in which only the first 4 the sample data columns are shown along with the first 6 taxonomy divisions. 
+
+## Filter and aggregate species data
+
+Pressing the ```Filter``` button in the ```Filter and aggregate species data``` region of the ___Taxonomic_NCBI___ opens the ___Filter and aggregate species data___ window that allows the data to be filtered and aggregated before been exported to a tab-delimited text file.
+
+![Figure 12](images/figure12.jpg)
+
+Figure12: The  ___Filter and aggregate species data___ window that enables the data to be filtered and or aggregated.
+
+---
+
+### Importing data
+
+The  ___Filter and aggregate species data___ window was created to process files exported by ___Taxonomic_NCBI___; however, it may be possible to process data from other sources as long as the sequence data stored across a line in the file, The first line contains the column names and not data and it contains the fields you want to process.
+
+Pressing the ```Select``` button (blue line in Figure 13) of the ```File selection``` panel prompts you to select the data file. Once imported, select the column titles that delineate the columns containing each sample's read count data using the two dropdown list (green line in Figure 13). Once data has been imported and the sample columns set the all the regions on the ___Filter and aggregate species data___window become active.
+
+![Figure 13](images/figure13.jpg)
+
+Figure13: Pressing the ___Select___ button (blue line) allows you to import the data file, while selecting the first and last sample column (green line) causes all regions of the window to be come active.
+
+---
+

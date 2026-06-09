@@ -51,8 +51,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnFilter = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,7 +65,7 @@
             this.btnGetNodes.Location = new System.Drawing.Point(192, 23);
             this.btnGetNodes.Name = "btnGetNodes";
             this.btnGetNodes.Size = new System.Drawing.Size(75, 23);
-            this.btnGetNodes.TabIndex = 0;
+            this.btnGetNodes.TabIndex = 1;
             this.btnGetNodes.Text = "Nodes";
             this.btnGetNodes.UseVisualStyleBackColor = true;
             this.btnGetNodes.Click += new System.EventHandler(this.button1_Click);
@@ -76,7 +76,7 @@
             this.btnGetNames.Location = new System.Drawing.Point(273, 23);
             this.btnGetNames.Name = "btnGetNames";
             this.btnGetNames.Size = new System.Drawing.Size(75, 23);
-            this.btnGetNames.TabIndex = 1;
+            this.btnGetNames.TabIndex = 2;
             this.btnGetNames.Text = "Names";
             this.btnGetNames.UseVisualStyleBackColor = true;
             this.btnGetNames.Click += new System.EventHandler(this.button2_Click);
@@ -88,7 +88,7 @@
             this.btnTaxoIDSearch.Location = new System.Drawing.Point(648, 17);
             this.btnTaxoIDSearch.Name = "btnTaxoIDSearch";
             this.btnTaxoIDSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnTaxoIDSearch.TabIndex = 2;
+            this.btnTaxoIDSearch.TabIndex = 1;
             this.btnTaxoIDSearch.Text = "Taxo ID";
             this.btnTaxoIDSearch.UseVisualStyleBackColor = true;
             this.btnTaxoIDSearch.Click += new System.EventHandler(this.button3_Click);
@@ -125,7 +125,7 @@
             this.btnNameSearch.Location = new System.Drawing.Point(729, 17);
             this.btnNameSearch.Name = "btnNameSearch";
             this.btnNameSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnNameSearch.TabIndex = 5;
+            this.btnNameSearch.TabIndex = 2;
             this.btnNameSearch.Text = "Name";
             this.btnNameSearch.UseVisualStyleBackColor = true;
             this.btnNameSearch.Click += new System.EventHandler(this.btnName_Click);
@@ -137,7 +137,7 @@
             this.btnAnnotate.Location = new System.Drawing.Point(720, 16);
             this.btnAnnotate.Name = "btnAnnotate";
             this.btnAnnotate.Size = new System.Drawing.Size(75, 23);
-            this.btnAnnotate.TabIndex = 6;
+            this.btnAnnotate.TabIndex = 2;
             this.btnAnnotate.Text = "Annotate";
             this.btnAnnotate.UseVisualStyleBackColor = true;
             this.btnAnnotate.Click += new System.EventHandler(this.btnNamesFile_Click);
@@ -147,7 +147,7 @@
             this.label1.Location = new System.Drawing.Point(6, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 13);
-            this.label1.TabIndex = 9;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Import from NCBI taxonomy data files:";
             // 
             // btnCombine
@@ -156,7 +156,7 @@
             this.btnCombine.Location = new System.Drawing.Point(720, 14);
             this.btnCombine.Name = "btnCombine";
             this.btnCombine.Size = new System.Drawing.Size(75, 23);
-            this.btnCombine.TabIndex = 10;
+            this.btnCombine.TabIndex = 1;
             this.btnCombine.Text = "Combine";
             this.btnCombine.UseVisualStyleBackColor = true;
             this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
@@ -174,7 +174,7 @@
             this.groupBox1.Location = new System.Drawing.Point(17, 231);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(810, 374);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Manual search";
             // 
@@ -183,7 +183,7 @@
             this.label2.Location = new System.Drawing.Point(6, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(636, 13);
-            this.label2.TabIndex = 6;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Enter the species name or NCBI taxonomic ID in the first text box, then press the" +
     " relevant button on the right to search for the species tree.";
             // 
@@ -197,7 +197,7 @@
             this.groupBox2.Location = new System.Drawing.Point(17, 75);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(804, 50);
-            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Automated analysis";
             // 
@@ -209,7 +209,7 @@
             this.chkFolder.Location = new System.Drawing.Point(559, 20);
             this.chkFolder.Name = "chkFolder";
             this.chkFolder.Size = new System.Drawing.Size(155, 17);
-            this.chkFolder.TabIndex = 12;
+            this.chkFolder.TabIndex = 1;
             this.chkFolder.Text = "Process a folder of text files";
             this.chkFolder.UseVisualStyleBackColor = true;
             // 
@@ -218,7 +218,7 @@
             this.label3.Location = new System.Drawing.Point(3, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(412, 30);
-            this.label3.TabIndex = 11;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Press the Annotate button to identify the species name in the blast hit file.  To" +
     " combine and annotate a series of blast result files in the same folder tick the" +
     " box";
@@ -237,7 +237,7 @@
             this.groupBox3.Location = new System.Drawing.Point(17, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(804, 57);
-            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Import taxomoic data";
             // 
@@ -247,7 +247,7 @@
             this.button2.Location = new System.Drawing.Point(723, 23);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Re-Import";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
@@ -258,7 +258,7 @@
             this.label5.Location = new System.Drawing.Point(564, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(153, 13);
-            this.label5.TabIndex = 12;
+            this.label5.TabIndex = 5;
             this.label5.Text = "Import data from saved session";
             // 
             // btnSave
@@ -268,7 +268,7 @@
             this.btnSave.Location = new System.Drawing.Point(483, 23);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -279,7 +279,7 @@
             this.label4.Location = new System.Drawing.Point(421, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 10;
+            this.label4.TabIndex = 3;
             this.label4.Text = "Save data";
             // 
             // groupBox4
@@ -291,7 +291,7 @@
             this.groupBox4.Location = new System.Drawing.Point(17, 131);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(804, 44);
-            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Combine annotation file with read count matrix";
             // 
@@ -301,7 +301,7 @@
             this.label6.Location = new System.Drawing.Point(3, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(334, 13);
-            this.label6.TabIndex = 11;
+            this.label6.TabIndex = 0;
             this.label6.Text = "To combine annotations with counts matrix press the Combine button.";
             // 
             // groupBox5
@@ -311,18 +311,9 @@
             this.groupBox5.Location = new System.Drawing.Point(17, 181);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(804, 44);
-            this.groupBox5.TabIndex = 15;
+            this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Filter and aggreagate species data";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(203, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "annotated read count file press the \'Filter\' ";
+            this.groupBox5.Text = "Filter and aggregate species data";
             // 
             // btnFilter
             // 
@@ -333,6 +324,15 @@
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(203, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "annotated read count file press the \'Filter\' ";
             // 
             // Form1
             // 

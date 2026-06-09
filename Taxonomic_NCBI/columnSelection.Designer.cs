@@ -105,7 +105,7 @@
             this.chkIgnoreNones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkIgnoreNones.Name = "chkIgnoreNones";
             this.chkIgnoreNones.Size = new System.Drawing.Size(122, 17);
-            this.chkIgnoreNones.TabIndex = 6;
+            this.chkIgnoreNones.TabIndex = 10;
             this.chkIgnoreNones.Text = "Ignore \"None\" items";
             this.chkIgnoreNones.UseVisualStyleBackColor = true;
             this.chkIgnoreNones.CheckedChanged += new System.EventHandler(this.chkIgnoreNones_CheckedChanged);
@@ -116,7 +116,7 @@
             this.chkReverseOrder.Location = new System.Drawing.Point(9, 243);
             this.chkReverseOrder.Name = "chkReverseOrder";
             this.chkReverseOrder.Size = new System.Drawing.Size(600, 17);
-            this.chkReverseOrder.TabIndex = 11;
+            this.chkReverseOrder.TabIndex = 15;
             this.chkReverseOrder.Text = "Reverse the order of the terms in the list: items at the start of the list are pr" +
     "ocessed first.";
             this.chkReverseOrder.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             this.chkCombinefields.Location = new System.Drawing.Point(9, 212);
             this.chkCombinefields.Name = "chkCombinefields";
             this.chkCombinefields.Size = new System.Drawing.Size(600, 25);
-            this.chkCombinefields.TabIndex = 10;
+            this.chkCombinefields.TabIndex = 14;
             this.chkCombinefields.Text = "If a field is split on a space, it may divide a name into two parts. Check this o" +
     "ption to combine two fields during the search.";
             this.chkCombinefields.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             this.label8.Location = new System.Drawing.Point(6, 408);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 13);
-            this.label8.TabIndex = 19;
+            this.label8.TabIndex = 21;
             this.label8.Text = "Selected indexes";
             // 
             // label7
@@ -149,7 +149,7 @@
             this.label7.Location = new System.Drawing.Point(6, 309);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
-            this.label7.TabIndex = 18;
+            this.label7.TabIndex = 19;
             this.label7.Text = "Selected line";
             // 
             // txtLine
@@ -160,7 +160,7 @@
             this.txtLine.Multiline = true;
             this.txtLine.Name = "txtLine";
             this.txtLine.Size = new System.Drawing.Size(600, 80);
-            this.txtLine.TabIndex = 14;
+            this.txtLine.TabIndex = 20;
             // 
             // btnNext
             // 
@@ -169,7 +169,7 @@
             this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 13;
+            this.btnNext.TabIndex = 18;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -181,7 +181,7 @@
             this.btnPervious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPervious.Name = "btnPervious";
             this.btnPervious.Size = new System.Drawing.Size(75, 23);
-            this.btnPervious.TabIndex = 12;
+            this.btnPervious.TabIndex = 17;
             this.btnPervious.Text = "Previous";
             this.btnPervious.UseVisualStyleBackColor = true;
             this.btnPervious.Click += new System.EventHandler(this.btnPervious_Click);
@@ -193,7 +193,7 @@
             this.label6.Location = new System.Drawing.Point(6, 268);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(438, 30);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 16;
             this.label6.Text = "The selected data terms will appear below. Use the Next and Previous buttons to c" +
     "ycle through the first twenty lines.";
             // 
@@ -206,7 +206,7 @@
             this.txtSelected.Multiline = true;
             this.txtSelected.Name = "txtSelected";
             this.txtSelected.Size = new System.Drawing.Size(600, 115);
-            this.txtSelected.TabIndex = 15;
+            this.txtSelected.TabIndex = 22;
             this.txtSelected.TextChanged += new System.EventHandler(this.txtSelected_TextChanged);
             // 
             // chkSecondFromEnd
@@ -216,7 +216,7 @@
             this.chkSecondFromEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkSecondFromEnd.Name = "chkSecondFromEnd";
             this.chkSecondFromEnd.Size = new System.Drawing.Size(165, 17);
-            this.chkSecondFromEnd.TabIndex = 7;
+            this.chkSecondFromEnd.TabIndex = 11;
             this.chkSecondFromEnd.Text = "Count from the end of the line";
             this.chkSecondFromEnd.UseVisualStyleBackColor = true;
             this.chkSecondFromEnd.CheckedChanged += new System.EventHandler(this.chkSecondFromEnd_CheckedChanged);
@@ -228,7 +228,7 @@
             this.chkFirstFromEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkFirstFromEnd.Name = "chkFirstFromEnd";
             this.chkFirstFromEnd.Size = new System.Drawing.Size(165, 17);
-            this.chkFirstFromEnd.TabIndex = 3;
+            this.chkFirstFromEnd.TabIndex = 6;
             this.chkFirstFromEnd.Text = "Count from the end of the line";
             this.chkFirstFromEnd.UseVisualStyleBackColor = true;
             this.chkFirstFromEnd.CheckedChanged += new System.EventHandler(this.chkFirstFromEnd_CheckedChanged);
@@ -250,7 +250,7 @@
             0});
             this.nudSecondSecondColumn.Name = "nudSecondSecondColumn";
             this.nudSecondSecondColumn.Size = new System.Drawing.Size(75, 20);
-            this.nudSecondSecondColumn.TabIndex = 9;
+            this.nudSecondSecondColumn.TabIndex = 13;
             this.nudSecondSecondColumn.Value = new decimal(new int[] {
             1,
             0,
@@ -275,7 +275,7 @@
             0});
             this.nudSecondFirstColumn.Name = "nudSecondFirstColumn";
             this.nudSecondFirstColumn.Size = new System.Drawing.Size(75, 20);
-            this.nudSecondFirstColumn.TabIndex = 8;
+            this.nudSecondFirstColumn.TabIndex = 12;
             this.nudSecondFirstColumn.Value = new decimal(new int[] {
             1,
             0,
@@ -290,7 +290,7 @@
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(311, 13);
-            this.label5.TabIndex = 8;
+            this.label5.TabIndex = 9;
             this.label5.Text = "Select the range of the values to be used in the selected column";
             // 
             // nudFirstSecondColumn
@@ -310,7 +310,7 @@
             0});
             this.nudFirstSecondColumn.Name = "nudFirstSecondColumn";
             this.nudFirstSecondColumn.Size = new System.Drawing.Size(75, 20);
-            this.nudFirstSecondColumn.TabIndex = 5;
+            this.nudFirstSecondColumn.TabIndex = 8;
             this.nudFirstSecondColumn.Value = new decimal(new int[] {
             1,
             0,
@@ -335,7 +335,7 @@
             0});
             this.nudFirstFirstColumn.Name = "nudFirstFirstColumn";
             this.nudFirstFirstColumn.Size = new System.Drawing.Size(75, 20);
-            this.nudFirstFirstColumn.TabIndex = 4;
+            this.nudFirstFirstColumn.TabIndex = 7;
             this.nudFirstFirstColumn.Value = new decimal(new int[] {
             1,
             0,
@@ -360,7 +360,7 @@
             this.txtSecondSplit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSecondSplit.Name = "txtSecondSplit";
             this.txtSecondSplit.Size = new System.Drawing.Size(75, 20);
-            this.txtSecondSplit.TabIndex = 2;
+            this.txtSecondSplit.TabIndex = 4;
             this.txtSecondSplit.TextChanged += new System.EventHandler(this.txtSecondSplit_TextChanged);
             // 
             // label3
@@ -411,7 +411,7 @@
             this.btnAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 16;
+            this.btnAccept.TabIndex = 1;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
@@ -424,7 +424,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 

@@ -10,9 +10,20 @@
 
 <img align="right" src="Guide/images/introFigure.jpg">
 
-```Taxonomic NCBI``` is designed to annotate a Blast hit results file with each query sequence's description used to search a local copy of the NCBI taxonomy data. Once annotated the blast hit file can then be combined to a read count matrix file such that the resultant file contains both the sequences read counts in an array of samples and the likely taxonomic origin of the sequence. 
+```Taxonomic NCBI``` is designed to annotate a read count file with the sequence's species of origin using NCBI's GenBank and taxonomic data as follows:
 
-```Taxonomic NCBI``` is written to be flexible and so can process sequence descriptors from a range of sources such as the SILVA data set or standard GenBank sequence description. The only requirement for automated analysis is that the the descriptions have a roughly consist format.
+- A BLAST database is searched by BLASTN to identify hits for each sequence in the read count file. This database can be a NCBI genBank database or a custom database created using for example with SILVA or BOLD data 
+- The Hits sequence descriptor is used to identify the species of origin.
+- The NCBI Taxonomy data set is then searched using the species name to obtain the sequence's Taxonomic data.
+- The data is then linked to the BLAST results file.
+- The annotated BLAST results file is then combined with the read counts file to produce a reads count matrix annotated with taxonomic data.
+- The annotated reads count file can then be filtered and aggregated with respect to:
+    - The sequence's BLAST hit results: percent identity and or e score
+    - A sequence's total read count. 
+    - Whether a 2nd file contains taxonomic grouping linked to the sequence's annotation (a sequence can be flagged, retained or exclude).
+    - Read count data can be aggregated based on whether sequences share the same taxonomic grouping i.e. same species or family name. 
+
+```Taxonomic NCBI``` is written to be flexible and so can process sequence descriptors from a range of sources such as the SILVA data set or standard GenBank sequence description. The only requirement for automated analysis is that the the descriptions have a consist format.
 
 As well as allowing the automated annotation of a file, ```Taxonomic NCBI``` will also allow you to perform manual searchers using either names (common English or Latin) or the species' NCBI taxonomy ID number. 
 

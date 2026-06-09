@@ -117,8 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label2.Text" xml:space="preserve">
-    <value>To aggregate read counts at a phylogenetic level, press the 'Next' button until the dropdown list shows an example of the level you want. Then select the term. For example, to aggregate read counts at the 'Class' level, you might select "Chondrichthyes".</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Select the file containing the species names  to be used by pressing the 'List' button.
+Then choose the column to filter on and set the action using the options below.
+Finally, press Compare to flag any matching species.</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>To filter and combine species read count data, press Select to import the read count file, then choose the range of sample data columns before processing. Finally, press Save to write the results to a file.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

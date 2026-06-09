@@ -87,7 +87,7 @@
             this.cboSamples.Location = new System.Drawing.Point(136, 171);
             this.cboSamples.Name = "cboSamples";
             this.cboSamples.Size = new System.Drawing.Size(449, 21);
-            this.cboSamples.TabIndex = 11;
+            this.cboSamples.TabIndex = 9;
             // 
             // cboSpecies
             // 
@@ -96,7 +96,7 @@
             this.cboSpecies.Location = new System.Drawing.Point(136, 144);
             this.cboSpecies.Name = "cboSpecies";
             this.cboSpecies.Size = new System.Drawing.Size(449, 21);
-            this.cboSpecies.TabIndex = 10;
+            this.cboSpecies.TabIndex = 7;
             // 
             // label5
             // 
@@ -104,7 +104,7 @@
             this.label5.Location = new System.Drawing.Point(6, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 13);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 8;
             this.label5.Text = "First 4 sample names";
             // 
             // label4
@@ -113,7 +113,7 @@
             this.label4.Location = new System.Drawing.Point(6, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 13);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 6;
             this.label4.Text = "First 4 species sequences";
             // 
             // rdoColumn
@@ -122,7 +122,7 @@
             this.rdoColumn.Location = new System.Drawing.Point(9, 86);
             this.rdoColumn.Name = "rdoColumn";
             this.rdoColumn.Size = new System.Drawing.Size(530, 17);
-            this.rdoColumn.TabIndex = 7;
+            this.rdoColumn.TabIndex = 4;
             this.rdoColumn.TabStop = true;
             this.rdoColumn.Text = "A sample’s data is written down one column, and the counts for each sequence are " +
     "written across one row.";
@@ -135,7 +135,7 @@
             this.rdoRow.Location = new System.Drawing.Point(9, 63);
             this.rdoRow.Name = "rdoRow";
             this.rdoRow.Size = new System.Drawing.Size(503, 17);
-            this.rdoRow.TabIndex = 6;
+            this.rdoRow.TabIndex = 3;
             this.rdoRow.TabStop = true;
             this.rdoRow.Text = "The sample’s data is written on one line, and the counts for each sequence are li" +
     "sted down a column.";
@@ -148,7 +148,7 @@
             this.label3.Location = new System.Drawing.Point(6, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(328, 13);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Select the option that describes how the data is organised in the file.";
             // 
             // txtSplit
@@ -157,7 +157,7 @@
             this.txtSplit.Location = new System.Drawing.Point(510, 19);
             this.txtSplit.Name = "txtSplit";
             this.txtSplit.Size = new System.Drawing.Size(75, 20);
-            this.txtSplit.TabIndex = 4;
+            this.txtSplit.TabIndex = 1;
             this.txtSplit.TextChanged += new System.EventHandler(this.txtSplit_TextChanged);
             // 
             // label2
@@ -166,7 +166,7 @@
             this.label2.Location = new System.Drawing.Point(6, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(379, 13);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Enter the character used to split the data fields on each line (for a tab, enter " +
     "\\t).";
             // 
@@ -177,7 +177,7 @@
             this.btnFile.Location = new System.Drawing.Point(510, 115);
             this.btnFile.Name = "btnFile";
             this.btnFile.Size = new System.Drawing.Size(75, 23);
-            this.btnFile.TabIndex = 1;
+            this.btnFile.TabIndex = 5;
             this.btnFile.Text = "File";
             this.btnFile.UseVisualStyleBackColor = true;
             this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
@@ -222,7 +222,7 @@
             this.label9.Location = new System.Drawing.Point(6, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(365, 13);
-            this.label9.TabIndex = 10;
+            this.label9.TabIndex = 2;
             this.label9.Text = "Press the \'Previous\' and \'next\' button to cycle through the first lines in the fi" +
     "le";
             // 
@@ -241,7 +241,7 @@
             this.btnNext.Location = new System.Drawing.Point(510, 48);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 8;
+            this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -251,7 +251,7 @@
             this.btnPrevious.Location = new System.Drawing.Point(429, 48);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btnPrevious.TabIndex = 7;
+            this.btnPrevious.TabIndex = 3;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -261,7 +261,7 @@
             this.rdoIndexMatch.Location = new System.Drawing.Point(9, 119);
             this.rdoIndexMatch.Name = "rdoIndexMatch";
             this.rdoIndexMatch.Size = new System.Drawing.Size(423, 32);
-            this.rdoIndexMatch.TabIndex = 6;
+            this.rdoIndexMatch.TabIndex = 8;
             this.rdoIndexMatch.TabStop = true;
             this.rdoIndexMatch.Text = "The selected field references the sample’s position in the counts file (e.g., a v" +
     "alue of ‘4’ refers to the 4th sample in the file).";
@@ -274,7 +274,7 @@
             this.rdoNameMatch.Location = new System.Drawing.Point(9, 96);
             this.rdoNameMatch.Name = "rdoNameMatch";
             this.rdoNameMatch.Size = new System.Drawing.Size(256, 17);
-            this.rdoNameMatch.TabIndex = 5;
+            this.rdoNameMatch.TabIndex = 7;
             this.rdoNameMatch.TabStop = true;
             this.rdoNameMatch.Text = "The selected field matches the sequence\'s name";
             this.rdoNameMatch.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@
             this.btnCombine.Location = new System.Drawing.Point(510, 157);
             this.btnCombine.Name = "btnCombine";
             this.btnCombine.Size = new System.Drawing.Size(75, 23);
-            this.btnCombine.TabIndex = 4;
+            this.btnCombine.TabIndex = 10;
             this.btnCombine.Text = "Combine";
             this.btnCombine.UseVisualStyleBackColor = true;
             this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
@@ -300,7 +300,7 @@
             this.cboFields.Location = new System.Drawing.Point(429, 77);
             this.cboFields.Name = "cboFields";
             this.cboFields.Size = new System.Drawing.Size(156, 21);
-            this.cboFields.TabIndex = 3;
+            this.cboFields.TabIndex = 6;
             this.cboFields.SelectedIndexChanged += new System.EventHandler(this.cboFields_SelectedIndexChanged);
             // 
             // label7
@@ -309,7 +309,7 @@
             this.label7.Location = new System.Drawing.Point(6, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(426, 13);
-            this.label7.TabIndex = 2;
+            this.label7.TabIndex = 5;
             this.label7.Text = "Select the column that contains the sequence name or index used in the read‑count" +
     "s file.";
             // 
