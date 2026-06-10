@@ -71,6 +71,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AggregateByTaxonomy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AggregateByTaxonomy.Designer.cs">
+      <DependentUpon>AggregateByTaxonomy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppendTaxonomicData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppendTaxonomicData.Designer.cs">
+      <DependentUpon>AppendTaxonomicData.cs</DependentUpon>
+    </Compile>
     <Compile Include="columnSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +97,29 @@
     </Compile>
     <Compile Include="fieldsToSearch.cs" />
     <Compile Include="FileString.cs" />
+    <Compile Include="FilterByBlast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterByBlast.Designer.cs">
+      <DependentUpon>FilterByBlast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterByReadCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterByReadCount.Designer.cs">
+      <DependentUpon>FilterByReadCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilterData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FilterData.Designer.cs">
       <DependentUpon>FilterData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterWithList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterWithList.Designer.cs">
+      <DependentUpon>FilterWithList.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -104,14 +134,29 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sampleData.cs" />
+    <EmbeddedResource Include="AggregateByTaxonomy.resx">
+      <DependentUpon>AggregateByTaxonomy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppendTaxonomicData.resx">
+      <DependentUpon>AppendTaxonomicData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="columnSelection.resx">
       <DependentUpon>columnSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="countMatrix.resx">
       <DependentUpon>countMatrix.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FilterByBlast.resx">
+      <DependentUpon>FilterByBlast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterByReadCount.resx">
+      <DependentUpon>FilterByReadCount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FilterData.resx">
       <DependentUpon>FilterData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterWithList.resx">
+      <DependentUpon>FilterWithList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

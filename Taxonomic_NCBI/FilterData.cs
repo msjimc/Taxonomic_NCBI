@@ -27,6 +27,12 @@ namespace Taxonomic_NCBI
             Close();
         }
 
+        public void DisableGroupBox4()
+        {
+            lblBlast.Enabled = false;
+            btnBlast.Enabled = false;
+        }
+
         private void btnSelectDataFile_Click(object sender, EventArgs e)
         {
             string filename = FileString.OpenAs("Select data file", "tab delimited Text file (*.txt;*.csv:*.xls)|*.txt;*.csv:*.xls");
@@ -34,9 +40,7 @@ namespace Taxonomic_NCBI
 
             System.IO.StreamReader sf = null;
 
-            groupBox2.Enabled = false;
-            groupBox3.Enabled = false;
-            groupBox4.Enabled = false;
+            gbTasks.Enabled = false;
             data = new List<List<string>>();
             try
             {
@@ -69,10 +73,7 @@ namespace Taxonomic_NCBI
                 setHeaderListToDataLength(maxlength);
                 setComboboxes();
 
-                groupBox2.Enabled = true;
-                groupBox3.Enabled = true;
-                groupBox4.Enabled = true;
-                groupBox5.Enabled = true;
+                SetGroupBoxActivity();
             }
             catch (Exception ex)
             {
@@ -104,27 +105,18 @@ namespace Taxonomic_NCBI
 
             if (answer == 3)
             {
-                groupBox2.Enabled = true;
-                groupBox3.Enabled = true;
-                groupBox4.Enabled = true;
-                groupBox5.Enabled = true;
+                gbTasks.Enabled = true;
             }
             else
             {
-                groupBox2.Enabled = false;
-                groupBox3.Enabled = false;
-                groupBox4.Enabled = false;
-                groupBox5.Enabled = false;
+                gbTasks.Enabled = false;
             }
         }
 
         private void setComboboxes()
         {
-            setCboLists(cboAggregateVlaues, headers);
             setCboLists(cboDataStart, headers);
             setCboLists(cboDataEnd, headers);
-            setCboLists(cboColumnToFilter, headers);
-            setCboLists(cboSpeciesfilter, headers);
         }
 
         private void setDataToMaxLength(int maxlength)
@@ -183,355 +175,6 @@ namespace Taxonomic_NCBI
             if (cbo.Items.Count > index)
             { cbo.SelectedIndex = index; }
             else { cbo.SelectedIndex = 0; }
-        }        
-
-        private void setBtnAggregateActivity()
-        {
-            int answer = 0;
-            if (cboAggregateVlaues.SelectedIndex != 0) { answer++; }
-            if (cboDataStart.SelectedIndex != 0) { answer++; }
-            if (cboDataEnd.SelectedIndex != 0) { answer++; }
-            btnCombine.Enabled = (answer == 3);
-        }
-        private void cboAggregateVlaues_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            setBtnAggregateActivity();
-        }
-
-        private void btnCombine_Click(object sender, EventArgs e)
-        {
-            Dictionary<string, List<string>> dataByAggregatevalue = new Dictionary<string, List<string>>();
-            int startIndex = cboDataStart.SelectedIndex - 1;
-            int endIndex = cboDataEnd.SelectedIndex - 1;
-
-            int index = cboAggregateVlaues.SelectedIndex - 1;
-            foreach (List<string> values in data)
-            {
-                string name = values[index];
-                if (dataByAggregatevalue.ContainsKey(name) == false)
-                { dataByAggregatevalue[name] = values.GetRange(0, index + 1); }
-                else
-                {
-                    List<string> combined = combineTwoRows(values, dataByAggregatevalue[name], startIndex, endIndex, index);
-                    dataByAggregatevalue[name] = combined;
-                }
-            }
-
-            if (MessageBox.Show("Aggregation complete. " + dataByAggregatevalue.Count.ToString() + " rows in new list, " + data.Count.ToString() + " rows in original list.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                List<string> newheaders = new List<string>();
-                for(int indexheader = 0; indexheader < index; indexheader++)
-                { newheaders.Add(headers[indexheader]); }
-
-                List<List<string>> newList = new List<List<string>>();
-                foreach (List<string> values in dataByAggregatevalue.Values)
-                { newList.Add(values); }
-                data = newList;
-                headers = newheaders;
-                setComboboxes();
-                groupBox4.Enabled = false;
-                btnSave.Enabled = true;
-            }
-
-        }
-
-        private List<string> combineTwoRows(List<string> row1, List<string> row2, int startIndex, int endIndex, int aggregateIndex)
-        {
-            List<string> combined = new List<string>();
-            combined.AddRange(row1.GetRange(0, aggregateIndex));
-            for (int index = startIndex; index < endIndex + 1; index++)
-            {
-                string value1 = row1[index];
-                string value2 = row2[index];
-                double v1 = 0; double v2 = 0;
-                if (double.TryParse(value1, out v1) && double.TryParse(value2, out v2))
-                { combined[index] = (v1 + v2).ToString(); }
-                else
-                { combined[index] = "error"; }
-            }
-            return combined;
-        }
-
-        private void cboColumnToFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            setbtnFilterActivity();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            setbtnFilterActivity();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            setbtnFilterActivity();
-        }
-
-        private void txtCutOff_TextChanged(object sender, EventArgs e)
-        {
-            double cutoffValue;
-            if (double.TryParse(txtCutOff.Text, out cutoffValue) == false)
-            { lblFilterCutOff.Visible = true; }
-            else
-            {
-                lblFilterCutOff.Visible = false;
-                setbtnFilterActivity();
-            }
-        }
-
-        private void setbtnFilterActivity()
-        {
-            int answer = 0;
-            if (cboColumnToFilter.SelectedIndex != 0) { answer++; }
-            if (rdoLowerThanCutOff.Checked || rdoHigherThanCutOff.Checked) { answer++; }
-            double cutoffValue;
-            if (double.TryParse(txtCutOff.Text, out cutoffValue)) { answer++; }
-            btnFilter.Enabled = (answer == 3);
-        }
-
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-            double cutoffValue;
-            if (double.TryParse(txtCutOff.Text, out cutoffValue) == false)
-            {
-                MessageBox.Show("Invalid cutoff value entered/nThe value has to be any whole or decimal number.", "Error, not a number");
-                return;
-            }
-
-            int removed = 0;
-            List<List<string>> newdata = new List<List<string>>();
-            int index = cboColumnToFilter.SelectedIndex - 1;
-            foreach (List<string> dataRow in data)
-            {
-                if (dataRow.Count > index)
-                {
-                    double value;
-                    if (double.TryParse(dataRow[index], out value) == true)
-                    {
-                        if (rdoLowerThanCutOff.Checked == true)
-                        { if (value <= cutoffValue) { newdata.Add(dataRow); } else { removed++; } }
-                        else
-                        { if (value >= cutoffValue) { newdata.Add(dataRow); } else { removed++; } }
-                    }
-                    else { removed++; }
-                }
-            }
-
-            if (MessageBox.Show("Filtering complete. " + newdata.Count.ToString() + " rows remaining, " + removed.ToString() + " rows removed.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            { 
-                data = newdata;
-                btnSave.Enabled = true;
-            }
-
-        }
-
-        private void btnSelectSpeciesList_Click(object sender, EventArgs e)
-        {
-            string filename = FileString.OpenAs("Select species list file", "Text file (*.txt;*.xls;*.csv)|*.txt;*.xls;*.csv");
-            if (System.IO.File.Exists(filename) == false) { return; }
-
-            System.IO.StreamReader sf = null;
-            specieslist = new List<string>();
-
-            try
-            {
-                sf = new System.IO.StreamReader(filename);
-                string line;
-                while (sf.Peek() > 0)
-                {
-                    line = sf.ReadLine();
-                    specieslist.Add(line.Trim());
-                }
-                specieslist.Sort();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening file: " + ex.Message);
-                specieslist = new List<string>();
-            }
-            finally { sf?.Close(); }
-            SetBtnCOmpareActivity();
-        }
-
-        private void rdoRemoveIfInList_CheckedChanged(object sender, EventArgs e)
-        {
-            SetBtnCOmpareActivity();
-        }
-
-        private void rdoKeepIfInList_CheckedChanged(object sender, EventArgs e)
-        {
-            SetBtnCOmpareActivity();
-        }
-
-        private void rboFlagInList_CheckedChanged(object sender, EventArgs e)
-        {
-            txtFlaggedColoumnName.Enabled = rboFlagInList.Checked;
-            SetBtnCOmpareActivity();
-        }
-
-        private void txtFlaggedColoumnName_TextChanged(object sender, EventArgs e)
-        {
-            SetBtnCOmpareActivity();
-        }
-        private void cboSpeciesfilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetBtnCOmpareActivity();
-        }
-
-        private List<string> specieslist = new List<string>();
-        private void SetBtnCOmpareActivity()
-        {
-            int answer = 0;
-            if (specieslist.Count > 0) { answer++; }
-            if (rdoRemoveIfInList.Checked || rdoKeepIfInList.Checked) { answer++; }
-            else if (rboFlagInList.Checked && txtFlaggedColoumnName.Text.Trim() != "") { answer++; }
-            if (cboSpeciesfilter.SelectedIndex > 0) { answer++; }
-            btnCompare.Enabled = (answer == 3);
-        }
-
-        private void btnCompare_Click(object sender, EventArgs e)
-        {            
-            if (rboFlagInList.Checked== true)
-            { FlagIfInList(); }
-            else
-            { RemoveKeepIfInList(); }
-
-            SetBtnCOmpareActivity();
-        }
-
-        private void FlagIfInList()
-        {
-            int index = cboSpeciesfilter.SelectedIndex - 1;
-            List<List<string>> newdata = new List<List<string>>();
-
-            int InList = 0;int NotInList = 0;
-
-            foreach (List<string> dataRow in data)
-            {
-                if (dataRow.Count > index)
-                {
-                    string value = dataRow[index].Trim();
-                    List<string> newDataRow = new List<string>();
-                    newDataRow.AddRange(dataRow);
-                    
-                    if (specieslist.Contains(value))
-                    {
-                        newDataRow.Add("In List");
-                        InList++;
-                    }
-                    else
-                    {
-                        newDataRow.Add("Not in List"); 
-                        NotInList++;
-                    }
-                    newdata.Add(newDataRow);
-                }
-                
-            }
-
-            if (MessageBox.Show("Filtering complete. " + NotInList.ToString() + " rows not in list, " + InList.ToString() + " rows in list.\nDo you want to keep this data set", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            { 
-                headers.Add(txtFlaggedColoumnName.Text.Trim());
-                data = newdata;
-                setComboboxes();
-                btnSave.Enabled = true;
-            }
-
-        }
-        private void RemoveKeepIfInList()
-        {
-            int index = cboSpeciesfilter.SelectedIndex - 1;
-            List<List<string>> newdata = new List<List<string>>();
-
-            int removed = 0; 
-
-            foreach (List<string> dataRow in data)
-            {
-                if (dataRow.Count > index)
-                {
-                    string value = dataRow[index].Trim();
-                    if (specieslist.Contains(value))
-                    {
-                        if (rdoKeepIfInList.Checked == true)
-                        { newdata.Add(dataRow); }                        
-                    }
-                    else
-                    {
-                        if (rdoRemoveIfInList.Checked == true)
-                        { newdata.Add(dataRow); }                        
-                    }
-                }                
-            }
-            if (MessageBox.Show("Filtering complete. " + newdata.Count.ToString() + " rows retained, " + (data.Count - newdata.Count).ToString() + " rows removed.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                setComboboxes();
-                data = newdata;
-                btnSave.Enabled = true;
-            }
-
-        }
-
-        private void txtMinimumReadCount_TextChanged(object sender, EventArgs e)
-        {
-            SetBtnFilterMinimumReadCountActivity();
-        }
-
-        private void cboDataStartAtMinimumReadCount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetBtnFilterMinimumReadCountActivity();
-        }
-
-        private void cboDataEndAtMinimumReadCount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetBtnFilterMinimumReadCountActivity();
-        }
-
-        private void SetBtnFilterMinimumReadCountActivity()
-        {
-            int answer = 0;
-            double cutoffValue;
-            if (double.TryParse(txtMinimumReadCount.Text, out cutoffValue)) { answer++; }
-            if (cboDataStart.SelectedIndex != 0) { answer++; }
-            if (cboDataEnd.SelectedIndex != 0) { answer++; }
-            btnFilterMinimumReadCount.Enabled = (answer == 3);
-        }
-
-        private void btnFilterMinimumReadCount_Click(object sender, EventArgs e)
-        {
-            double cutoffValue;
-            if (double.TryParse(txtMinimumReadCount.Text, out cutoffValue) == false)
-            {
-                MessageBox.Show("Invalid cutoff value entered/nThe value has to be any whole or decimal number.", "Error, not a number");
-                return;
-            }
-
-            int startIndex = cboDataStart.SelectedIndex - 1;
-            int endIndex = cboDataEnd.SelectedIndex - 1;
-
-            int removed = 0;
-            List<List<string>> newdata = new List<List<string>>();
-
-            foreach (List<string> dataRow in data)
-            {
-                double totalReads = 0.0d;
-                for (int index = startIndex; index < endIndex + 1; index++)
-                {
-                    double value;
-                    if (double.TryParse(dataRow[index], out value))
-                    { totalReads += value; }
-                }
-                if (totalReads >= cutoffValue)
-                { newdata.Add(dataRow); }
-                else
-                { removed++; }
-            }
-
-            if (MessageBox.Show("Filtering complete. " + newdata.Count.ToString() + " rows remaining, " + removed.ToString() + " rows removed.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            { 
-                data = newdata;
-                btnSave.Enabled = true;
-            }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -548,13 +191,72 @@ namespace Taxonomic_NCBI
                 foreach (List<string> dataRow in data)
                 { sw.WriteLine(string.Join("\t", dataRow)); }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error saving file: " + ex.Message);
                 return;
             }
             finally
             { sw?.Close(); }
+        }
+
+        private void btnList_Click(object sender, EventArgs e)
+        {
+            FilterWithList fwl = new FilterWithList(this, headers, data);
+            if (fwl.ShowDialog() == DialogResult.OK)
+            {
+                data = fwl.FIlteredData;
+                headers = fwl.Headers; setComboboxes();
+                btnSave.Enabled = true;
+            }
+        }
+
+        private void btnBlast_Click(object sender, EventArgs e)
+        {
+            FilterByBlast fb = new FilterByBlast(this, headers, data);
+            if (fb.ShowDialog() == DialogResult.OK)
+            {
+                data = fb.FilteredData;
+                headers = fb.Headers;
+                setComboboxes();
+                btnSave.Enabled = true;
+            }
+        }
+
+        private void btnCounts_Click(object sender, EventArgs e)
+        {
+            FilterByReadCount fbrc = new FilterByReadCount(this, headers, data, cboDataStart.SelectedIndex, cboDataEnd.SelectedIndex);
+            if (fbrc.ShowDialog() == DialogResult.OK)
+            {
+                data = fbrc.FilteredData;
+                headers = fbrc.Headers;
+                setComboboxes();
+                btnSave.Enabled = true;
+            }
+        }
+
+        private void btnCombine_Click(object sender, EventArgs e)
+        {
+            AggregateByTaxonomy abt = new AggregateByTaxonomy(this, headers, data, cboDataStart.SelectedIndex, cboDataEnd.SelectedIndex);
+            if (abt.ShowDialog() == DialogResult.OK)
+            {
+                data = abt.FilteredData;
+                headers = abt.Headers;
+                setComboboxes();
+                btnSave.Enabled = true;
+            }
+        }
+
+        private void btnAppend_Click(object sender, EventArgs e)
+        {
+            AppendTaxonomicData atd = new AppendTaxonomicData(this, headers, data);
+            if (atd.ShowDialog() == DialogResult.OK)
+            {
+                data = atd.FilteredData;
+                headers = atd.Headers;
+                setComboboxes();
+                btnSave.Enabled = true;
+            }
         }
     }
 }
