@@ -57,7 +57,6 @@
             this.groupBox4.Controls.Add(this.cboColumnToFilter);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(16, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(540, 160);
@@ -202,7 +201,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FilterByBlast";
-            this.Text = "FilterByBlast";
+            this.Text = "Filter by a Blast  value";
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);

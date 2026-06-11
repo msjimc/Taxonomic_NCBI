@@ -194,7 +194,7 @@ Pressing the ___Combine___ button will create a third file whose name is made fr
 
 The first column will consist of the sequence's name in the species sequence ID appended to the end of the blast hit file's species sequence ID, allowing the accuracy of the combining to be determined. Figure 12 shows a combined data file opened in Excel in which only the first 4 the sample data columns are shown along with the first 6 taxonomy divisions. 
 
-## Filter and aggregate species data
+## Filtering and aggregating data.
 
 Pressing the ___Filter___ button in the ___Filter and aggregate species data___ region of the ___Taxonomic_NCBI___ opens the ___Filter and aggregate species data___ window that allows the data to be filtered and aggregated before exporting to a tab-delimited text file.
 
@@ -226,7 +226,205 @@ The ___Tasks___ region contains 5 button, which when press opens a new window th
 
 
 ### Filter species by a list of species names
+
+__Note:__ While this function was designed to screen data by species name, it can be used with any taxonomic group such as _genus_ or _family_.
+
+An annotated dataset may contain a very wide range of species, some of which may be of great interest while other may seen as incidental finding irrelevant to the project. Also some annotations may link reads to a closely related species that is present in the database used to annotate the data is not present in the sampled environment. Consequently, it is often useful to compare the species identified in the samples to a list of species, with data removed or retained based on any matches. Similarly, rather than removing data, it may be advantageous to mark the species as hits or misses, with their status used in subsequent analysis. Therefore ___Taxomic_NCBI__ can screen annotated data against a list of taxonomic names via the ___Filter data against list of names___  window (Figure 14), which s opened by pressing the __List__ button (red line in Figure 13).
+
+![Figure 14](images/figure14.jpg)
+
+Figure 14: The  ___Filter data against list of names___ window allows data to be filtered by its taxonomic grouping.
+
+---
+
+Screening the data consists of five steps:
+
+#### Importing list of names
+
+Pressing the __List__ button (blue line in Figure 14) prompts you to select a file that contains the names. This file must be formatted such that each line contains one name. The filtering is not case sensitive, but will only identify exact matches. For example NCBI's taxonomic data lists humans as _Homo Sapiens_, so human sequences will match _homo sapiens_ and _Homo Sapiens_, but not _H. sapiens_ or human. Similarly, the term _Escherichia coli_ will not match with _Escherichia coli strain 91_
+
+#### Selecting task to be performed
+
+When a sequence annotation matches a name in the list, it may be remove, retained or flagged as in the list. This action is set using the three radio buttons (black lines in Figure 14) as follows.
+
+- _Remove species in list_: the resultant data set doesn't contain data linked to names in the list.
+- _Keep species in list_: the resultant data set only contains data linked to names in the list.
+- _Flag sequences in list using name in text area as column header_: The resultant data contains all the sequences to which a new column as been appended that states whether the sequence was or was not in the list. The name of the append column is entered into the text box (blue line in Figure 15).
+
+![Figure 15](images/figure15.jpg)
+
+Figure 15.
+
+---
+
+#### Select the column to be screened
+
+While this function was intended to screen the data against a list of species names, it can be used to screen data in any column. This means as well as species it can be any taxonomic classification. The column used is selected using the dropdown list (red line in Figures 14 and 16) 
+
+![Figure 16](images/figure16.jpg)
+
+Figure 16.
+
+---
+
+#### Performing the search
+
+Once the previous three steps have been taken the __Compare__ button will become active (green line in Figure 14) and pressing it will perform the comparison. Once complete, a message will appear telling you how many data rows were and were not in the list (Figure 17). If you select _Yes_ the results will be saved while pressing _No_ will discard the analysis.  Once completed, it is possible to repeat the screening with different parameters with the results been accumulative.
+
+![Figure 17](images/figure17.jpg)
+
+Figure 17.
+
+---
+
+#### Saving the analysis
+
+The results of the analysis are initially store with in the ___Filter data against list of names___ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore to save the data you must press the __Accept__ button (grey line in Figure 14). This will close the window and the results of the screening(s) replacing the data in the __Taxonomic_NCBI__ program. The data can then be saved to file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
 ### Filtering sequence data based on the quality of the BLAST hit
+
+The data exported by __Taxonomic_NCBI__ after linking read data to taxonomic group (see [Combining the annotated blast hit file and the read count matrix file](#combining-the-annotated-blast-hit-file-and-the-read-count-matrix-file)) contains a _Percent identities_ and an _E score_ field as well as an _Hit length_. These columns can be used to filter the data to remove sequences that are likely to be be incorrectly annotated. For example poor hits can be removed by removing data that has a _Percent identities_ score below 99% or an _E score_ above 1.0e-20. Alternatively, amplicons that are either to long or short to be the correct produce can be removed by filtering twice for the _Hit length_.
+
+Filtering by the numeric value in a field is performed by pressing the __Blast__ button (yellow line on Figure 13). This will open the __Filter by Blast value__ (Figure 18).
+
+![Figure 18](images/figure18.jpg)
+
+Figure 18.
+
+---
+
+The filtering by a Blast hit value is performed with five steps as follows:
+
+#### Select the column's name to be filter on
+
+Select the name of the data column you which to filter using  dropdown list (blue line in Figure 18) on the the __Filter by Blast value__ window.
+
+#### Select how the filtering is performed
+
+Selecting the __Retain data equal to or higher than cutoff__  (black lin in Figure 18) should be retain values lower then the cutoff, for example when screening by  _E score_. The __Retain data equal to or higher than cutoff__ option (black lin in Figure 18) should be used keep values above the cutoff, for example when filtering by _Percent identities_.  To remove amplicons that are the wrong size, first remove sequences that are to short and then perform a second round of filtering to remove sequences that are to long.
+
+#### Entering the cutoff value
+
+The cutoff value is entered in the text area (red line in Figure 18). This value can be any value that can be converted to a number. For example _99_ and _98.5_ will be accepted. Very large or small decimal numbers can be entered using the scientific notation i.e 1.0e-25 will be accepted as 0.00000000000000000000000001. __Note:__ the 'e' must be lower case. If the value can not be converted to a number a red warning will appear by the text box (Figure 19).
+
+![Figure 19](images/figure19.jpg)
+
+Figure 19.
+
+---
+
+#### Preforming the analysis
+
+Once the previous three steps have been performed the __Filter__ button will become active and pressing it will filter the data. Once complete, a message will appear indicating how many data lines have been retained and how many were removed. Pressing the _Yes_ button will retain the analysis, while pressing _No_ will delete it. The data can be filtered a number of times with the results accumulative.
+
+#### Saving the analysis
+
+The results of the analysis are initially store with in the __Filter by Blast value__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore to save the data you must press the __Accept__ button (grey line in Figure 18). This will close the window and the results of the screening(s) replacing the data in the __Taxonomic_NCBI__ program. The data can then be saved to file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
 ### Exclude data based on its read count across all samples
+
+An issue with any eDNA or microbiome analysis is the presence of a large number of sequences that are the result of a sequencing or PCR replication error. These sequences are often linked to very few reads and so can be safely deleted. To delete data rows that reference very few reads press the __Counts__ button (black line in Figure 13). This will open the __Filter by total read count__ window (Figure 20).
+
+![Figure 20](images/figure20.jpg)
+
+Figure 20.
+
+---
+
+The filtering by a Blast hit value is performed with three steps as follows:
+
+#### Entering the minimum accumulative read count cutoff
+
+This value can be any value that can be converted to a number. For example _2000_ and _98.5_ will be accepted. Very large numbers can be entered using the scientific notation i.e 1.0e4 will be accepted as 1,0000. __Note:__ the 'e' must be lower case. If the value can not be converted to a number the __Filter__ button need for the next step will not become active and the no analysis can be performed.  
+
+#### Performing the filtering
+
+Pressing the __Filter__ button will prompt __Taxonomic_NCBI__ to add up calculate the number of reads linked to each row in the data set and if the value is less than the cutoff the line is deleted. Once the analysis is complete a message will appear stating the number of data rows and linked reads that were retained or deleted (Figure 21)
+
+![Figure 21](images/figure21.jpg)
+
+Figure 21.
+
+---
+
+
+#### Saving the analysis
+
+The results of the analysis are initially store with in the __Filter by total read count__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore to save the data you must press the __Accept__ button (grey line in Figure 18). This will close the window and the results of the screening(s) replacing the data in the __Taxonomic_NCBI__ program. The data can then be saved to file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
 ### Combine read count data based on its taxonomy grouping
-### Append taxonomic data from different source
+
+Many datasets contain a large number of species, which may make displaying the data difficult. Consequently, the data set may be filtered to remove data that is not important to the project's aims. Alternatively, data may be aggregated at the genus or family taxonomic level, so that any subsequent analysis is performed at a more general level. __Taxonomic_NCBI__ can aggregate data rows based on their a taxonomic grouping such as genus or family. 
+
+__Note:__ occasionally, a data set may contain multiple data rows linked to the same species, in this case it may be beneficial to aggregate data at the species level.
+
+__Note:__ when aggregating the data, the none read count data is retained from the first data row that matches a taxonomic identifier, consequently, filtering on the value of a Blast hit after aggregation will give unreliable.
+
+__Note:__ when aggregating data rows all columns after the filtering taxonomic class are deleted. This means that the taxonomic data must be at the end of each data row and if the data rows have been flagged using the [__Filter species by a list of species names__ > __Flag sequences in list using name in text area as column header__](#filter-species-by-a-list-of-species-names) function, this data will be lost.
+
+__Note:__ all species contain all the taxonomic groupings used in the NCBI's taxonomic scheme, for instance while must species are in a _family_ not all species have a _subfamily_.
+
+Aggregating data rows based on their taxonomy annotation is performed by pressing the __Combine__ button (lime line on Figure 13). This will open the __Aggregate by taxonomy__  window (Figure 22).
+
+![Figure 22](images/figure22.jpg)
+
+Figure 22.
+
+---
+
+Aggregating data is performed in three steps: 
+
+#### Select the column used to aggregate the data
+
+Select the name of the data column you which to use in the aggregation process using  dropdown list (blue line in Figure 18) on the the __Aggregate by taxonomy__ window.
+
+#### Perform the aggregation step
+
+Once the relevant data column has been selected the __Combine__ button (red line in Figure 22) will become active. Pressing this button will start the process and a message will appear comparing the number of data rows were created to the number in the initial dataset (Figure 23).
+
+![Figure 23](images/figure23.jpg)
+
+Figure 23.
+
+---
+
+#### Saving the analysis
+
+The results of the analysis are initially store with in the __Aggregate by taxonomy__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore to save the data you must press the __Accept__ button (grey line in Figure 22). This will close the window and the results of the aggregation step replacing the data in the __Taxonomic_NCBI__ program. The data can then be saved to file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
+
+### Appending taxonomic data from a different source
+
+While the NCBI's taxonomic schema is used by many people, it does have known issues. Consequently, users may wish to append taxonomic annotation form a different source to each data row. These schemas may be curated by sources such as BOLD, SILVA, MIMt, PR2 or WoRMS. The [Bash and Python](../Bash_and_Python_scripts/) folder contains a number of scripts that may be useful in generating files containing various taxonomic schemas from these sources.
+
+Ppending taxonomic data to each data row is performed by pressing the __Append____ button (pink line on Figure 13). This will open the __Append taxonomic data to a file__  window (Figure 24).
+
+![Figure 24](images/figure24.jpg)
+
+Figure 24.
+
+---
+
+Appending data is performed in five steps as follows:
+
+#### Import the taxonomic data
+
+The taxonomic data is imported as a text file by pressing the __Select__ button (blue line in Figure 24) In this file each line contains the a species' taxonomic data, with each ranking separated by a tab character. Ideally, the first line will contain the name for each taxonomic ranking (i.e. _species_, _family_ or _genus_). If it is not possible to get this data, the first line should be empty and __Taxonomic_NCBI__ will refer to each column by the letters __A__ to __Z__, if there are move entries subsequent column will be labelled __AA__ to __AZ__ and the __BA__ to __BZ__ and so on.
+
+#### Selecting the NCBI taxonomic ranking column
+
+Use the upper dropdown list (red line in Figure 24) to select the taxonomic rank, used by the NCBI schema, you wish to link to the new taxonomic schema. 
+
+#### Select the taxonomic ranking in the new schema
+
+Use the lower dropdown list (black line in Figure 24) to select the taxonomic rank, used by the new schema, you wish to link to NCBI's taxonomic schema. 
+
+#### Appending the data
+
+Once the previous three steps have been performed the __Append__ button (green lie in Figure 24) will be activated and pressing it start the process. Once it has been completed a message will appear stating how many data rows have and have not been modified.
+
+#### Saving the analysis
+
+The results of the analysis are initially store with in the __Append taxonomic data to a file__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore to save the data you must press the __Accept__ button (grey line in Figure 24). This will close the window and the results of this analysis step will replace the data in the __Taxonomic_NCBI__ program. The data can then be saved to file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
+

@@ -74,7 +74,7 @@ namespace Taxonomic_NCBI
                 }
             }
 
-            if (MessageBox.Show("Aggregation complete. " + dataByAggregatevalue.Count.ToString() + " rows in new list, " + data.Count.ToString() + " rows in original list.\nDo you want to keep the annotation?", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Aggregation complete. " + dataByAggregatevalue.Count.ToString() + " rows in new list, " + data.Count.ToString() + " rows in original list.\nDo you want to keep the aggregated dataset?", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 List<string> newheaders = new List<string>();
                 for (int indexheader = 0; indexheader < index; indexheader++)

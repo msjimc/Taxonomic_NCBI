@@ -49,7 +49,6 @@
             this.groupBox5.Controls.Add(this.lblLowerReadCountErrorMessage);
             this.groupBox5.Controls.Add(this.txtMinimumReadCount);
             this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Enabled = false;
             this.groupBox5.Location = new System.Drawing.Point(12, 12);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(540, 120);
@@ -127,6 +126,7 @@
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnAccept.Enabled = false;
             this.btnAccept.Location = new System.Drawing.Point(388, 138);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);

@@ -57,7 +57,6 @@
             this.groupBox3.Controls.Add(this.txtFlaggedColoumnName);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.btnSelectSpeciesList);
-            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(16, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(540, 171);

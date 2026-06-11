@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppendTaxonomicData));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSelectTaxonomyFile = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboReadCountColumn = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnCombine = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAccept = new System.Windows.Forms.Button();
             this.cboImportedDataColumn = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnCombine = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboReadCountColumn = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnSelectTaxonomyFile = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,41 +62,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Link taxonomic data via species name";
             // 
-            // label1
+            // cboImportedDataColumn
             // 
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(532, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.cboImportedDataColumn.FormattingEnabled = true;
+            this.cboImportedDataColumn.Location = new System.Drawing.Point(388, 111);
+            this.cboImportedDataColumn.Name = "cboImportedDataColumn";
+            this.cboImportedDataColumn.Size = new System.Drawing.Size(150, 21);
+            this.cboImportedDataColumn.TabIndex = 8;
+            this.cboImportedDataColumn.SelectedIndexChanged += new System.EventHandler(this.cboImportedDataColumn_SelectedIndexChanged);
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Press \'Select\' to import the 3rd party taxonomic data";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 114);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(368, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Select the column in the 3rd party taxonomy file to like to the read count data";
             // 
-            // btnSelectTaxonomyFile
+            // btnCombine
             // 
-            this.btnSelectTaxonomyFile.Location = new System.Drawing.Point(463, 53);
-            this.btnSelectTaxonomyFile.Name = "btnSelectTaxonomyFile";
-            this.btnSelectTaxonomyFile.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectTaxonomyFile.TabIndex = 2;
-            this.btnSelectTaxonomyFile.Text = "Select";
-            this.btnSelectTaxonomyFile.UseVisualStyleBackColor = true;
-            this.btnSelectTaxonomyFile.Click += new System.EventHandler(this.btnSelectTaxonomyFile_Click);
+            this.btnCombine.Enabled = false;
+            this.btnCombine.Location = new System.Drawing.Point(463, 138);
+            this.btnCombine.Name = "btnCombine";
+            this.btnCombine.Size = new System.Drawing.Size(75, 23);
+            this.btnCombine.TabIndex = 6;
+            this.btnCombine.Text = "Append";
+            this.btnCombine.UseVisualStyleBackColor = true;
+            this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(324, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Select the column in the read count file to link to the taxonomy data";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 143);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(221, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Press \'Combie\' to append new taxonomy data";
             // 
             // cboReadCountColumn
             // 
@@ -108,25 +110,41 @@
             this.cboReadCountColumn.TabIndex = 4;
             this.cboReadCountColumn.SelectedIndexChanged += new System.EventHandler(this.cboReadCountColumn_SelectedIndexChanged);
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 143);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(221, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Press \'Combie\' to append new taxonomy data";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(324, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Select the column in the read count file to link to the taxonomy data";
             // 
-            // btnCombine
+            // btnSelectTaxonomyFile
             // 
-            this.btnCombine.Enabled = false;
-            this.btnCombine.Location = new System.Drawing.Point(463, 138);
-            this.btnCombine.Name = "btnCombine";
-            this.btnCombine.Size = new System.Drawing.Size(75, 23);
-            this.btnCombine.TabIndex = 6;
-            this.btnCombine.Text = "Combine";
-            this.btnCombine.UseVisualStyleBackColor = true;
-            this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
+            this.btnSelectTaxonomyFile.Location = new System.Drawing.Point(463, 53);
+            this.btnSelectTaxonomyFile.Name = "btnSelectTaxonomyFile";
+            this.btnSelectTaxonomyFile.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectTaxonomyFile.TabIndex = 2;
+            this.btnSelectTaxonomyFile.Text = "Select";
+            this.btnSelectTaxonomyFile.UseVisualStyleBackColor = true;
+            this.btnSelectTaxonomyFile.Click += new System.EventHandler(this.btnSelectTaxonomyFile_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(250, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Press \'Select\' to import the 3rd party taxonomic data";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(532, 34);
+            this.label1.TabIndex = 0;
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // btnCancel
             // 
@@ -148,24 +166,6 @@
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
             // 
-            // cboImportedDataColumn
-            // 
-            this.cboImportedDataColumn.FormattingEnabled = true;
-            this.cboImportedDataColumn.Location = new System.Drawing.Point(388, 111);
-            this.cboImportedDataColumn.Name = "cboImportedDataColumn";
-            this.cboImportedDataColumn.Size = new System.Drawing.Size(150, 21);
-            this.cboImportedDataColumn.TabIndex = 8;
-            this.cboImportedDataColumn.SelectedIndexChanged += new System.EventHandler(this.cboImportedDataColumn_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 114);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(368, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Select the column in the 3rd party taxonomy file to like to the read count data";
-            // 
             // AppendTaxonomicData
             // 
             this.AcceptButton = this.btnAccept;
@@ -177,6 +177,7 @@
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AppendTaxonomicData";
             this.Text = "Append taxonomic data to file";

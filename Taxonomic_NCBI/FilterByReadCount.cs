@@ -40,6 +40,7 @@ namespace Taxonomic_NCBI
             double cutoffValue;
             if (double.TryParse(txtMinimumReadCount.Text, out cutoffValue)) { answer++; }            
             btnFilterMinimumReadCount.Enabled = (answer == 1);
+            btnAccept.Enabled = false;
         }
 
         private void btnFilterMinimumReadCount_Click(object sender, EventArgs e)
@@ -54,6 +55,8 @@ namespace Taxonomic_NCBI
             int startIndex = dataStart - 1;
             int endIndex = dataEnd - 1;
 
+            decimal retianedReads = 0; decimal deletedreads = 0; 
+
             int removed = 0;
             List<List<string>> newdata = new List<List<string>>();
 
@@ -67,14 +70,22 @@ namespace Taxonomic_NCBI
                     { totalReads += value; }
                 }
                 if (totalReads >= cutoffValue)
-                { newdata.Add(dataRow); }
+                { 
+                    newdata.Add(dataRow);
+                    retianedReads += (decimal)totalReads;
+                }
                 else
-                { removed++; }
+                { 
+                    removed++; 
+                    deletedreads += (decimal)totalReads;
+                }
             }
 
-            if (MessageBox.Show("Filtering complete. " + newdata.Count.ToString() + " rows remaining, " + removed.ToString() + " rows removed.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Filtering complete. " + newdata.Count.ToString() + " rows remaining containing " + retianedReads.ToString("N0") +  " reads, and " +
+                removed.ToString() + " rows removed containing " + deletedreads.ToString("N0") +  " reads.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 data = newdata;
+                btnAccept.Enabled = true;
             }
 
         }
