@@ -258,5 +258,24 @@ namespace Taxonomic_NCBI
                 btnSave.Enabled = true;
             }
         }
+
+        private void btnRemoveColumns_Click(object sender, EventArgs e)
+        {
+            RemoveColumns rc = new RemoveColumns(this, headers, data);
+            if (rc.ShowDialog() == DialogResult.OK)
+            {
+                data = rc.FilteredData;
+                headers = rc.Headers;
+                setComboboxes();
+                cboDataEnd.SelectedIndex = 0;
+                cboDataStart.SelectedIndex = 0;
+                btnSave.Enabled = true;
+            }
+        }
+
+        private void btnRename_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

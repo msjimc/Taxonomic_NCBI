@@ -19,8 +19,11 @@ namespace Taxonomic_NCBI
         public FilterByBlast(FilterData FD, List<string> Headers, List<List<string>> Data)
         {
             InitializeComponent();
-            data = Data;
-            headers = Headers;
+
+            foreach (List<string> row in Data)
+            { data.Add(new List<string>(row)); }
+            headers = new List<string>(Headers);
+
             setCboLists(cboColumnToFilter, headers);
             fd = FD;
         }

@@ -42,16 +42,18 @@
             this.cboDataEnd = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.gbTasks = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnList = new System.Windows.Forms.Button();
-            this.lblBlast = new System.Windows.Forms.Label();
-            this.btnBlast = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnCounts = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnCombine = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnAppend = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCombine = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCounts = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnBlast = new System.Windows.Forms.Button();
+            this.lblBlast = new System.Windows.Forms.Label();
+            this.btnList = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnRemoveColumns = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbTasks.SuspendLayout();
             this.SuspendLayout();
@@ -173,7 +175,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.Location = new System.Drawing.Point(12, 326);
+            this.btnClose.Location = new System.Drawing.Point(12, 340);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -183,6 +185,8 @@
             // 
             // gbTasks
             // 
+            this.gbTasks.Controls.Add(this.btnRemoveColumns);
+            this.gbTasks.Controls.Add(this.label8);
             this.gbTasks.Controls.Add(this.btnAppend);
             this.gbTasks.Controls.Add(this.label2);
             this.gbTasks.Controls.Add(this.btnCombine);
@@ -196,95 +200,10 @@
             this.gbTasks.Enabled = false;
             this.gbTasks.Location = new System.Drawing.Point(12, 143);
             this.gbTasks.Name = "gbTasks";
-            this.gbTasks.Size = new System.Drawing.Size(540, 174);
+            this.gbTasks.Size = new System.Drawing.Size(540, 190);
             this.gbTasks.TabIndex = 1;
             this.gbTasks.TabStop = false;
             this.gbTasks.Text = "Tasks";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "To filter species by a list of species names press \'List\'";
-            // 
-            // btnList
-            // 
-            this.btnList.Location = new System.Drawing.Point(457, 19);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(75, 23);
-            this.btnList.TabIndex = 1;
-            this.btnList.Text = "List";
-            this.btnList.UseVisualStyleBackColor = true;
-            this.btnList.Click += new System.EventHandler(this.btnList_Click);
-            // 
-            // lblBlast
-            // 
-            this.lblBlast.AutoSize = true;
-            this.lblBlast.Location = new System.Drawing.Point(6, 53);
-            this.lblBlast.Name = "lblBlast";
-            this.lblBlast.Size = new System.Drawing.Size(229, 13);
-            this.lblBlast.TabIndex = 2;
-            this.lblBlast.Text = "To filter data by BLAST hit value press \'BLAST\'";
-            // 
-            // btnBlast
-            // 
-            this.btnBlast.Location = new System.Drawing.Point(457, 48);
-            this.btnBlast.Name = "btnBlast";
-            this.btnBlast.Size = new System.Drawing.Size(75, 23);
-            this.btnBlast.TabIndex = 3;
-            this.btnBlast.Text = "Blast";
-            this.btnBlast.UseVisualStyleBackColor = true;
-            this.btnBlast.Click += new System.EventHandler(this.btnBlast_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(302, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "To excluded data row based on total read count press \'Counts\'";
-            // 
-            // btnCounts
-            // 
-            this.btnCounts.Location = new System.Drawing.Point(457, 77);
-            this.btnCounts.Name = "btnCounts";
-            this.btnCounts.Size = new System.Drawing.Size(75, 23);
-            this.btnCounts.TabIndex = 5;
-            this.btnCounts.Text = "Counts";
-            this.btnCounts.UseVisualStyleBackColor = true;
-            this.btnCounts.Click += new System.EventHandler(this.btnCounts_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(320, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "To aggregate reads count data at taxomomic level press \'Combine\'";
-            // 
-            // btnCombine
-            // 
-            this.btnCombine.Location = new System.Drawing.Point(459, 106);
-            this.btnCombine.Name = "btnCombine";
-            this.btnCombine.Size = new System.Drawing.Size(75, 23);
-            this.btnCombine.TabIndex = 7;
-            this.btnCombine.Text = "Combine";
-            this.btnCombine.UseVisualStyleBackColor = true;
-            this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 138);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(316, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "To append taxomomic data from a different source press \'Append\'";
             // 
             // btnAppend
             // 
@@ -296,11 +215,115 @@
             this.btnAppend.UseVisualStyleBackColor = true;
             this.btnAppend.Click += new System.EventHandler(this.btnAppend_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 138);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(316, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "To append taxomomic data from a different source press \'Append\'";
+            // 
+            // btnCombine
+            // 
+            this.btnCombine.Location = new System.Drawing.Point(459, 106);
+            this.btnCombine.Name = "btnCombine";
+            this.btnCombine.Size = new System.Drawing.Size(75, 23);
+            this.btnCombine.TabIndex = 7;
+            this.btnCombine.Text = "Combine";
+            this.btnCombine.UseVisualStyleBackColor = true;
+            this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(320, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "To aggregate reads count data at taxomomic level press \'Combine\'";
+            // 
+            // btnCounts
+            // 
+            this.btnCounts.Location = new System.Drawing.Point(457, 77);
+            this.btnCounts.Name = "btnCounts";
+            this.btnCounts.Size = new System.Drawing.Size(75, 23);
+            this.btnCounts.TabIndex = 5;
+            this.btnCounts.Text = "Counts";
+            this.btnCounts.UseVisualStyleBackColor = true;
+            this.btnCounts.Click += new System.EventHandler(this.btnCounts_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(302, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "To excluded data row based on total read count press \'Counts\'";
+            // 
+            // btnBlast
+            // 
+            this.btnBlast.Location = new System.Drawing.Point(457, 48);
+            this.btnBlast.Name = "btnBlast";
+            this.btnBlast.Size = new System.Drawing.Size(75, 23);
+            this.btnBlast.TabIndex = 3;
+            this.btnBlast.Text = "Blast";
+            this.btnBlast.UseVisualStyleBackColor = true;
+            this.btnBlast.Click += new System.EventHandler(this.btnBlast_Click);
+            // 
+            // lblBlast
+            // 
+            this.lblBlast.AutoSize = true;
+            this.lblBlast.Location = new System.Drawing.Point(6, 53);
+            this.lblBlast.Name = "lblBlast";
+            this.lblBlast.Size = new System.Drawing.Size(229, 13);
+            this.lblBlast.TabIndex = 2;
+            this.lblBlast.Text = "To filter data by BLAST hit value press \'BLAST\'";
+            // 
+            // btnList
+            // 
+            this.btnList.Location = new System.Drawing.Point(457, 19);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(75, 23);
+            this.btnList.TabIndex = 1;
+            this.btnList.Text = "List";
+            this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(255, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "To filter species by a list of species names press \'List\'";
+            // 
+            // btnRemoveColumns
+            // 
+            this.btnRemoveColumns.Location = new System.Drawing.Point(459, 162);
+            this.btnRemoveColumns.Name = "btnRemoveColumns";
+            this.btnRemoveColumns.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveColumns.TabIndex = 11;
+            this.btnRemoveColumns.Text = "Remove";
+            this.btnRemoveColumns.UseVisualStyleBackColor = true;
+            this.btnRemoveColumns.Click += new System.EventHandler(this.btnRemoveColumns_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 167);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(333, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "To remove columns form annotated read-count matrix press \'Remove\'";
+            // 
             // FilterData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 361);
+            this.ClientSize = new System.Drawing.Size(564, 375);
             this.Controls.Add(this.gbTasks);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
@@ -342,5 +365,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAppend;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRemoveColumns;
+        private System.Windows.Forms.Label label8;
     }
 }

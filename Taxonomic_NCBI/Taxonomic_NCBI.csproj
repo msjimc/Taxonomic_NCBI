@@ -133,6 +133,12 @@
     <Compile Include="node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveColumns.Designer.cs">
+      <DependentUpon>RemoveColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="sampleData.cs" />
     <EmbeddedResource Include="AggregateByTaxonomy.resx">
       <DependentUpon>AggregateByTaxonomy.cs</DependentUpon>
@@ -170,6 +176,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RemoveColumns.resx">
+      <DependentUpon>RemoveColumns.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

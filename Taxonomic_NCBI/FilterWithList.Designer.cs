@@ -99,10 +99,10 @@
             this.rdoKeepIfInList.AutoSize = true;
             this.rdoKeepIfInList.Location = new System.Drawing.Point(165, 63);
             this.rdoKeepIfInList.Name = "rdoKeepIfInList";
-            this.rdoKeepIfInList.Size = new System.Drawing.Size(115, 17);
+            this.rdoKeepIfInList.Size = new System.Drawing.Size(133, 17);
             this.rdoKeepIfInList.TabIndex = 3;
             this.rdoKeepIfInList.TabStop = true;
-            this.rdoKeepIfInList.Text = "Keep species in list";
+            this.rdoKeepIfInList.Text = "Keep species in the list";
             this.rdoKeepIfInList.UseVisualStyleBackColor = true;
             this.rdoKeepIfInList.CheckedChanged += new System.EventHandler(this.rdoKeepIfInList_CheckedChanged);
             // 
@@ -111,10 +111,10 @@
             this.rdoRemoveIfInList.AutoSize = true;
             this.rdoRemoveIfInList.Location = new System.Drawing.Point(6, 63);
             this.rdoRemoveIfInList.Name = "rdoRemoveIfInList";
-            this.rdoRemoveIfInList.Size = new System.Drawing.Size(130, 17);
+            this.rdoRemoveIfInList.Size = new System.Drawing.Size(148, 17);
             this.rdoRemoveIfInList.TabIndex = 2;
             this.rdoRemoveIfInList.TabStop = true;
-            this.rdoRemoveIfInList.Text = "Remove species in list";
+            this.rdoRemoveIfInList.Text = "Remove species in the list";
             this.rdoRemoveIfInList.UseVisualStyleBackColor = true;
             this.rdoRemoveIfInList.CheckedChanged += new System.EventHandler(this.rdoRemoveIfInList_CheckedChanged);
             // 

@@ -22,8 +22,10 @@ namespace Taxonomic_NCBI
         {
             InitializeComponent();
 
-            data = Data;
-            headers = Headers;  
+            foreach (List<string> row in Data)
+            { data.Add(new List<string>(row)); }
+            headers = new List<string>(Headers);
+
             dataStart = DataStart;
             dataEnd = DataEnd;
             fd = FD;
