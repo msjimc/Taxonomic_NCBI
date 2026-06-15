@@ -36,7 +36,7 @@ The query sequence ID (typically labelled as _qseqid_) in the BLAST hit can link
 - Index‑matching: the ID value is a number that corresponds to the sequence’s position in the matrix file.  
 For example, if the BLAST hit has ID = 4, then the sequence is represented by the 4th sequence column in the matrix file (see Figure 1).
 
-![Figure 1](images/figure1.jpg)
+![](images/figure1.jpg)
 
 Figure 1: The ID (_qseqid_) value of 4 links to the 4th sequence data column in the matrix file. The first column is the sample name column, so the numbering starts at column B.
 
@@ -55,7 +55,7 @@ Figure 2 shows the ___Taxonomy_NCBI___ user interface which consists of five reg
 - [___Filter and aggregate species data___](#filtering-and-aggregating-data) 
 - [___Manual search___](#manually-searching-the-taxonomy-data)
 
-![Figure 2](images/figure2.jpg)
+![](images/figure2.jpg)
 
 Figure 2 The user interface.
 
@@ -83,11 +83,11 @@ Once the taxonomic data has been imported, you can manually look up taxonomic in
 
 ***Note***: The texts must be all text names or all NCBI ID numbers.
 
-![Figure 3a](images/figure3a.jpg)
+![](images/figure3a.jpg)
 
 Figure 3a: Manually searching for the taxonomic database for species names by pressing the ___Name___ button.
 
-![Figure 3b](images/figure3b.jpg)
+![](images/figure3b.jpg)
 
 Figure 3b: Manually searching for the taxonomic database for NCBI taxonomic IDs by pressing the ___Taxo ID___ button (e.g., 9606 = human).
 
@@ -103,7 +103,7 @@ These functions are particularly useful when annotating species in an Excel file
 
 The annotation of a BLAST hit file is performed by pressing the ___Annotate___ button in the ___Automated analysis___ panel. Pressing this button prompts you to select a BLAST hit file. If the ___Process a folder of text files___ option is selected, ___Taxonomy_NCBI___ will process all the text files in the same folder, creating a single annotated BLAST hit file. When this option is used, ___Taxonomy_NCBI___ expects all the text files in the folder to be BLAST hit files containing sequences linked to a single read-counts matrix file. Once the input data has been selected, the ___Name location___ window will open, allowing you to specify the location of the species name in the description of sequences identified by BLAST as homologous to your amplicon sequence (Figure 4).
 
-![Figure 4](images/figure4.jpg)
+![](images/figure4.jpg)
 
 Figure 4: The ___Name location___ form allows you to select the hit sequence's name.
 
@@ -127,11 +127,11 @@ In Figure 4, it is apparent that each line is split into a range of columns by t
 2) Then select the field you are interested in using the two number controls (red box in figure 5a).
 If the two numbers are the same, only one field will be selected (Figure 5a), but if the numbers differ, more than one field will be selected (Figure 5b).
 
-![Figure 5a](images/figure5a.jpg)
+![](images/figure5a.jpg)
 
 Figure 5a: The line is split into fields by entering the text delimiter (a tab) in the upper text area (blue box). The eighth field is then selected using the number controls in the red box. The selected fields are shown in the lowest text area (green box).
 
-![Figure 5b](images/figure5b.jpg)
+![](images/figure5b.jpg)
 
 Figure 5a: The line is split into fields by entering the text delimiter (a tab) in the upper text area as before. However, the seventh and eighth fields are then selected using the number controls in the blue box. The selected fields are shown in the lowest text area (green box) with each value separated by the word ***OR*** (red line).
 
@@ -141,29 +141,29 @@ Figure 5a: The line is split into fields by entering the text delimiter (a tab) 
 
 4) Since the number of sub-fields in a SILVA sequence descriptor varies, select the ___Count from the end of the line___ option (red box in Figure 6a). This counts the fields from the end rather than the start and will always select the correct field irrespective of the number of intermediate fields in the description. Since the last field sometimes contains a generic phrase, select the last two fields as shown in figure 6b (red box). The lowest text area now contains two terms separated by the word ***OR*** (Green box in Figure 6b).
  
-![Figure 6a](images/figure6a.jpg)
+![](images/figure6a.jpg)
 
 Figure 6a: Entering the ';' into the second text area (blue box) splits the selected field into sub-fields. Checking the  ___Count from the end of the line___ option selects the field counting backwards from the last of the field (red box). The selected sub-field is shown in the lowest text area (green box).
 
-![Figure 6b](images/figure6b.jpg)
+![](images/figure6b.jpg)
 
 Figure 6b: Selecting two fields (red box) causes the last and second-to-last sub-fields to be shown in the lowest text area (green box) with each term separated by the word ***OR***.
 
 When working with GenBank descriptions, the data line is split into fields using the Tab character (\\t) as before, but the descriptor is a series of words separated by a space. Consequently, enter a space (or a \\s character) in the second text area to split the descriptor up into words (black box in Figure 7). However, this will also split a species name into individual words rather than a two-word name. Also, GenBank descriptors may start with a generic term like ***uncultured sample***. To process this type of descriptor, select the first to fourth fields (blue box in Figure 7) and then check the ***Combine two fields*** option (red box in Figure 7). This will combine consecutive fields to form two-word queries (green box Figure 7).
 
-![Figure 7](images/figure7.jpg)
+![](images/figure7.jpg)
 
 Figure 7: Using a space character (or \\s) will break a GenBank description into single words. Selecting the first four fields/words (blue box) should allow the analysis of a sequence prefixed with a generic phrase. Finally, selecting the ***Combine two terms*** option (red box) creates search terms consisting of two words.
 
 When searching taxonomic data in the NCBI dataset, ___Taxonomic data___ processes the terms from right to left; for example, in Figure 7 it would first search for matches to ***strain CCAP***, then ***micans strain*** and finally ***Prorocentrum micans***. If it finds a match, it returns it and stops searching for possibly better ones. Consequently, it is important to check whether the search order is appropriate: if the probable best search term is at the start of the text in the lower text area, select the reverse search term option  (blue box in Figure 8a) to reverse the order (green box in Figure 8a).
 
-![Figure 8a ](images/figure8.jpg)
+![](images/figure8.jpg)
 
 Figure 8a
 
 <hr />
 
-![Figure 8b ](images/figure8b.jpg)
+![](images/figure8b.jpg)
 
 Figure 8b
 
@@ -181,7 +181,7 @@ __Note:__ Once an annotated  BLAST hit file has been made, it can be combined wi
 
 Pressing the ___Combine___ button on the ___Combine annotation file with read-count matrix___ panel will open the ___Combine files___ window (Figure 9). This form consists of two regions: the upper ___Matrix format and index column selection___ panel and the ___Annotation file selection___ panel. Initially the ___Annotation file selection___ panel is disabled and becomes active when options on the upper ___Matrix format and index column selection___ panel have been set.
 
-![Figure 9](images/figure9.jpg)
+![](images/figure9.jpg)
 
 Figure 9
 
@@ -193,7 +193,7 @@ The read-count matrix file must be a text file with data points on each row deli
 
 Once the matrix's orientation is set, the ___File___ button will become active, allowing you to select the matrix file. Once entered, the first four species sequence names and the first four sample names will be entered into the list boxes (blue box in Figure 10) to allow you to check the selection is correct. Selecting the file will also activate the lower ___Annotation file selection___ panel.
 
-![Figure 10](images/figure10.jpg)
+![](images/figure10.jpg)
 
 Figure 10
 
@@ -203,7 +203,7 @@ Figure 10
 
 The ___Annotation file selection___ panel contains the ___Select___ button (blue box in Figure 11), which allows you to import the annotated BLAST file. The first line of the selected file is then split into individual fields which are then entered into the dropdown list control (red box in Figure 11), allowing you to choose which field contains the data to be used to link a BLAST hit result with its species sequence in the read-count matrix. The ___Previous___ and ___Next___ buttons (green box in Figure 11) allow you to cycle through the first 50 lines to check that the selected field is the correct one.
 
-![Figure 11](images/figure11.jpg)
+![](images/figure11.jpg)
 
 Figure 11: The annotated BLAST file is selected using the ___Select___ button (blue box), and the fields from a line in the file are used to populate the dropdown list control (green box) from which the field containing the sequence ID can be selected. The displayed line can be changed using the ___Next___ and ___Previous___ buttons.
 
@@ -225,7 +225,7 @@ The first column will consist of the sequence's name in the species sequence ID 
 
 Pressing the ___Filter___ button in the ___Filter and aggregate species data___ region of the ___Taxonomic_NCBI___ opens the ___Filter and aggregate species data___ window that allows the data to be filtered and aggregated before exporting to a tab-delimited text file.
 
-![Figure 12](images/figure12.jpg)
+![](images/figure12.jpg)
 
 Figure 12: The  ___Filter and aggregate species data___ window that enables the data to be filtered and/or aggregated.
 
@@ -237,7 +237,7 @@ __Note:__ The  ___Filter and aggregate species data___ window was developed to p
 
 Pressing the ___Select___ button (blue line in Figure 13) of the ___File selection___ panel prompts you to select the data file. Once imported, select the titles of the first and last sample columns using the two dropdown lists (green line in Figure 13). Once data has been imported and the sample columns are set, all the options on the ___Tasks___ panel will become active. 
 
-![Figure 13](images/figure13.jpg)
+![](images/figure13.jpg)
 
 Figure 13: Pressing the ___Select___ button (blue line) allows you to import the data file, while selecting the first and last sample column (green line) causes all regions of the window to become active.
 
@@ -259,7 +259,7 @@ __Note:__ While this function was designed to screen data by species name, it ca
 
 An annotated dataset may contain a very wide range of species, some of which may be of interest while others may be seen as incidental findings irrelevant to the project. Furthermore, some annotations may link reads to a closely related species that is present in the database used to annotate the data but is not present in the sampled environment. Consequently, it is often useful to compare the species identified in the samples to a list of species, with data removed or retained based on any matches. Similarly, rather than removing data, it may be advantageous to mark the species as hits or misses, with their status used in subsequent analysis. Therefore, ___Taxomic_NCBI___ can screen annotated data against a list of taxonomic names via the ___Filter data against list of names___  window (Figure 14), which is opened by pressing the __List__ button (red line in Figure 13).
 
-![Figure 14](images/figure14.jpg)
+![](images/figure14.jpg)
 
 Figure 14: The  ___Filter data against list of names___ window allows data to be filtered by its taxonomic grouping.
 
@@ -279,7 +279,7 @@ Whether a sequence is linked to a taxonomic name in the list may result in the s
 - _Keep species in list_: the resultant data set only contains sequences linked to names in the list.
 - _Flag sequences in list using name in text area as column header_: The resultant data contains all the sequences to which a new column has been appended that states whether the sequence was or was not in the list. The name of the append column is entered into the text box (blue line in Figure 15).
 
-![Figure 15](images/figure15.jpg)
+![](images/figure15.jpg)
 
 Figure 15.
 
@@ -289,7 +289,7 @@ Figure 15.
 
 While this function was intended to screen the data against a list of species names, it can be used to screen any column. This means that, in addition to species names, any other taxonomic classification can also be used. The column used is selected using the dropdown list (red line in Figures 14 and 16).
 
-![Figure 16](images/figure16.jpg)
+![](images/figure16.jpg)
 
 Figure 16.
 
@@ -299,7 +299,7 @@ Figure 16.
 
 Once the previous three steps have been completed, the __Compare__ button will become active (green line in Figure 14), and pressing it will perform the comparison. Once complete, a message will appear telling you how many data rows were and were not in the list (Figure 17). If you select _Yes_ the results will be saved, while pressing _No_ will discard the analysis.  Once completed, it is possible to repeat the screening with a different list, with the results being accumulative.
 
-![Figure 17](images/figure17.jpg)
+![](images/figure17.jpg)
 
 Figure 17.
 
@@ -315,7 +315,7 @@ The data exported by __Taxonomic_NCBI__ after linking read data to taxonomic ran
 
 Filtering by the numeric value in a field is performed by pressing the __BLAST__ button (yellow line on Figure 13). This will open the __Filter by BLAST value__ (Figure 18).
 
-![Figure 18](images/figure18.jpg)
+![](images/figure18.jpg)
 
 Figure 18.
 
@@ -335,7 +335,7 @@ Selecting the __Retain data equal to or higher than cutoff__  (black line in Fig
 
 The cutoff value is entered in the text area (red line in Figure 18). This value can be any value that can be converted to a number. For example, _99_ and _98.5_ will be accepted. Very large or small decimal numbers can be entered using scientific notation, i.e., '1.0e-25' will be processed as '0.00000000000000000000000001'. __Note:__ the 'e' must be lowercase. If the value cannot be converted to a number, a red warning will appear by the text box (Figure 19).
 
-![Figure 19](images/figure19.jpg)
+![](images/figure19.jpg)
 
 Figure 19.
 
@@ -353,7 +353,7 @@ The results of the analysis are initially stored within the __Filter by BLAST va
 
 An issue with any eDNA or microbiome analysis is the presence of a large number of sequences that are the result of a sequencing or PCR replication error. These sequences are often linked to very few reads and so can be safely deleted. To delete data rows that reference very few reads, press the __Counts__ button (black line in Figure 13). This will open the __Filter by total read count__ window (Figure 20).
 
-![Figure 20](images/figure20.jpg)
+![](images/figure20.jpg)
 
 Figure 20.
 
@@ -369,7 +369,7 @@ This value can be any value that can be converted to a number. For example _2000
 
 Pressing the __Filter__ button will prompt __Taxonomic_NCBI__ to calculate the number of reads linked to each row in the data set, and if the value is less than the cutoff, the line is deleted. Once the analysis is complete, a message will appear stating the number of data rows and linked reads that were retained or deleted (Figure 21).
 
-![Figure 21](images/figure21.jpg)
+![](images/figure21.jpg)
 
 Figure 21.
 
@@ -394,7 +394,7 @@ __Note:__ All species contain all the taxonomic groupings used in the NCBI's tax
 
 Aggregating data rows based on their taxonomy annotation is performed by pressing the __Combine__ button (lime line on Figure 13). This will open the __Aggregate by taxonomy__  window (Figure 22).
 
-![Figure 22](images/figure22.jpg)
+![](images/figure22.jpg)
 
 Figure 22.
 
@@ -410,7 +410,7 @@ Select the name of the data column you wish to use in the aggregation process us
 
 Once the relevant data column has been selected, the __Combine__ button (red line in Figure 22) will become active. Pressing this button will start the aggregation of the data and when complete, a message will appear comparing the number of data rows were created to the number in the initial dataset (Figure 23).
 
-![Figure 23](images/figure23.jpg)
+![](images/figure23.jpg)
 
 Figure 23.
 
@@ -427,7 +427,7 @@ While the NCBI's taxonomic schema is used by many people, it does have known iss
 
 Pending taxonomic data to each data row is performed by pressing the __Append__ button (pink line on Figure 13). This will open the __Append taxonomic data to a file__  window (Figure 24).
 
-![Figure 24](images/figure24.jpg)
+![](images/figure24.jpg)
 
 Figure 24.
 
@@ -460,7 +460,7 @@ The results of the analysis are initially stored within  the __Append taxonomic 
 
 The annotation read-count matrix may contain a number of columns that are not required for any subsequent analysis and so can safely be removed from the data set. This can be performed by pressing the __Remove__ button (**brown** line on Figure 13), which will open the __Remove data columns__  window (Figure 24).
 
-![Figure25](images/figure25.jpg)
+![](images/figure25.jpg)
 
 Figure 25.
 
