@@ -38,5 +38,5 @@ The compiled program can be downloaded from [here](Program/).
 
 ## Running on macOS, Linux or BSD computers
 
-```Taxonomic NCBI``` can run on arrange of non-Windows PCs as described [here](Running_Linux_and_macOS/README.md).
+```Taxonomic NCBI``` can run on arrange of non-Windows PCs that have an Intel or AMD processor as described [here](https://github.com/msjimc/RunningWindowsProgramsOnLinux).
 
