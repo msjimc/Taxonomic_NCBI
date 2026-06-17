@@ -9,7 +9,7 @@ def IndexOfTitle(title, titles):
 
 if len(sys.argv) != 2:
     print("Usage:  Enter two files: BOLD*.tsv BOLD*_string.txt")
-    print("The first file should be downloaded from the BOLD website and")
+    print("The first file should be the file downloaded from the BOLD website and")
     print("the second is file is a new the taxonomic data is saved too")
     sys.exit(1)
 

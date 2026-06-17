@@ -32,7 +32,7 @@ def GetEntry(collection, index):
 if len(sys.argv) < 3:
     print("Usage: Bold*.tsv output.txt")
     print("Where:")
-    print("  BOLD*.tsv is the filename with path with its path of the BOLD *.TSV data file")
+    print("  BOLD*.tsv is the filename with its path of the BOLD *.TSV data file")
     print(" output.txt is the name with path of the file to save the data too")
     sys.exit(1)
 

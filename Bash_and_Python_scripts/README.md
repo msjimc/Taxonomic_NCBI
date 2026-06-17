@@ -1,6 +1,6 @@
 # Python and Bash scripts
 
-This folder contains a number of Python and BASH scripts that are helpful in the for the analysis of eDNA. The BASH script fucus on the performing BLAST searches while the Python scripts can be used to create data that may be imported in to ___Taxonomic_NCBI___.
+This folder contains a number of Python and BASH scripts that may be helpful in the analysis of eDNA. The BASH scripts focus on performing BLAST searches, while the Python scripts can be used to create data that may be imported by ___Taxonomic_NCBI___.
 
 ## BLAST related scripts
 
@@ -12,21 +12,23 @@ This script can be used to make a series of BLAST databases from a folder of mul
 Where:
 
 - $makeblastdb is a variable that contains the location of the makeblastdb program distributed by the NCBI.
--   $fileName is the name and location of the multiple sequence fasta used to make the database.
+-   $fileName is the name and location of the multiple-sequence FASTA used to make the database.
 - $databaseName is the name and location of the BLAST database to be made.
 
-while make a single database, this script will make one for each multiple sequence fasta in a folder. __Note__: the fasta files must have the *.fa file extension.
+This script will make one BLAST database for each multiple-sequence FASTA file in a folder. __Note__: The FASTA files must have the *.fa file extension.
 
 ### Usage:
 
 > bash b_MakeBlastdb.sh \<path to folder>
 
 Where:
-- \<path to folder> is the name with its path of the folder of fasta files.
+- \<path to folder> is the name with its path of the folder of FASTA files.
+
+---
 
 - ## b_GetSequencesFromDADA2ReadCountFile.sh
 
-This BASH script reads the first line from a DADA2 read count file and creates a multiple sequence fasta file containing the sequence in the file. Each sequence's name is the index of the sequence in the DADA2 file, so the first is >1, the second is >2 and so on. Thsi file can then be used to search a BLAST database.
+This BASH script reads the first line from a DADA2 read count file and creates a multiple-sequence FASTA file containing the sequence in the file. Each sequence's name is the index of the sequence in the DADA2 file, so the first is >1, the second is >2 and so on. Thsi file can then be used to search a BLAST database.
 
 ### Usage:
 
@@ -35,11 +37,13 @@ This BASH script reads the first line from a DADA2 read count file and creates a
 Where:
 
 - \<DADA2 File> is the name with its path of the read count matrix file created by DADA2.
-- \<fastaFile> is the name with its path of the fasta file you wish to create containing. If the fasta file already exists it will be overwritten.
+- \<fastaFile> is the name with its path of the FASTA file you wish to create and will contain each sequence in the read count file. If the FASTA file already exists, it will be overwritten.
+
+---
 
 - ## b_CutUpFasta.sh
 
-When searching a BLAST database for sequences identified by a DADA2 pipeline, the number of sequences may be very high. Consequently, depending on the server used to preform the search, it may be better to run a number of searchers concurrently rather than one single large one. This BASH script will read a multiple sequence fasta file and create a series of child multiple sequence fasta in a folder. Each of these child multiple sequence fasta can then be used as the input of a BLAST search performed by the __s_BlastSequencesTenHits.sh__ script.
+When searching a BLAST database for sequences identified by a DADA2 pipeline, the number of sequences may be very high. Consequently, depending on the server used to perform the search, it may be better to run a number of searches concurrently rather than one single large one. This BASH script will read a multiple-sequence FASTA file and create a series of child multiple-sequence FASTA files in a new sub-folder. Each of these child multiple-sequence FASTA files can then be used as the input of a BLAST search performed by the __s_BlastSequencesTenHits.sh__ script.
 
 ### Usage:
 
@@ -47,73 +51,77 @@ When searching a BLAST database for sequences identified by a DADA2 pipeline, th
 
 Where:
 
-- \<fastaFile> is the name with its path of the multiple sequence fasta to process. The new fasta files will be saves to a folder named after the input fasta file, with is file extension replaced by ___fa_single__. So the file called /data/mySequences.fa will be have its child files placed in a folder called /data/mySequences_fa_single. Each of the child fasta files will be named 1.fa, 2.fa, 3.fa...
+- \<fastaFile> is the name with its path of the multiple-sequence FASTA to process. The new FASTA files will be saved to a folder named after the input FASTA file, with its file extension replaced by ___fa_single__. So a file called /data/mySequences.fa will have its child files placed in a folder called /data/mySequences_fa_single. Each of the child FASTA files will be named: 1.fa, 2.fa, 3.fa...
 
-The script save 200 sequences to each child fasta file, this can be changed to any value by changing line 28:
+The script save 200 sequences to each child FASTA file, this can be changed to any value by changing line 28:
 
 >     while [  $COUNTER -lt 199 ]; do
 
-to save 300 sequences per file use:
+To save 300 sequences per file use the following:
 
     while [  $COUNTER -lt 299 ]; do
 
+---
+
 - ## slurm_BlastSequencesTenHits.sh and sge_BlastSequencesTenHits.sh
 
-These scripts should be used on a HPC system that uses either SLURM or SGE as the queuing system. Both require the blastn executable to be present on the system along with a BLAST database. The database may be a custom one created using [___b_MakeBlastdb.sh___](#b_makeblastdbsh) described above or a pre-made database from the NCBI site. 
+These scripts should be used on an HPC system that uses either SLURM or SGE as the queuing system. Both require the blastn executable to be present on the system along with a BLAST database. The database may be a custom one created using [___b_MakeBlastdb.sh___](#b_makeblastdbsh) described above or a pre-made database from the NCBI site. 
 
-When these scripts run they will search the database with a subset of the sequences in the selected fasta file. The number of sequences in each search is set currently set at 50 in line 43:
+When these scripts run, they will search the database with a subset of the sequences in the selected FASTA file. The number of sequences in each search is currently set to 50 in line 43:
 
 > while [ $COUNTER -lt 49 ]; do
 
-to search with 100 sequences each go use:
+To search with 100 sequences each to use:
 
 > while [ $COUNTER -lt 99 ]; do
 
-The results of each search is saved to an *.xml in a subfolder in the same folder as the fasta file. If the BLAST search job times out, delete any empty *.xml files and rerun the job. This should start the analysis at the point where it stopped the last time. 
+The results of each search are saved to an *.xml in a subfolder in the same folder as the FASTA file. If the BLAST search job times out, delete any empty *.xml files and rerun the job. This should start the analysis at the point where it stopped the last time. 
 
 The returned file format is set on line 58 with: __-outfmt 5__, chaging the value to __-outfmt 6__ will create a standard BLAST output file.
 
-Check that a job that finished before completing all the searches didn't run out of memory, if it did either ask for more or reduce the number of sequences in each search.
+Check that a job finished after completing all the searches and didn't run out of memory. If it did run out of memory either request more memory or reduce the number of sequences in each search.
 
-These scripts return the top 10 results for each sequence. This value is set on line 58 with __-num_alignments 10__. Changing this value will change then number of hits returned for each sequence.
+These scripts return the top 10 results for each sequence. This value is set on line 58 with __-num_alignments 10__. Changing this value will change the number of hits returned for each sequence.
 
-These scripts use 3 processors per job (line 58: __-num_threads 3__), it may be tempting to increase this number, but the analysis bottle neck is the reading of the blast databases and if you have a lot of concurrent blast jobs running each with a lot of processors, they will lock up the filesystems read/write system and the whole HPC may be negatively impacted - ___The system admins will not be impressed!___
+These scripts use 3 processors per job (line 58: __-num_threads 3__). It may be tempting to increase this number, but the analysis bottleneck is the reading of the BLAST databases and if you have a lot of concurrent BLAST jobs running, each using a lot of processors, they may swamp up the file system's read/write queue and the whole HPC may be negatively impacted - ___the system admins will not be impressed!___
 
 ### Usage:
 
 For SLURM:
 
->  sbatch --array=1-n --export=folder=\<folder of fasta files>,blastdb=\<BLAST database>,blastn=\<program> lurm_BlastSequencesTenHits.sh
+>  sbatch --array=1-n --export=folder=\<folder of FASTA files>,blastdb=\<BLAST database>,blastn=\<program> lurm_BlastSequencesTenHits.sh
 
 For SGE:
 
-> qsub -t 1-n -v folder=\<folder of fasta files>,blastdb=\<BLAST database>,blastn=\<program> sge_BlastSequencesTenHits.sh
+> qsub -t 1-n -v folder=\<folder of FASTA files>,blastdb=\<BLAST database>,blastn=\<program> sge_BlastSequencesTenHits.sh
 
 Where:
-- --array=1-n or 1-n sets the number of different searches to be performed, this number should be equal to the number of child fasta files created by [__b_CutUpFasta.sh__](#b_cutupfastash).
-- \<folder of fasta files> is the name with its path of the folder of fasta files.
-- \<BLAST database> is the name of the BLAST database to be screened. If the database id from the NCBI, its name is the same as the files in the database minus their file extension. So a database containing the files:
+- --array=1-n or 1-n sets the number of different searches to be performed; this number should be equal to the number of child FASTA files created by [__b_CutUpFasta.sh__](#b_cutupfastash).
+- \<folder of FASTA files> is the name with its path of the folder of FASTA files.
+- \<BLAST database> is the name of the BLAST database to be screened. If the database is from the NCBI, its name is the same as the files in the database minus their file extension. So a database containing the files:
 __/mydbfolder/mydb.phr__, __/mydbfolder/mydb.pin__ and __/mydbfolder/mydb.psq__ is called __/mydbfolder/mydb__.
 - \<program> is the name and path of the blastn executable.
 
+---
+
 - ## p_Get_Blast_Data_From_Folder_of_Folders_pair.py
 
-This Python script will read all the *.xml files created by [__slurm_BlastSequencesTenHits.sh and sge_BlastSequencesTenHits.sh__](#slurm_blastsequencestenhitssh-and-sge_blastsequencestenhitssh) and create a pair of tab delimited text files that contain the BLAST hit results in a format that __Taxonomic_NCBI__ can use. 
+This Python script will read all the *.xml files created by [__slurm_BlastSequencesTenHits.sh and sge_BlastSequencesTenHits.sh__](#slurm_blastsequencestenhitssh-and-sge_blastsequencestenhitssh) and create a pair of tab-delimited text files that contain the BLAST hit results in a format that __Taxonomic_NCBI__ can use. 
 
-The out consists of two files called _Alignment_Details_one_line.txt_ and _Alignment_Details.txt_. Both contain the columns: 
+The output consists of two files called _Alignment_Details_one_line.txt_ and _Alignment_Details.txt_. Both contain the columns shown in the table below.
 
 |Header|Description|
 |-|-|
-|Fasta name|The name of the sequence in the fasta file|
-|Hit length|The length of the sequence in the fasta file|
+|Fasta name|The name of the sequence in the FASTA file|
+|Hit length|The length of the sequence in the FASTA file|
 |Alignment length|The length of the alignment|
-|Alignment Identities|Number of positions that are the same between the fasta file sequence and the hit sequence|
-|Percent Identities|Percentage of positions that are the same between the fasta file sequence and the hit sequence|
+|Alignment Identities|Number of positions that are the same between the FASTA file sequence and the hit sequence|
+|Percent Identities|Percentage of positions that are the same between the FASTA file sequence and the hit sequence|
 |E score|The hits e score value as stated by blastn|
 |Hit accession|The GenBank accession ID of the hit|
 |Hit name|The description of the hit sequence|
 
-The _Alignment_Details_one_line.txt_ contains first hit whose description doesn't start with the word "uncultured" (case insensitive). Ideally, this means that all sequences are mapped to a sequence linked to a species rather than as a sequence from an "uncultured" sample. If a sequence is linked to a GenBank entry whose description is uninformative, a better description may be found looking through the _Alignment_Details.txt_ file which should have up to 10 hits in it for each sequence. To quickly find secondary hits in the _Alignment_Details.txt_ file, open it in Excel and search for results with the same name in  the __Fasta name__ column.
+The _Alignment_Details_one_line.txt_ only contains the first hit whose description doesn't start with the word "uncultured" (case insensitive). Ideally, this means that all sequences are mapped to a sequence linked to a species rather than as a sequence from an "uncultured" sample. If a sequence is linked to a GenBank entry whose description is uninformative, a better description may be found by looking through the _Alignment_Details.txt_ file which should have up to 10 hits in it for each sequence. To quickly find secondary hits in the _Alignment_Details.txt_ file, open it in Excel and search for results with the same name in the __Fasta name__ column.
 
 ### Usage:
 
@@ -121,19 +129,21 @@ The _Alignment_Details_one_line.txt_ contains first hit whose description doesn'
 
 Where: 
 
-- \<Folder of results XML files> is the folder that contains the original fasta file with sequences extracted from the DADA2 read count file. The script will read XML files in any subfolder (or subfolder's subfolders).
+- \<Folder of results XML files> this is the folder that contains the original FASTA file with sequences extracted from the DADA2 read count file. The script will read XML files in any subfolder (or subfolder's subfolders).
+
+---
 
 ## ___Taxonomic_NCBI___ related scripts 
 
 - ## Taxonomy files
 
-While ___Taxonomic_NCBI___ annotates the read-count matrix with taxonomic data derived from the NCBI Taxonomy site, it can also append taxonomic descriptions from other data sources; However, it is often not in the required formatted. The  following Python scripts extract taxonomic data from a range of source and export it as a suitably formatted text file.
+While ___Taxonomic_NCBI___ annotates the read-count matrix with taxonomic data derived from the NCBI Taxonomy site, it can also append taxonomic descriptions from other data sources; however, it is often not in the required format. The  following Python scripts extract taxonomic data from a range of sources and export it as a suitably formatted text file.
 
-The desired format is for the each species taxonomic ranking to be listed from the root at the start of a line and the species name at the end. Each group is separated by a _Tab_ character. Ideally, each species contains the same ranking; However, sources such as SILVA have different groups for major groups, for example Bacteria is different to Eukaryota. This may not be problem as most amplicon eDNA experiments are limited to specific subsets of species, but metagenomic eDNA may contain DNA from all types of organisms.
+The desired format is for each species' taxonomic ranking to be listed from the root at the start of a line to the species name at the end. Each group is separated by a _Tab_ character. Ideally, each species contains the same ranking; however, sources such as SILVA have different groups for major groups. For example, Bacteria is different from Eukaryota. This may not be a problem, as most amplicon eDNA experiments are limited to specific subsets of species, but metagenomic eDNA may contain DNA from all types of organisms.
 
 - ### CreateTaxonomyFileFromMIMTTax.py
 
-This script reads a MIMT*.tax, for example, MIMt-16S_26_03.tax and exports the data in the correct format.
+This script reads a MIMT*.tax file, for example, MIMt-16S_26_03.tax and exports the correctly formatted taxonomic data to a new file.
 
 MIMT website: [https://mimt.bu.biopolis.pt/](https://mimt.bu.biopolis.pt/)
 
@@ -143,12 +153,14 @@ MIMT website: [https://mimt.bu.biopolis.pt/](https://mimt.bu.biopolis.pt/)
 
 Where:
 
-- \<MIMt-*.tax> is the name with path of the MIMT data file.
-- \<TaxonomicList.txt> is the name with path of the file to be created.
+- \<MIMt-*.tax> is the path and name of the MIMT data file.
+- \<TaxonomicList.txt> is the path and name of the file to be created.
+
+---
 
 - ### CreateTaxonomyFileFromPR2fastaFile.py
 
-This script reads a PR2 multiple sequence fasta file from PR2, for example, pr2_version_5.1.1_SSU_taxo_long.fasta and exports the data in the correct format.
+This script reads a PR2 multiple-sequence FASTA file from the PR2 website, for example, pr2_version_5.1.1_SSU_taxo_long.fasta and exports the correctly formatted taxonomic data to a new file.
 
 PR2 website: [https://pr2-database.org/](https://pr2-database.org/).
 
@@ -158,52 +170,64 @@ PR2 website: [https://pr2-database.org/](https://pr2-database.org/).
 
 Where:
 
-- \<PR2*.fasta> is the name with path of the PR2 fasta file.
-- \<TaxonomicList.txt> is the name with path of the file to be created.
+- \<PR2*.fasta> is the path and name of the PR2 FASTA file.
+- \<TaxonomicList.txt> is the path and name of the file to be created.
+
+---
 
 - ### CreateTaxonomyFileFromSILVAfastaFile.py
 
-This script reads a SILVA multiple sequence fasta file from SILVA, for example, SILVA_138.2_SSURef_tax_silva.fasta and exports the data in the correct format.
+This script reads a SILVA multiple-sequence FASTA file from SILVA, for example, SILVA_138.2_SSURef_tax_silva.fasta and exports the correctly formatted taxonomic data to a new file.
 
 SILVA website [https://www.arb-silva.de/](https://www.arb-silva.de/).
 
-### usage:
+### Usage:
 
 > python CreateTaxonomyFileFromSILVAfastaFile.py <SILVA*.fasta> <TaxonomicList.txt>
 
 Where:
 
-- \<SILVA*.fasta> is the name with path of the SILVA fasta file.
-- \<TaxonomicList.txt> is the name with path of the file to be created.
+- \<SILVA*.fasta> is the path and name of the SILVA FASTA file.
+- \<TaxonomicList.txt> is the path and name of the file to be created.
 
- ### CreateTaxonomyFileFromWORMSPartnerXLSX.py
+---
 
-This script reads a excel XLSX  file from a website linked to WoRMS, for example, CaRMS_taxlist_20260604.xlsx or NARMS_taxlist_20260604.xlsx and exports the data in the correct format. Unlike the other python scripts this script requires the installation of the pandas package (and its dependencies) to enable it to read the binary Excel files.
+- ### CreateTaxonomyFileFromWORMSPartnerXLSX.py
+
+This script reads an Excel XLSX  file from a website linked to WoRMS, for example, CaRMS_taxlist_20260604.xlsx or NARMS_taxlist_20260604.xlsx and exports the correctly formatted taxonomic data to a new file. Unlike the other Python scripts, this script requires the installation of the pandas package (and its dependencies) to enable it to read the binary Excel files.
 
 WoRMS website: [https://www.marinespecies.org/](https://www.marinespecies.org/)
 
-### usage:
+### Usage:
 
 > python CreateTaxonomyFileFromWORMSPartnerXLSX.py <WORMS_Data_File.xlsx> <TaxonomicList.txt> [Yes|No]
 
 Where:
 
-- \<WORMS_Data_File.xlsx> is the name with path of the Excel file from a WoRMS linked website.
-- \<TaxonomicList.txt> is the name with path of the file to be created.
-- [Yes|No] is parameter is optional, 
-     - If Yes species names will include the subgenus e.g. Acartia (Acanthacartia) bifilosa
-     - No (default) the subgenus will be removed from the name e.g. Acartia bifilosa
+- \<WORMS_Data_File.xlsx> is the path and name of the Excel file from a WoRMS linked website.
+- \<TaxonomicList.txt> is the path and name of the file to be created.
+- [Yes|No] is parameter is optional: 
+     - If Yes species names will include the subgenus, e.g., Acartia (Acanthacartia) bifilosa
+     - If No (default) the subgenus will be removed from the name, e.g., Acartia bifilosa
 
-__Note:__ if the subgenus is left in the name it means that the data can't be used by __Taxonomy_NCBI__ and the option was added to allow the data to be used in other situations.
+__Note:__ If the subgenus is left in the name, it means that the data can't be used by __Taxonomy_NCBI__ and this option was added to allow the data to be used in other situations.
+
+---
+
+- ### CreateTaxonomyFileFromBOLDTSVFile.py link
+
+See the section [CreateTaxonomyFileFromBOLDTSVFile.py](#createtaxonomyfilefromboldtsvfilepy) below.
+
+---
 
 - ## BOLD specific Python scripts
 
-The BOLD project collects contains sequences that may be used in eDNA analysis and links them to their geographic location. The data set is very large as the same sequence may be list multiple times with each instance linked to a geographic location and a habitat. The BOLD data data can be interrogated via the BOLD data portal and also downloaded as a single large tab delimited text file with the *.TSV file extension and a smaller JSON file compressed into a tar.gz file. This file is very large with the version released in May 2026 ove 32Gb in size when decompressed. 
-The following Python scripts process the large TSV file and extra certain data.
+The BOLD project collects sequences that may be used in eDNA analysis and links them to their geographic location. The data set is very large, as the same sequence may be listed multiple times, with each instance linked to a different geographic location and a habitat. The BOLD data can be interrogated via the BOLD data portal and also downloaded as a single TAR.GZ file that contains a very large tab-delimited text file with the *.TSV file extension and a smaller JSON file. The TSV file is very large, with the version released in May 2026 over 32 Gb in size when decompressed. 
+The following Python scripts process the large TSV file and extract sequence and taxonomic data.
 
 BOLD website [https://www.boldsystems.org/](https://www.boldsystems.org/)
 
-### GetBOLDAttributes.py 
+- ### GetBOLDAttributes.py 
 
 This file reads the BOLD TSV file and extract all the different options for the different data fields:
 
@@ -219,9 +243,53 @@ This file reads the BOLD TSV file and extract all the different options for the 
 
 ### Usage:
 
-> python GetBOLDAttributes.py Bold*.tsv output.txt
+> python GetBOLDAttributes.py \<Bold*.tsv> \<output.txt>
 
 Where:
 
-- BOLD*.tsv is the filename with path of the BOLD *.TSV data file
-- output.txt is the name with path of the file to save the data too
+- \<BOLD*.tsv> is the path and filename of the BOLD *.TSV data file
+- \<output.txt> is the path and name of the file to save the data too.
+
+---
+
+- ### CreateFilteredBOLDFastaFile.py
+
+After determining what attributes are present in the BOLD*.TSV file, these can be used to screen the BOLD*.TSV file and create two files, a FASTA file containing the sequences linked to the terms and a taxonomic string file that contains the taxonomic descriptions of the sequences in the FASTA file. Consequently, these files contain sequence data linked to specific locations and/or habitats and may be used to identify invasive species or erroneously annotated sequences.
+
+### Usage:
+
+> python CreateFilteredBOLDFastaFile.py \<BOLD*.tsv> \<BOLD*.fasta \<TaxonomicList.txt> \<filter key=value pairs>
+
+Where:
+
+- \<BOLD*.tsv> is the path and filename of the BOLD *.TSV data file.
+- \<BOLD*.fasta> is the path and name of the FASTA file to save the sequence data too. 
+- \<TaxonomicList.txt> is the path and name of the file to be created.
+- \<filter key=value pairs> is the array of search terms. There is no limit to the number of terms used, but each one must follow the 'key'='value1,value2,value2' format.
+  - Where:  
+    Key is one of these values Biome, Realm, Habitat, Province/State, Country_ISO, Country/Ocean or marker_code and  
+    Value is the text in a sequence's field that you wish to retain  
+    For instance:  
+    "Country/Ocean=United Kingdom,France,Germany" "habitat=Edge of deciduous forest"
+
+__Note:__ The value "None" is in the top five of all the fields, and there are over 38,000 different Habitat values. Consequently, the filtering should be quite general or it will return very few results.
+
+---
+
+### CreateTaxonomyFileFromBOLDTSVFile.py
+
+
+This script reads a BOLD TSV file from BOLD, for example, BOLD_Public.01-May-2026.tsv and exports the taxonomic data in the correct format.
+
+
+### usage:
+
+> python CreateTaxonomyFileFromBOLDTSVFile.py \<BOLD*.tsv> \<TaxonomicList.txt>
+
+Where:
+
+- \<BOLD*.tsv> is the path and name of the BOLD TSV file.
+- \<TaxonomicList.txt> is the path and name of the file to be created.
+
+---
+
