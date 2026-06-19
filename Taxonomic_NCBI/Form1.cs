@@ -349,10 +349,6 @@ namespace Taxonomic_NCBI
                                     break;
                                 }
                             }
-                            else
-                            {
-
-                            }
                         }
                     }
                 }

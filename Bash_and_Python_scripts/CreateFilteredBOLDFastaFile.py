@@ -168,7 +168,7 @@ for line in boldFile:
                       
         if len(sequence) > 10 and hitCount == keyCount:                        
             added += 1
-            output.write(">" + speciesName + "\n" + sequence + "\n")
+            output.write(">" + speciesName.replace(" ", "_") + "\n" + sequence + "\n")
             seqDic[testSpeciesName] = sequence
             if (speciesName in taxDict) == False:
                 taxString = ""
