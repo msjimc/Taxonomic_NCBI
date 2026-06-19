@@ -92,8 +92,8 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(615, 544);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(611, 544);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Name field select";
@@ -102,7 +102,7 @@
             // 
             this.chkIgnoreNones.AutoSize = true;
             this.chkIgnoreNones.Location = new System.Drawing.Point(156, 190);
-            this.chkIgnoreNones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkIgnoreNones.Margin = new System.Windows.Forms.Padding(2);
             this.chkIgnoreNones.Name = "chkIgnoreNones";
             this.chkIgnoreNones.Size = new System.Drawing.Size(122, 17);
             this.chkIgnoreNones.TabIndex = 10;
@@ -159,14 +159,14 @@
             this.txtLine.Location = new System.Drawing.Point(9, 325);
             this.txtLine.Multiline = true;
             this.txtLine.Name = "txtLine";
-            this.txtLine.Size = new System.Drawing.Size(600, 80);
+            this.txtLine.Size = new System.Drawing.Size(596, 80);
             this.txtLine.TabIndex = 20;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(534, 268);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNext.Location = new System.Drawing.Point(530, 268);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 18;
@@ -177,8 +177,8 @@
             // btnPervious
             // 
             this.btnPervious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPervious.Location = new System.Drawing.Point(455, 268);
-            this.btnPervious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPervious.Location = new System.Drawing.Point(451, 268);
+            this.btnPervious.Margin = new System.Windows.Forms.Padding(2);
             this.btnPervious.Name = "btnPervious";
             this.btnPervious.Size = new System.Drawing.Size(75, 23);
             this.btnPervious.TabIndex = 17;
@@ -192,7 +192,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Location = new System.Drawing.Point(6, 268);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(438, 30);
+            this.label6.Size = new System.Drawing.Size(434, 30);
             this.label6.TabIndex = 16;
             this.label6.Text = "The selected data terms will appear below. Use the Next and Previous buttons to c" +
     "ycle through the first twenty lines.";
@@ -205,7 +205,7 @@
             this.txtSelected.Location = new System.Drawing.Point(9, 424);
             this.txtSelected.Multiline = true;
             this.txtSelected.Name = "txtSelected";
-            this.txtSelected.Size = new System.Drawing.Size(600, 115);
+            this.txtSelected.Size = new System.Drawing.Size(596, 115);
             this.txtSelected.TabIndex = 22;
             this.txtSelected.TextChanged += new System.EventHandler(this.txtSelected_TextChanged);
             // 
@@ -213,7 +213,7 @@
             // 
             this.chkSecondFromEnd.AutoSize = true;
             this.chkSecondFromEnd.Location = new System.Drawing.Point(282, 190);
-            this.chkSecondFromEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkSecondFromEnd.Margin = new System.Windows.Forms.Padding(2);
             this.chkSecondFromEnd.Name = "chkSecondFromEnd";
             this.chkSecondFromEnd.Size = new System.Drawing.Size(165, 17);
             this.chkSecondFromEnd.TabIndex = 11;
@@ -225,7 +225,7 @@
             // 
             this.chkFirstFromEnd.AutoSize = true;
             this.chkFirstFromEnd.Location = new System.Drawing.Point(282, 146);
-            this.chkFirstFromEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkFirstFromEnd.Margin = new System.Windows.Forms.Padding(2);
             this.chkFirstFromEnd.Name = "chkFirstFromEnd";
             this.chkFirstFromEnd.Size = new System.Drawing.Size(165, 17);
             this.chkFirstFromEnd.TabIndex = 6;
@@ -236,8 +236,8 @@
             // nudSecondSecondColumn
             // 
             this.nudSecondSecondColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudSecondSecondColumn.Location = new System.Drawing.Point(534, 187);
-            this.nudSecondSecondColumn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudSecondSecondColumn.Location = new System.Drawing.Point(530, 187);
+            this.nudSecondSecondColumn.Margin = new System.Windows.Forms.Padding(2);
             this.nudSecondSecondColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -261,8 +261,8 @@
             // nudSecondFirstColumn
             // 
             this.nudSecondFirstColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudSecondFirstColumn.Location = new System.Drawing.Point(455, 187);
-            this.nudSecondFirstColumn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudSecondFirstColumn.Location = new System.Drawing.Point(451, 187);
+            this.nudSecondFirstColumn.Margin = new System.Windows.Forms.Padding(2);
             this.nudSecondFirstColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -296,8 +296,8 @@
             // nudFirstSecondColumn
             // 
             this.nudFirstSecondColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudFirstSecondColumn.Location = new System.Drawing.Point(534, 145);
-            this.nudFirstSecondColumn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudFirstSecondColumn.Location = new System.Drawing.Point(530, 145);
+            this.nudFirstSecondColumn.Margin = new System.Windows.Forms.Padding(2);
             this.nudFirstSecondColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -321,8 +321,8 @@
             // nudFirstFirstColumn
             // 
             this.nudFirstFirstColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudFirstFirstColumn.Location = new System.Drawing.Point(455, 144);
-            this.nudFirstFirstColumn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudFirstFirstColumn.Location = new System.Drawing.Point(451, 144);
+            this.nudFirstFirstColumn.Margin = new System.Windows.Forms.Padding(2);
             this.nudFirstFirstColumn.Maximum = new decimal(new int[] {
             50,
             0,
@@ -356,8 +356,8 @@
             // txtSecondSplit
             // 
             this.txtSecondSplit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSecondSplit.Location = new System.Drawing.Point(534, 103);
-            this.txtSecondSplit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSecondSplit.Location = new System.Drawing.Point(530, 103);
+            this.txtSecondSplit.Margin = new System.Windows.Forms.Padding(2);
             this.txtSecondSplit.Name = "txtSecondSplit";
             this.txtSecondSplit.Size = new System.Drawing.Size(75, 20);
             this.txtSecondSplit.TabIndex = 4;
@@ -376,8 +376,8 @@
             // txtFirstSplit
             // 
             this.txtFirstSplit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstSplit.Location = new System.Drawing.Point(534, 79);
-            this.txtFirstSplit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFirstSplit.Location = new System.Drawing.Point(530, 79);
+            this.txtFirstSplit.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirstSplit.Name = "txtFirstSplit";
             this.txtFirstSplit.Size = new System.Drawing.Size(75, 20);
             this.txtFirstSplit.TabIndex = 2;
@@ -399,7 +399,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(603, 57);
+            this.label1.Size = new System.Drawing.Size(599, 57);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -407,8 +407,8 @@
             // 
             this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(467, 561);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccept.Location = new System.Drawing.Point(463, 561);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 1;
@@ -420,8 +420,8 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(546, 561);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(542, 561);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -432,13 +432,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 598);
+            this.ClientSize = new System.Drawing.Size(635, 598);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(293, 350);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(651, 637);
             this.Name = "columnSelection";
             this.Text = "Name location";
             this.Load += new System.EventHandler(this.columnSelection_Load);
