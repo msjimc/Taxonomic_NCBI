@@ -84,7 +84,7 @@ namespace Taxonomic_NCBI
             }
 
             if (MessageBox.Show("Filtering complete. " + newdata.Count.ToString() + " rows remaining containing " + retianedReads.ToString("N0") +  " reads, and " +
-                removed.ToString() + " rows removed containing " + deletedreads.ToString("N0") +  " reads.", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                removed.ToString() + " rows removed containing " + deletedreads.ToString("N0") + " reads.\nDo you want to keep the data set?", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 data = newdata;
                 btnAccept.Enabled = true;

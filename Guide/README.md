@@ -246,11 +246,12 @@ ___
 The ___Tasks___ region contains five buttons, which, when pressed, open a new window that will perform a filtering, annotation, or aggregating task on the read-count data.
 
 - [Filter species by a list of species names](#filter-species-by-a-list-of-species-names)
-- [Filtering sequence data based on the quality of the BLAST hit](#filtering-sequence-data-based-on-the-quality-of-the-blast-hit)
+- [Filtering sequences data based on the quality of the BLAST hit](#filtering-sequence-data-based-on-the-quality-of-the-blast-hit)
 - [Exclude data based on its read-count across all samples](#exclude-data-based-on-its-read-count-across-all-samples)
 - [Combine read-count data based on its taxonomy grouping](#combine-read-count-data-based-on-its-taxonomy-grouping)
 - [Append taxonomic data from different source](#appending-taxonomic-data-from-a-different-source)
 - [Deleting unwanted columns](#deleting-unwanted-columns)
+- [Renaming column names](#renaming-column-names)
 
 
 ### Filter species by a list of species names
@@ -458,7 +459,7 @@ The results of the analysis are initially stored within  the __Append taxonomic 
 
 ### Deleting unwanted columns
 
-The annotation read-count matrix may contain a number of columns that are not required for any subsequent analysis and so can safely be removed from the data set. This can be performed by pressing the __Remove__ button (**brown** line on Figure 13), which will open the __Remove data columns__  window (Figure 24).
+The annotated read-count matrix may contain a number of columns that are not required for any subsequent analysis and so can safely be removed from the data set. This can be performed by pressing the __Remove__ button (**brown** line on Figure 13), which will open the __Remove data columns__  window (Figure 24).
 
 ![](images/figure25.jpg)
 
@@ -481,3 +482,113 @@ Pressing the __Remove__ button (blue line in Figure 25) will delete the selected
 #### Saving the changes to a file
 
 The results of the analysis are stored within  the __Remove data columns__ window and are not accessible to the rest of __Taxonomic_NCBI__. Therefore, to save the data, you must press the __Accept__ button (grey line in Figure 25). This will close the window and the new data set will replace the original one held by __Taxonomic_NCBI__. The data can then be saved to a file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
+### Renaming column names
+
+Where possible, __Taxonomic_NCBI__ uses the column headers inherited from the original data. If a file contained no column names, __Taxonomic_NCBI__ creates them in the same manner as Excel labels columns, i.e., __A__ to __Z__, then __AA__ to __AZ__ and then __BA__ to __BZ__ and so on. Consequently, it may be necessary to modify these names so they are more meaningful or concise.  __Taxonomic_NCBI__ allows you to edit column names by two methods via the __Rename columns__ window. 
+
+
+Renaming the columns is performed by pressing the __Rename__ button (grey line on Figure 13). This will open the __Rename columns__ (Figure 26).
+
+![](images/figure26.jpg)
+
+Figure 26.
+
+---
+
+### Renaming the column names using a saved list of names created by __Taxonomic_NCBI__
+
+Renaming the columns using a list of the current names saved to a file is performed in four steps using the __Make__ and __Change__ buttons as follows:
+
+#### Creating and editing a list of the current column names
+
+Pressing the __Make__ button (blue line in Figure 26) prompts you to select a file to save the current names too and then create a text consisting of two lines of descriptive text followed by the name of each column a __tab__   character and then the column's name again. To change a column's name, edit the second instance of the name as shown in Figure 27. In this example, the current name was derived from the sample's file name (red box in Figure 17a) and has been renamed with a more concise name (blue box in in Figure 27a).
+
+If a name occurs more than once, subsequent occurrences are labelled as: __\<Current name>__ + __":/"__ + __\<number>__. For instance, in Figure 27b, the name B.fastq.gz appears twice, with the second occurrence marked with the __:.1__ suffix (blue line in Figure 27b). This allows you to edit one instance without affecting the other. 
+
+Once you have edited the column names, save the text file.
+
+![](images/figure27a.jpg)
+
+Figure 27a.
+
+---
+
+![](images/figure27b.jpg)
+
+Figure 27b.
+
+---
+
+#### Importing a list of modified column names
+
+Once you have edited the file of column names, press the __Change__ button (red line in Figure 26) and select the file. These will then be imported and matched to the current column names. When complete, __Taxonomic_NCBI__ will display a message stating how many columns are in the current read-count matrix, how many were changed and how many data lines were in the imported file. Press the __Yes__ button to cause the current edits to be saved.
+
+__Note:__ The imported file does not need to contain all the columns in the read-count matrix - if a name is omitted, the name in the matrix will not be changed.
+
+![](images/figure28.jpg)
+
+Figure 28.
+
+---
+
+
+#### Saving the analysis
+
+The results of the column name editing are initially stored within the __Rename columns__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore, to save the data, you must press the __Accept__ button (grey line in Figure 26). This will close the window and the results of the screening(s) will replace the data in the __Taxonomic_NCBI__ program. The data can then be saved to a file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
+### Renaming column names that match user-defined text
+
+When column names are derived from sample file names, they may contain a significant amount of duplicated text that could be removed; for instance, Illumina data files may follow the format of  
+__\<sample name>\_S\_<sample number>_\<lane id>\_\<read id>\_\<legacy text>.\<flie extension>__
+
+For example:  
+Sample_001_B_S3_L001_R1_001.fastq.gz   
+Sample_001_H_S4_L001_R1_001.fastq.gz   
+Sample_002_G_S5_L001_R1_001.fastq.gz   
+Sample_002_H_S6_L001_R1_001.fastq.gz   
+Sample_006_B_S7_L001_R1_001.fastq.gz  
+
+### Removing a common prefix
+
+In the example above all the samples start with the text __Sample\___. To remove this, enter "__ple\___" in the text area (blue line in Figure 29) and select the __Also remove text before match__ option (red line in Figure 29). A preview of the changes can be seen by selecting an entry in the dropdown list (black line in Figure 29). If the required edit is performed on all the samples, press the __Edit__ button (green line in Figure 29) to modify the local version of the column names.
+
+![](images/figure29.jpg)
+
+Figure 29.
+
+---
+
+### Only removing the word matching the text
+
+In the example above, all the samples contain   the text __\_L001\_R1\_001__. To remove this, enter "__\_L001\_R1\_001__" in the text area (blue line in Figure 30) and select the __Remove just the matching text__ option (red line in Figure 30). A preview of the changes can be seen by selecting an entry in the dropdown list (black line in Figure 30). If the required edit is performed on all the samples, press the __Edit__ button (green line in Figure 30) to modify the local version of the column names.
+
+![](images/figure30.jpg)
+
+Figure 30.
+
+---
+
+### Removing a common suffix
+
+In the example above all the samples end with the text __\_L001\_R1\_001.fastq.gz__. To remove this, enter "__\_L001__" in the text area (blue line in Figure 31) and select the __Also remove text before match__ option (red line in Figure 31). A preview of the changes can be see by selecting an entry in the dropdown list (black line in Figure 31). If the required edit is performed on all the samples, press the __Edit__ button (green line in Figure 31) to modify the local version of the column names.
+
+![](images/figure31.jpg)
+
+Figure 31.
+
+---
+
+#### Accepting the local changes
+
+Whichever option is used, pressing the __Edit__ button will modify the column names and display a message stating how many columns there are and how many have their names modified. Pressing the __Yes__ button on the message box will save the modifications to the __Rename columns__ window but not to the data held by __Taxonomic_NCBI__.
+
+![](images/figure32.jpg)
+
+Figure 32.
+
+---
+
+#### Saving the analysis
+
+The results of the column name editing are initially stored within the __Rename columns__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore, to save the data, you must press the __Accept__ button (grey line in Figure 26). This will close the window and the results of the screening(s) will replace the data in the __Taxonomic_NCBI__ program. The data can then be saved to a file by pressing the __Save__ button (purple line in Figure 13) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.

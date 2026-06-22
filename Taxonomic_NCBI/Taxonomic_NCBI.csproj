@@ -139,6 +139,12 @@
     <Compile Include="RemoveColumns.Designer.cs">
       <DependentUpon>RemoveColumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="RenameColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenameColumns.Designer.cs">
+      <DependentUpon>RenameColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="sampleData.cs" />
     <EmbeddedResource Include="AggregateByTaxonomy.resx">
       <DependentUpon>AggregateByTaxonomy.cs</DependentUpon>
@@ -178,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="RemoveColumns.resx">
       <DependentUpon>RemoveColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RenameColumns.resx">
+      <DependentUpon>RenameColumns.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

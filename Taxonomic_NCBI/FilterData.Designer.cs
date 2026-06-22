@@ -42,6 +42,8 @@
             this.cboDataEnd = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.gbTasks = new System.Windows.Forms.GroupBox();
+            this.btnRemoveColumns = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnAppend = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCombine = new System.Windows.Forms.Button();
@@ -52,8 +54,8 @@
             this.lblBlast = new System.Windows.Forms.Label();
             this.btnList = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnRemoveColumns = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnRename = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbTasks.SuspendLayout();
             this.SuspendLayout();
@@ -175,7 +177,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.Location = new System.Drawing.Point(12, 340);
+            this.btnClose.Location = new System.Drawing.Point(12, 369);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -185,6 +187,8 @@
             // 
             // gbTasks
             // 
+            this.gbTasks.Controls.Add(this.label9);
+            this.gbTasks.Controls.Add(this.btnRename);
             this.gbTasks.Controls.Add(this.btnRemoveColumns);
             this.gbTasks.Controls.Add(this.label8);
             this.gbTasks.Controls.Add(this.btnAppend);
@@ -200,10 +204,29 @@
             this.gbTasks.Enabled = false;
             this.gbTasks.Location = new System.Drawing.Point(12, 143);
             this.gbTasks.Name = "gbTasks";
-            this.gbTasks.Size = new System.Drawing.Size(540, 190);
+            this.gbTasks.Size = new System.Drawing.Size(540, 220);
             this.gbTasks.TabIndex = 1;
             this.gbTasks.TabStop = false;
             this.gbTasks.Text = "Tasks";
+            // 
+            // btnRemoveColumns
+            // 
+            this.btnRemoveColumns.Location = new System.Drawing.Point(459, 162);
+            this.btnRemoveColumns.Name = "btnRemoveColumns";
+            this.btnRemoveColumns.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveColumns.TabIndex = 11;
+            this.btnRemoveColumns.Text = "Remove";
+            this.btnRemoveColumns.UseVisualStyleBackColor = true;
+            this.btnRemoveColumns.Click += new System.EventHandler(this.btnRemoveColumns_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 167);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(333, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "To remove columns form annotated read-count matrix press \'Remove\'";
             // 
             // btnAppend
             // 
@@ -300,30 +323,30 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "To filter species by a list of species names press \'List\'";
             // 
-            // btnRemoveColumns
+            // btnRename
             // 
-            this.btnRemoveColumns.Location = new System.Drawing.Point(459, 162);
-            this.btnRemoveColumns.Name = "btnRemoveColumns";
-            this.btnRemoveColumns.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveColumns.TabIndex = 11;
-            this.btnRemoveColumns.Text = "Remove";
-            this.btnRemoveColumns.UseVisualStyleBackColor = true;
-            this.btnRemoveColumns.Click += new System.EventHandler(this.btnRemoveColumns_Click);
+            this.btnRename.Location = new System.Drawing.Point(459, 191);
+            this.btnRename.Name = "btnRename";
+            this.btnRename.Size = new System.Drawing.Size(75, 23);
+            this.btnRename.TabIndex = 12;
+            this.btnRename.Text = "Rename";
+            this.btnRename.UseVisualStyleBackColor = true;
+            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
-            // label8
+            // label9
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 167);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(333, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "To remove columns form annotated read-count matrix press \'Remove\'";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 196);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(125, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Rename column headers";
             // 
             // FilterData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 375);
+            this.ClientSize = new System.Drawing.Size(564, 404);
             this.Controls.Add(this.gbTasks);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
@@ -367,5 +390,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRemoveColumns;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnRename;
     }
 }

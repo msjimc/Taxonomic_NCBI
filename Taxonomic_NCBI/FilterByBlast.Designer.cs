@@ -161,7 +161,7 @@
             // 
             this.label11.Location = new System.Drawing.Point(6, 16);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(464, 31);
+            this.label11.Size = new System.Drawing.Size(528, 31);
             this.label11.TabIndex = 0;
             this.label11.Tag = "";
             this.label11.Text = "To filter data by a value in a column, select the column, choose whether the valu" +

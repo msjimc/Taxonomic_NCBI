@@ -275,6 +275,13 @@ namespace Taxonomic_NCBI
 
         private void btnRename_Click(object sender, EventArgs e)
         {
+            RenameColumns rc = new RenameColumns(this, headers);
+            if (rc.ShowDialog() == DialogResult.OK)
+            {
+                headers = rc.Headers;
+                setComboboxes();
+                btnSave.Enabled = true;
+            }
 
         }
     }
