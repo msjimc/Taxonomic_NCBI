@@ -146,6 +146,13 @@
       <DependentUpon>RenameColumns.cs</DependentUpon>
     </Compile>
     <Compile Include="sampleData.cs" />
+    <Compile Include="SequenceHit.cs" />
+    <Compile Include="SpeciesSequenceLinker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpeciesSequenceLinker.Designer.cs">
+      <DependentUpon>SpeciesSequenceLinker.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AggregateByTaxonomy.resx">
       <DependentUpon>AggregateByTaxonomy.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RenameColumns.resx">
       <DependentUpon>RenameColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpeciesSequenceLinker.resx">
+      <DependentUpon>SpeciesSequenceLinker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

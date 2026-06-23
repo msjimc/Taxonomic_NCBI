@@ -15,6 +15,7 @@ namespace Taxonomic_NCBI
         List<string> headers = new List<string>();
         List<List<string>> data = new List<List<string>>();
         FilterData fd;
+        private List<string> specieslist = new List<string>();
 
         public FilterWithList(FilterData FD, List<string> Headers, List<List<string>> Data)
         {
@@ -94,8 +95,7 @@ namespace Taxonomic_NCBI
         {
             SetBtnCOmpareActivity();
         }
-
-        private List<string> specieslist = new List<string>();
+        
         private void SetBtnCOmpareActivity()
         {
             int answer = 0;

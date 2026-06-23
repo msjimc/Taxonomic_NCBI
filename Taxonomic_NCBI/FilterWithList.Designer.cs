@@ -55,8 +55,8 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.btnCompare);
             this.groupBox3.Controls.Add(this.txtFlaggedColoumnName);
-            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.btnSelectSpeciesList);
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(16, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(540, 171);
@@ -97,7 +97,7 @@
             // rdoKeepIfInList
             // 
             this.rdoKeepIfInList.AutoSize = true;
-            this.rdoKeepIfInList.Location = new System.Drawing.Point(165, 63);
+            this.rdoKeepIfInList.Location = new System.Drawing.Point(160, 63);
             this.rdoKeepIfInList.Name = "rdoKeepIfInList";
             this.rdoKeepIfInList.Size = new System.Drawing.Size(133, 17);
             this.rdoKeepIfInList.TabIndex = 3;
@@ -151,14 +151,14 @@
             // 
             this.label4.Location = new System.Drawing.Point(6, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(447, 51);
+            this.label4.Size = new System.Drawing.Size(447, 45);
             this.label4.TabIndex = 0;
             this.label4.Text = resources.GetString("label4.Text");
             // 
             // btnSelectSpeciesList
             // 
             this.btnSelectSpeciesList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectSpeciesList.Location = new System.Drawing.Point(459, 26);
+            this.btnSelectSpeciesList.Location = new System.Drawing.Point(459, 43);
             this.btnSelectSpeciesList.Name = "btnSelectSpeciesList";
             this.btnSelectSpeciesList.Size = new System.Drawing.Size(75, 23);
             this.btnSelectSpeciesList.TabIndex = 1;

@@ -177,9 +177,6 @@ namespace Taxonomic_NCBI
                     cboNewNames.Items.Clear(); 
                 }
 
-
-
-
                 lblmatches.Text = count.ToString() + " matches";
                 if (count > 0) 
                 {

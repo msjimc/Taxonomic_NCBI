@@ -32,20 +32,20 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnExportList = new System.Windows.Forms.Button();
-            this.btnImportList = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblmatches = new System.Windows.Forms.Label();
-            this.txtSearchterm = new System.Windows.Forms.TextBox();
-            this.rboPrefix = new System.Windows.Forms.RadioButton();
-            this.rdoOnly = new System.Windows.Forms.RadioButton();
-            this.rdoSuffix = new System.Windows.Forms.RadioButton();
-            this.btnEditNames = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.cboNewNames = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnEditNames = new System.Windows.Forms.Button();
+            this.rdoSuffix = new System.Windows.Forms.RadioButton();
+            this.rdoOnly = new System.Windows.Forms.RadioButton();
+            this.rboPrefix = new System.Windows.Forms.RadioButton();
+            this.txtSearchterm = new System.Windows.Forms.TextBox();
+            this.lblmatches = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnImportList = new System.Windows.Forms.Button();
+            this.btnExportList = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,103 +97,34 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Edit column names";
             // 
-            // label11
+            // cboNewNames
             // 
-            this.label11.Location = new System.Drawing.Point(6, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(528, 31);
-            this.label11.TabIndex = 0;
-            this.label11.Tag = "";
-            this.label11.Text = "Column names can be renamed either by importing a file containing the old  name n" +
-    "ext to the new name, or by removing a common text from a series of columns";
+            this.cboNewNames.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNewNames.FormattingEnabled = true;
+            this.cboNewNames.Location = new System.Drawing.Point(183, 242);
+            this.cboNewNames.Name = "cboNewNames";
+            this.cboNewNames.Size = new System.Drawing.Size(351, 21);
+            this.cboNewNames.TabIndex = 13;
             // 
-            // label1
+            // label4
             // 
-            this.label1.Location = new System.Drawing.Point(6, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(528, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "To rename the columns by importing a file with the new names, first press \'Make\' " +
-    "to export the current names, modify the file and then press\'Change\' to import th" +
-    "e file and change the titles";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 245);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "New names - ";
             // 
-            // btnExportList
+            // btnEditNames
             // 
-            this.btnExportList.Location = new System.Drawing.Point(375, 95);
-            this.btnExportList.Name = "btnExportList";
-            this.btnExportList.Size = new System.Drawing.Size(75, 23);
-            this.btnExportList.TabIndex = 2;
-            this.btnExportList.Text = "Make";
-            this.btnExportList.UseVisualStyleBackColor = true;
-            this.btnExportList.Click += new System.EventHandler(this.btnExportList_Click);
-            // 
-            // btnImportList
-            // 
-            this.btnImportList.Location = new System.Drawing.Point(459, 95);
-            this.btnImportList.Name = "btnImportList";
-            this.btnImportList.Size = new System.Drawing.Size(75, 23);
-            this.btnImportList.TabIndex = 3;
-            this.btnImportList.Text = "Change";
-            this.btnImportList.UseVisualStyleBackColor = true;
-            this.btnImportList.Click += new System.EventHandler(this.btnImportList_Click);
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(6, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(528, 32);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "To rename the titles by deleting or replacing text in the title(s), enter the tex" +
-    "t in the text area, select how to process before or after the match and then pre" +
-    "ss \'Edit\'";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Text to remove";
-            // 
-            // lblmatches
-            // 
-            this.lblmatches.AutoSize = true;
-            this.lblmatches.Location = new System.Drawing.Point(84, 245);
-            this.lblmatches.Name = "lblmatches";
-            this.lblmatches.Size = new System.Drawing.Size(65, 13);
-            this.lblmatches.TabIndex = 6;
-            this.lblmatches.Text = "No changes";
-            // 
-            // txtSearchterm
-            // 
-            this.txtSearchterm.Location = new System.Drawing.Point(375, 164);
-            this.txtSearchterm.Name = "txtSearchterm";
-            this.txtSearchterm.Size = new System.Drawing.Size(159, 20);
-            this.txtSearchterm.TabIndex = 7;
-            this.txtSearchterm.TextChanged += new System.EventHandler(this.txtSearchterm_TextChanged);
-            // 
-            // rboPrefix
-            // 
-            this.rboPrefix.AutoSize = true;
-            this.rboPrefix.Location = new System.Drawing.Point(9, 195);
-            this.rboPrefix.Name = "rboPrefix";
-            this.rboPrefix.Size = new System.Drawing.Size(168, 17);
-            this.rboPrefix.TabIndex = 8;
-            this.rboPrefix.Text = "Also remove text before match";
-            this.rboPrefix.UseVisualStyleBackColor = true;
-            this.rboPrefix.CheckedChanged += new System.EventHandler(this.rboPrefix_CheckedChanged);
-            // 
-            // rdoOnly
-            // 
-            this.rdoOnly.AutoSize = true;
-            this.rdoOnly.Location = new System.Drawing.Point(183, 195);
-            this.rdoOnly.Name = "rdoOnly";
-            this.rdoOnly.Size = new System.Drawing.Size(168, 17);
-            this.rdoOnly.TabIndex = 9;
-            this.rdoOnly.Text = "Remove just the matching text";
-            this.rdoOnly.UseVisualStyleBackColor = true;
-            this.rdoOnly.CheckedChanged += new System.EventHandler(this.rdoOnly_CheckedChanged);
+            this.btnEditNames.Enabled = false;
+            this.btnEditNames.Location = new System.Drawing.Point(459, 215);
+            this.btnEditNames.Name = "btnEditNames";
+            this.btnEditNames.Size = new System.Drawing.Size(75, 23);
+            this.btnEditNames.TabIndex = 11;
+            this.btnEditNames.Text = "Edit";
+            this.btnEditNames.UseVisualStyleBackColor = true;
+            this.btnEditNames.Click += new System.EventHandler(this.btnEditNames_Click);
             // 
             // rdoSuffix
             // 
@@ -208,34 +139,103 @@
             this.rdoSuffix.UseVisualStyleBackColor = true;
             this.rdoSuffix.CheckedChanged += new System.EventHandler(this.rdoSuffix_CheckedChanged);
             // 
-            // btnEditNames
+            // rdoOnly
             // 
-            this.btnEditNames.Enabled = false;
-            this.btnEditNames.Location = new System.Drawing.Point(459, 215);
-            this.btnEditNames.Name = "btnEditNames";
-            this.btnEditNames.Size = new System.Drawing.Size(75, 23);
-            this.btnEditNames.TabIndex = 11;
-            this.btnEditNames.Text = "Edit";
-            this.btnEditNames.UseVisualStyleBackColor = true;
-            this.btnEditNames.Click += new System.EventHandler(this.btnEditNames_Click);
+            this.rdoOnly.AutoSize = true;
+            this.rdoOnly.Location = new System.Drawing.Point(183, 195);
+            this.rdoOnly.Name = "rdoOnly";
+            this.rdoOnly.Size = new System.Drawing.Size(168, 17);
+            this.rdoOnly.TabIndex = 9;
+            this.rdoOnly.Text = "Remove just the matching text";
+            this.rdoOnly.UseVisualStyleBackColor = true;
+            this.rdoOnly.CheckedChanged += new System.EventHandler(this.rdoOnly_CheckedChanged);
             // 
-            // label4
+            // rboPrefix
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 245);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "New names - ";
+            this.rboPrefix.AutoSize = true;
+            this.rboPrefix.Location = new System.Drawing.Point(9, 195);
+            this.rboPrefix.Name = "rboPrefix";
+            this.rboPrefix.Size = new System.Drawing.Size(168, 17);
+            this.rboPrefix.TabIndex = 8;
+            this.rboPrefix.Text = "Also remove text before match";
+            this.rboPrefix.UseVisualStyleBackColor = true;
+            this.rboPrefix.CheckedChanged += new System.EventHandler(this.rboPrefix_CheckedChanged);
             // 
-            // cboNewNames
+            // txtSearchterm
             // 
-            this.cboNewNames.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNewNames.FormattingEnabled = true;
-            this.cboNewNames.Location = new System.Drawing.Point(183, 242);
-            this.cboNewNames.Name = "cboNewNames";
-            this.cboNewNames.Size = new System.Drawing.Size(351, 21);
-            this.cboNewNames.TabIndex = 13;
+            this.txtSearchterm.Location = new System.Drawing.Point(375, 164);
+            this.txtSearchterm.Name = "txtSearchterm";
+            this.txtSearchterm.Size = new System.Drawing.Size(159, 20);
+            this.txtSearchterm.TabIndex = 7;
+            this.txtSearchterm.TextChanged += new System.EventHandler(this.txtSearchterm_TextChanged);
+            // 
+            // lblmatches
+            // 
+            this.lblmatches.AutoSize = true;
+            this.lblmatches.Location = new System.Drawing.Point(84, 245);
+            this.lblmatches.Name = "lblmatches";
+            this.lblmatches.Size = new System.Drawing.Size(65, 13);
+            this.lblmatches.TabIndex = 6;
+            this.lblmatches.Text = "No changes";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Text to remove";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(528, 32);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "To rename the titles by deleting or replacing text in the title(s), enter the tex" +
+    "t in the text area, select how to process before or after the match and then pre" +
+    "ss \'Edit\'";
+            // 
+            // btnImportList
+            // 
+            this.btnImportList.Location = new System.Drawing.Point(459, 95);
+            this.btnImportList.Name = "btnImportList";
+            this.btnImportList.Size = new System.Drawing.Size(75, 23);
+            this.btnImportList.TabIndex = 3;
+            this.btnImportList.Text = "Change";
+            this.btnImportList.UseVisualStyleBackColor = true;
+            this.btnImportList.Click += new System.EventHandler(this.btnImportList_Click);
+            // 
+            // btnExportList
+            // 
+            this.btnExportList.Location = new System.Drawing.Point(375, 95);
+            this.btnExportList.Name = "btnExportList";
+            this.btnExportList.Size = new System.Drawing.Size(75, 23);
+            this.btnExportList.TabIndex = 2;
+            this.btnExportList.Text = "Make";
+            this.btnExportList.UseVisualStyleBackColor = true;
+            this.btnExportList.Click += new System.EventHandler(this.btnExportList_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(528, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "To rename the columns by importing a file with the new names, first press \'Make\' " +
+    "to export the current names, modify the file and then press\'Change\' to import th" +
+    "e file and change the titles";
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(6, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(528, 31);
+            this.label11.TabIndex = 0;
+            this.label11.Tag = "";
+            this.label11.Text = "Column names can be renamed either by importing a file containing the old  name n" +
+    "ext to the new name, or by removing a common text from a series of columns";
             // 
             // RenameColumns
             // 
@@ -245,7 +245,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "RenameColumns";
             this.Text = "Rename columns";
             this.groupBox4.ResumeLayout(false);

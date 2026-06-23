@@ -284,5 +284,17 @@ namespace Taxonomic_NCBI
             }
 
         }
+
+        private void btnLinkSpecies_Click(object sender, EventArgs e)
+        {
+            SpeciesSequenceLinker ssl = new SpeciesSequenceLinker(this, headers, data);
+            if (ssl.ShowDialog() == DialogResult.OK)
+            {
+                data = ssl.FilteredData;
+                headers = ssl.Headers;
+                setComboboxes();
+                btnSave.Enabled = true;
+            }
+        }
     }
 }
