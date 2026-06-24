@@ -52,14 +52,18 @@
             this.cboFastaName = new System.Windows.Forms.ComboBox();
             this.cboSpeciesName = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.gbQuality = new System.Windows.Forms.GroupBox();
+            this.gbList = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.gbQuality.SuspendLayout();
+            this.gbList.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(485, 352);
+            this.btnCancel.Location = new System.Drawing.Point(485, 360);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -70,7 +74,7 @@
             // 
             this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(404, 352);
+            this.btnAccept.Location = new System.Drawing.Point(404, 360);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 10;
@@ -79,29 +83,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.gbList);
+            this.groupBox1.Controls.Add(this.gbQuality);
             this.groupBox1.Controls.Add(this.cboSpeciesName);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboFastaName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.chkList);
-            this.groupBox1.Controls.Add(this.chkHitQuality);
-            this.groupBox1.Controls.Add(this.cboSpeciesfilter);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.btnList);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblFilterCutOff);
-            this.groupBox1.Controls.Add(this.txtCutOff);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.rdoLowerThanCutOff);
-            this.groupBox1.Controls.Add(this.rdoHigherThanCutOff);
-            this.groupBox1.Controls.Add(this.cboColumnToFilter);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.btnCreate);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(548, 334);
+            this.groupBox1.Size = new System.Drawing.Size(548, 338);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identify species linked to each sequence";
@@ -109,7 +102,7 @@
             // chkList
             // 
             this.chkList.AutoSize = true;
-            this.chkList.Location = new System.Drawing.Point(9, 154);
+            this.chkList.Location = new System.Drawing.Point(6, 0);
             this.chkList.Name = "chkList";
             this.chkList.Size = new System.Drawing.Size(207, 17);
             this.chkList.TabIndex = 20;
@@ -120,7 +113,7 @@
             // chkHitQuality
             // 
             this.chkHitQuality.AutoSize = true;
-            this.chkHitQuality.Location = new System.Drawing.Point(9, 58);
+            this.chkHitQuality.Location = new System.Drawing.Point(6, 0);
             this.chkHitQuality.Name = "chkHitQuality";
             this.chkHitQuality.Size = new System.Drawing.Size(109, 17);
             this.chkHitQuality.TabIndex = 13;
@@ -130,8 +123,9 @@
             // 
             // cboSpeciesfilter
             // 
+            this.cboSpeciesfilter.Enabled = false;
             this.cboSpeciesfilter.FormattingEnabled = true;
-            this.cboSpeciesfilter.Location = new System.Drawing.Point(386, 171);
+            this.cboSpeciesfilter.Location = new System.Drawing.Point(374, 17);
             this.cboSpeciesfilter.Name = "cboSpeciesfilter";
             this.cboSpeciesfilter.Size = new System.Drawing.Size(150, 21);
             this.cboSpeciesfilter.TabIndex = 19;
@@ -140,7 +134,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 174);
+            this.label8.Location = new System.Drawing.Point(25, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(238, 13);
             this.label8.TabIndex = 18;
@@ -148,7 +142,8 @@
             // 
             // btnList
             // 
-            this.btnList.Location = new System.Drawing.Point(461, 198);
+            this.btnList.Enabled = false;
+            this.btnList.Location = new System.Drawing.Point(449, 44);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(75, 23);
             this.btnList.TabIndex = 15;
@@ -159,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 203);
+            this.label3.Location = new System.Drawing.Point(25, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(333, 13);
             this.label3.TabIndex = 14;
@@ -169,7 +164,7 @@
             // 
             this.lblFilterCutOff.AutoSize = true;
             this.lblFilterCutOff.ForeColor = System.Drawing.Color.Red;
-            this.lblFilterCutOff.Location = new System.Drawing.Point(313, 133);
+            this.lblFilterCutOff.Location = new System.Drawing.Point(291, 65);
             this.lblFilterCutOff.Name = "lblFilterCutOff";
             this.lblFilterCutOff.Size = new System.Drawing.Size(67, 13);
             this.lblFilterCutOff.TabIndex = 12;
@@ -178,7 +173,8 @@
             // 
             // txtCutOff
             // 
-            this.txtCutOff.Location = new System.Drawing.Point(386, 130);
+            this.txtCutOff.Enabled = false;
+            this.txtCutOff.Location = new System.Drawing.Point(374, 62);
             this.txtCutOff.Name = "txtCutOff";
             this.txtCutOff.Size = new System.Drawing.Size(150, 20);
             this.txtCutOff.TabIndex = 13;
@@ -187,7 +183,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 133);
+            this.label13.Location = new System.Drawing.Point(25, 65);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(112, 13);
             this.label13.TabIndex = 11;
@@ -197,7 +193,8 @@
             // 
             this.rdoLowerThanCutOff.AutoSize = true;
             this.rdoLowerThanCutOff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rdoLowerThanCutOff.Location = new System.Drawing.Point(321, 101);
+            this.rdoLowerThanCutOff.Enabled = false;
+            this.rdoLowerThanCutOff.Location = new System.Drawing.Point(309, 39);
             this.rdoLowerThanCutOff.Name = "rdoLowerThanCutOff";
             this.rdoLowerThanCutOff.Size = new System.Drawing.Size(215, 17);
             this.rdoLowerThanCutOff.TabIndex = 10;
@@ -210,7 +207,8 @@
             // 
             this.rdoHigherThanCutOff.AutoSize = true;
             this.rdoHigherThanCutOff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rdoHigherThanCutOff.Location = new System.Drawing.Point(96, 101);
+            this.rdoHigherThanCutOff.Enabled = false;
+            this.rdoHigherThanCutOff.Location = new System.Drawing.Point(84, 39);
             this.rdoHigherThanCutOff.Name = "rdoHigherThanCutOff";
             this.rdoHigherThanCutOff.Size = new System.Drawing.Size(219, 17);
             this.rdoHigherThanCutOff.TabIndex = 9;
@@ -222,8 +220,9 @@
             // cboColumnToFilter
             // 
             this.cboColumnToFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboColumnToFilter.Enabled = false;
             this.cboColumnToFilter.FormattingEnabled = true;
-            this.cboColumnToFilter.Location = new System.Drawing.Point(386, 70);
+            this.cboColumnToFilter.Location = new System.Drawing.Point(374, 12);
             this.cboColumnToFilter.Name = "cboColumnToFilter";
             this.cboColumnToFilter.Size = new System.Drawing.Size(150, 21);
             this.cboColumnToFilter.TabIndex = 8;
@@ -232,7 +231,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 78);
+            this.label12.Location = new System.Drawing.Point(25, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(272, 13);
             this.label12.TabIndex = 7;
@@ -240,7 +239,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(461, 305);
+            this.btnCreate.Location = new System.Drawing.Point(455, 303);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 6;
@@ -251,7 +250,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 310);
+            this.label2.Location = new System.Drawing.Point(6, 308);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(354, 13);
             this.label2.TabIndex = 5;
@@ -268,7 +267,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 281);
+            this.label4.Location = new System.Drawing.Point(6, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(254, 13);
             this.label4.TabIndex = 21;
@@ -278,7 +277,7 @@
             // 
             this.cboFastaName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFastaName.FormattingEnabled = true;
-            this.cboFastaName.Location = new System.Drawing.Point(386, 278);
+            this.cboFastaName.Location = new System.Drawing.Point(380, 276);
             this.cboFastaName.Name = "cboFastaName";
             this.cboFastaName.Size = new System.Drawing.Size(150, 21);
             this.cboFastaName.TabIndex = 22;
@@ -288,25 +287,55 @@
             // 
             this.cboSpeciesName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSpeciesName.FormattingEnabled = true;
-            this.cboSpeciesName.Location = new System.Drawing.Point(386, 251);
+            this.cboSpeciesName.Location = new System.Drawing.Point(380, 249);
             this.cboSpeciesName.Name = "cboSpeciesName";
             this.cboSpeciesName.Size = new System.Drawing.Size(150, 21);
             this.cboSpeciesName.TabIndex = 24;
+            this.cboSpeciesName.SelectedIndexChanged += new System.EventHandler(this.cboSpeciesName_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 254);
+            this.label5.Location = new System.Drawing.Point(6, 252);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(230, 13);
             this.label5.TabIndex = 23;
             this.label5.Text = "Select the column containing the species name";
             // 
+            // gbQuality
+            // 
+            this.gbQuality.Controls.Add(this.chkHitQuality);
+            this.gbQuality.Controls.Add(this.label12);
+            this.gbQuality.Controls.Add(this.txtCutOff);
+            this.gbQuality.Controls.Add(this.rdoHigherThanCutOff);
+            this.gbQuality.Controls.Add(this.label13);
+            this.gbQuality.Controls.Add(this.lblFilterCutOff);
+            this.gbQuality.Controls.Add(this.rdoLowerThanCutOff);
+            this.gbQuality.Controls.Add(this.cboColumnToFilter);
+            this.gbQuality.Location = new System.Drawing.Point(6, 62);
+            this.gbQuality.Name = "gbQuality";
+            this.gbQuality.Size = new System.Drawing.Size(536, 94);
+            this.gbQuality.TabIndex = 25;
+            this.gbQuality.TabStop = false;
+            // 
+            // gbList
+            // 
+            this.gbList.Controls.Add(this.chkList);
+            this.gbList.Controls.Add(this.label8);
+            this.gbList.Controls.Add(this.label3);
+            this.gbList.Controls.Add(this.cboSpeciesfilter);
+            this.gbList.Controls.Add(this.btnList);
+            this.gbList.Location = new System.Drawing.Point(6, 162);
+            this.gbList.Name = "gbList";
+            this.gbList.Size = new System.Drawing.Size(535, 81);
+            this.gbList.TabIndex = 26;
+            this.gbList.TabStop = false;
+            // 
             // SpeciesSequenceLinker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 387);
+            this.ClientSize = new System.Drawing.Size(572, 395);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
@@ -317,6 +346,10 @@
             this.Text = "Species linked to a sequence";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbQuality.ResumeLayout(false);
+            this.gbQuality.PerformLayout();
+            this.gbList.ResumeLayout(false);
+            this.gbList.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -346,5 +379,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboSpeciesName;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbList;
+        private System.Windows.Forms.GroupBox gbQuality;
     }
 }

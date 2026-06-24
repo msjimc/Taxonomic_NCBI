@@ -120,7 +120,7 @@ namespace Taxonomic_NCBI
             int answerList = 0;
             if (specieslist.Count > 0) { answerList++; }
             if (cboSpeciesfilter.SelectedIndex > 0) { answerList++; }
-            filterByList = (answerList == 3);
+            filterByList = (answerList == 2);
 
             btnCreate.Enabled = ((cboFastaName.SelectedIndex > 0) && (cboSpeciesName.SelectedIndex > 0));
             if (chkHitQuality.Checked == true && filterByHitQuality == false) { btnCreate.Enabled = false; }
@@ -153,13 +153,18 @@ namespace Taxonomic_NCBI
             setbtnFilterActivity();
         }
 
+        private void cboSpeciesName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setbtnFilterActivity();
+        }
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             string filename = FileString.SaveAs("Entar the name of the file to save the data to", "Text file (*.txt)|*.txt");
             if (filename == "Cancel") { return; }
 
-            double cutoffValue;
-            if (double.TryParse(txtCutOff.Text, out cutoffValue) == false) { return; }
+            double cutoffValue = 0;
+            if (filterByHitQuality == true && double.TryParse(txtCutOff.Text, out cutoffValue) == false) { return; }
 
             int idIndex = cboFastaName.SelectedIndex - 1;
             int blastIndex = cboColumnToFilter.SelectedIndex - 1;
@@ -182,13 +187,22 @@ namespace Taxonomic_NCBI
                     { continue; }
                     testValueString = row[blastIndex];
                 }
-                
+
+                string inList = "";
+                if (filterByList == true)
+                {
+                    if (specieslist.Contains(row[nameIndex].ToLower()) == true)
+                    { inList = "Yes"; }
+                    else
+                    { inList = "No"; }
+                }
+
                 string id = row[idIndex];
                 if (dataToProcess.ContainsKey(id) == true)
-                { dataToProcess[id].AddnewHit(row[nameIndex], testValue, testValueString); }
+                { dataToProcess[id].AddnewHit(row[nameIndex], testValue, testValueString, inList); }
                 else
                 {
-                    SequenceHit sh = new SequenceHit(id, row[nameIndex], testValue, testValueString, higher, filterByHitQuality, filterByList);
+                    SequenceHit sh = new SequenceHit(id, row[nameIndex], testValue, testValueString, higher, filterByHitQuality, filterByList, inList);
                     dataToProcess.Add(id, sh);
                 }
             }
@@ -224,7 +238,7 @@ namespace Taxonomic_NCBI
                         fs.Write(sh.ID + "\t");
                         foreach (NameHit nh in sh.Data)
                         {
-                            fs.Write(nh.Name + ", " + nh.HitString + "\t");
+                            fs.Write(nh.Name + nh.HitString + nh.InListString + "\t");
                         }
                         fs.Write("\n");
                     }
