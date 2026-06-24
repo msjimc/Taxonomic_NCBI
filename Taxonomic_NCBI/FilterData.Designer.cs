@@ -42,6 +42,8 @@
             this.cboDataEnd = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.gbTasks = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnSwithcNames = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRename = new System.Windows.Forms.Button();
             this.btnRemoveColumns = new System.Windows.Forms.Button();
@@ -56,10 +58,6 @@
             this.lblBlast = new System.Windows.Forms.Label();
             this.btnList = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnLinkSpecies = new System.Windows.Forms.Button();
-            this.btnSwithcNames = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbTasks.SuspendLayout();
             this.SuspendLayout();
@@ -181,7 +179,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.Location = new System.Drawing.Point(12, 430);
+            this.btnClose.Location = new System.Drawing.Point(12, 406);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -192,9 +190,7 @@
             // gbTasks
             // 
             this.gbTasks.Controls.Add(this.label11);
-            this.gbTasks.Controls.Add(this.label10);
             this.gbTasks.Controls.Add(this.btnSwithcNames);
-            this.gbTasks.Controls.Add(this.btnLinkSpecies);
             this.gbTasks.Controls.Add(this.label9);
             this.gbTasks.Controls.Add(this.btnRename);
             this.gbTasks.Controls.Add(this.btnRemoveColumns);
@@ -209,13 +205,31 @@
             this.gbTasks.Controls.Add(this.lblBlast);
             this.gbTasks.Controls.Add(this.btnList);
             this.gbTasks.Controls.Add(this.label3);
-            this.gbTasks.Enabled = false;
             this.gbTasks.Location = new System.Drawing.Point(12, 143);
             this.gbTasks.Name = "gbTasks";
-            this.gbTasks.Size = new System.Drawing.Size(540, 281);
+            this.gbTasks.Size = new System.Drawing.Size(540, 254);
             this.gbTasks.TabIndex = 1;
             this.gbTasks.TabStop = false;
             this.gbTasks.Text = "Tasks";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 225);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Switch species name";
+            // 
+            // btnSwithcNames
+            // 
+            this.btnSwithcNames.Location = new System.Drawing.Point(459, 220);
+            this.btnSwithcNames.Name = "btnSwithcNames";
+            this.btnSwithcNames.Size = new System.Drawing.Size(75, 23);
+            this.btnSwithcNames.TabIndex = 15;
+            this.btnSwithcNames.Text = "Switch";
+            this.btnSwithcNames.UseVisualStyleBackColor = true;
+            this.btnSwithcNames.Click += new System.EventHandler(this.btnSwithcNames_Click);
             // 
             // label9
             // 
@@ -228,6 +242,7 @@
             // 
             // btnRename
             // 
+            this.btnRename.Enabled = false;
             this.btnRename.Location = new System.Drawing.Point(459, 191);
             this.btnRename.Name = "btnRename";
             this.btnRename.Size = new System.Drawing.Size(75, 23);
@@ -238,6 +253,7 @@
             // 
             // btnRemoveColumns
             // 
+            this.btnRemoveColumns.Enabled = false;
             this.btnRemoveColumns.Location = new System.Drawing.Point(459, 162);
             this.btnRemoveColumns.Name = "btnRemoveColumns";
             this.btnRemoveColumns.Size = new System.Drawing.Size(75, 23);
@@ -257,6 +273,7 @@
             // 
             // btnAppend
             // 
+            this.btnAppend.Enabled = false;
             this.btnAppend.Location = new System.Drawing.Point(459, 133);
             this.btnAppend.Name = "btnAppend";
             this.btnAppend.Size = new System.Drawing.Size(75, 23);
@@ -276,6 +293,7 @@
             // 
             // btnCombine
             // 
+            this.btnCombine.Enabled = false;
             this.btnCombine.Location = new System.Drawing.Point(459, 106);
             this.btnCombine.Name = "btnCombine";
             this.btnCombine.Size = new System.Drawing.Size(75, 23);
@@ -295,6 +313,7 @@
             // 
             // btnCounts
             // 
+            this.btnCounts.Enabled = false;
             this.btnCounts.Location = new System.Drawing.Point(457, 77);
             this.btnCounts.Name = "btnCounts";
             this.btnCounts.Size = new System.Drawing.Size(75, 23);
@@ -314,6 +333,7 @@
             // 
             // btnBlast
             // 
+            this.btnBlast.Enabled = false;
             this.btnBlast.Location = new System.Drawing.Point(457, 48);
             this.btnBlast.Name = "btnBlast";
             this.btnBlast.Size = new System.Drawing.Size(75, 23);
@@ -333,6 +353,7 @@
             // 
             // btnList
             // 
+            this.btnList.Enabled = false;
             this.btnList.Location = new System.Drawing.Point(457, 19);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(75, 23);
@@ -350,48 +371,11 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "To filter species by a list of species names press \'List\'";
             // 
-            // btnLinkSpecies
-            // 
-            this.btnLinkSpecies.Location = new System.Drawing.Point(457, 220);
-            this.btnLinkSpecies.Name = "btnLinkSpecies";
-            this.btnLinkSpecies.Size = new System.Drawing.Size(75, 23);
-            this.btnLinkSpecies.TabIndex = 14;
-            this.btnLinkSpecies.Text = "Link";
-            this.btnLinkSpecies.UseVisualStyleBackColor = true;
-            this.btnLinkSpecies.Click += new System.EventHandler(this.btnLinkSpecies_Click);
-            // 
-            // btnSwithcNames
-            // 
-            this.btnSwithcNames.Location = new System.Drawing.Point(459, 249);
-            this.btnSwithcNames.Name = "btnSwithcNames";
-            this.btnSwithcNames.Size = new System.Drawing.Size(75, 23);
-            this.btnSwithcNames.TabIndex = 15;
-            this.btnSwithcNames.Text = "Switch";
-            this.btnSwithcNames.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 225);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Identify species linked to same sequence";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 254);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Switch species name";
-            // 
             // FilterData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 465);
+            this.ClientSize = new System.Drawing.Size(564, 441);
             this.Controls.Add(this.gbTasks);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
@@ -438,8 +422,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRename;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSwithcNames;
-        private System.Windows.Forms.Button btnLinkSpecies;
     }
 }

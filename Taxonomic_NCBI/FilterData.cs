@@ -39,8 +39,7 @@ namespace Taxonomic_NCBI
             if (System.IO.File.Exists(filename) == false) { return; }
 
             System.IO.StreamReader sf = null;
-
-            gbTasks.Enabled = false;
+            
             data = new List<List<string>>();
             try
             {
@@ -99,17 +98,28 @@ namespace Taxonomic_NCBI
         private void SetGroupBoxActivity()
         {
             int answer = 0;
-            if (data.Count > 0) { answer++; }
+            if (data.Count > 0) 
+            {
+                btnAppend.Enabled = true;
+                btnBlast.Enabled = true;
+                btnList.Enabled = true;
+                btnRemoveColumns.Enabled = true;
+                btnRename.Enabled = true;
+                btnSwithcNames.Enabled = true;
+                answer++; 
+            }
             if (cboDataStart.SelectedIndex != 0) { answer++; }
             if (cboDataEnd.SelectedIndex != 0) { answer++; }
 
             if (answer == 3)
             {
-                gbTasks.Enabled = true;
+                btnCombine.Enabled = true;
+                btnCounts.Enabled = true;
             }
             else
             {
-                gbTasks.Enabled = false;
+                btnCombine.Enabled = false;
+                btnCounts.Enabled = false;
             }
         }
 
@@ -285,16 +295,9 @@ namespace Taxonomic_NCBI
 
         }
 
-        private void btnLinkSpecies_Click(object sender, EventArgs e)
+        private void btnSwithcNames_Click(object sender, EventArgs e)
         {
-            SpeciesSequenceLinker ssl = new SpeciesSequenceLinker(this, headers, data);
-            if (ssl.ShowDialog() == DialogResult.OK)
-            {
-                data = ssl.FilteredData;
-                headers = ssl.Headers;
-                setComboboxes();
-                btnSave.Enabled = true;
-            }
+
         }
     }
 }

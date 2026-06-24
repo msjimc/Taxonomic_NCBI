@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,28 +12,38 @@ using System.Windows.Forms.Automation;
 
 namespace Taxonomic_NCBI
 {
+    struct blastLine
+    {
+        public List<string> lineData;
+        public string ID;
+        public string speciedname;
+        public double comparisonValue;
+    }
+
     public partial class SpeciesSequenceLinker : Form
     {
         List<string> headers = new List<string>();
         List<List<string>> data = new List<List<string>>();
-        FilterData fd;
+
         bool filterByHitQuality = false;
         private List<string> specieslist = new List<string>();
+        private List<string> specieslistNot = new List<string>();
         bool filterByList = false;
 
-        public SpeciesSequenceLinker(FilterData FD, List<string> Headers, List<List<string>> Data)
+
+        public SpeciesSequenceLinker()
         {
             InitializeComponent();
+            setActivity(false);
+        }
 
-            foreach (List<string> row in Data)
-            { data.Add(new List<string>(row)); }
-            headers = new List<string>(Headers);
-
-            setCboLists(cboSpeciesName, headers);
-            setCboLists(cboColumnToFilter, headers);
-            setCboLists(cboSpeciesfilter, headers);
-            setCboLists(cboFastaName,headers);
-            fd = FD;
+        private void setActivity(bool state)
+        {
+            gbQuality.Enabled = state;
+            gbList.Enabled = state;
+            cboSpeciesName.Enabled = state;
+            cboFastaName.Enabled = state;
+            btnCreate.Enabled = state;
         }
 
         private void setCboLists(ComboBox cbo, List<string> values)
@@ -51,7 +62,7 @@ namespace Taxonomic_NCBI
 
         private void btnList_Click(object sender, EventArgs e)
         {
-            string filename = FileString.OpenAs("Select species list file", "Text file (*.txt;*.xls;*.csv)|*.txt;*.xls;*.csv");
+            string filename = FileString.OpenAs("Select expected species list file", "Text file (*.txt;*.xls;*.csv)|*.txt;*.xls;*.csv");
             if (System.IO.File.Exists(filename) == false) { return; }
 
             System.IO.StreamReader sf = null;
@@ -77,6 +88,46 @@ namespace Taxonomic_NCBI
             setbtnFilterActivity();
         }
 
+        private void btnListNotIn_Click(object sender, EventArgs e)
+        {
+            string filename = FileString.OpenAs("Select expected species list file", "Text file (*.txt;*.xls;*.csv)|*.txt;*.xls;*.csv");
+            if (System.IO.File.Exists(filename) == false) { return; }
+
+            System.IO.StreamReader sf = null;
+            specieslistNot = new List<string>();
+
+            try
+            {
+                sf = new System.IO.StreamReader(filename);
+                string line;
+                while (sf.Peek() > 0)
+                {
+                    line = sf.ReadLine();
+                    specieslistNot.Add(line.Trim().ToLower());
+                }
+                specieslistNot.Sort();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening file: " + ex.Message);
+                specieslistNot = new List<string>();
+            }
+            finally { sf?.Close(); }
+            setbtnFilterActivity();
+        }
+
+        private void btnClearInList_Click(object sender, EventArgs e)
+        {
+            specieslist = new List<string>();
+            setbtnFilterActivity();
+        }
+
+        private void btnNotInList_Click(object sender, EventArgs e)
+        {
+            specieslistNot = new List<string>();
+            setbtnFilterActivity();
+        }
+
         private void txtCutOff_TextChanged(object sender, EventArgs e)
         {
             double cutoffValue;
@@ -84,12 +135,10 @@ namespace Taxonomic_NCBI
             { lblFilterCutOff.Visible = true; }
             else
             {
-                lblFilterCutOff.Visible = false;                
+                lblFilterCutOff.Visible = false;
             }
             setbtnFilterActivity();
         }
-        public List<List<string>> FilteredData { get { return data; } }
-        public List<string> Headers { get { return headers; } }
 
         private void chkHitQuality_CheckedChanged(object sender, EventArgs e)
         {
@@ -105,6 +154,9 @@ namespace Taxonomic_NCBI
         {
             cboSpeciesfilter.Enabled = chkList.Checked;
             btnList.Enabled = chkList.Checked;
+            btnListNotIn.Enabled = chkList.Checked;
+            btnClearInList.Enabled = chkList.Checked;
+            btnClearNotInList.Enabled = chkList.Checked;
             setbtnFilterActivity();
         }
 
@@ -115,12 +167,12 @@ namespace Taxonomic_NCBI
             if (rdoLowerThanCutOff.Checked || rdoHigherThanCutOff.Checked) { answerHit++; }
             double cutoffValue;
             if (double.TryParse(txtCutOff.Text, out cutoffValue)) { answerHit++; }
-            filterByHitQuality = (answerHit == 3);
+            filterByHitQuality = ((answerHit == 3) && (chkHitQuality.Checked == true));
 
             int answerList = 0;
-            if (specieslist.Count > 0) { answerList++; }
+            if (specieslist.Count + specieslistNot.Count > 0) { answerList++; }
             if (cboSpeciesfilter.SelectedIndex > 0) { answerList++; }
-            filterByList = (answerList == 2);
+            filterByList = ((answerList == 2) && (chkList.Checked == true));
 
             btnCreate.Enabled = ((cboFastaName.SelectedIndex > 0) && (cboSpeciesName.SelectedIndex > 0));
             if (chkHitQuality.Checked == true && filterByHitQuality == false) { btnCreate.Enabled = false; }
@@ -170,59 +222,61 @@ namespace Taxonomic_NCBI
             int blastIndex = cboColumnToFilter.SelectedIndex - 1;
             int speciesColumnIndex = cboSpeciesfilter.SelectedIndex - 1;
             int nameIndex = cboSpeciesName.SelectedIndex - 1;
-            bool higher = rdoHigherThanCutOff.Checked; 
-            Dictionary<string, SequenceHit> dataToProcess = new Dictionary<string, SequenceHit>();
+            bool higher = rdoHigherThanCutOff.Checked;
 
-            foreach(List<string> row in data)
+            Dictionary<string, blastLine> blastLines = new Dictionary<string, blastLine>();
+
+            foreach (List<string> row in data)
             {
+                string id = row[idIndex];
                 double testValue = 0;
-                string testValueString = "";
+
                 if (filterByHitQuality == true)
                 {
                     if (double.TryParse(row[blastIndex], out testValue) == false)
                     { continue; }
-                    if (higher == true && cutoffValue > testValue) 
+                    if (higher == true && cutoffValue > testValue)
                     { continue; }
-                    else if (higher == false && cutoffValue < testValue) 
+                    else if (higher == false && cutoffValue < testValue)
                     { continue; }
-                    testValueString = row[blastIndex];
                 }
 
                 string inList = "";
                 if (filterByList == true)
                 {
-                    if (specieslist.Contains(row[nameIndex].ToLower()) == true)
-                    { inList = "Yes"; }
-                    else
-                    { inList = "No"; }
+                    if (specieslist.Count > 0)
+                    {
+                        if (specieslist.Contains(row[nameIndex].ToLower()) == false)
+                        { continue; }
+                    }
+                    if (specieslistNot.Contains(row[nameIndex].ToLower()) == true)
+                    { continue; }
                 }
 
-                string id = row[idIndex];
-                if (dataToProcess.ContainsKey(id) == true)
-                { dataToProcess[id].AddnewHit(row[nameIndex], testValue, testValueString, inList); }
+
+                if (blastLines.ContainsKey(id) == true)
+                {
+                    if (higher == true && blastLines[id].comparisonValue <= testValue)
+                    { continue; }
+                    else if (higher == false && blastLines[id].comparisonValue >= testValue)
+                    { continue; }
+                    blastLine bl = new blastLine();
+                    bl.ID = id;
+                    bl.lineData = row;
+                    bl.speciedname = row[nameIndex];
+                    bl.comparisonValue = testValue;
+                    blastLines[id] = bl;
+                }
                 else
                 {
-                    SequenceHit sh = new SequenceHit(id, row[nameIndex], testValue, testValueString, higher, filterByHitQuality, filterByList, inList);
-                    dataToProcess.Add(id, sh);
+                    blastLine bl = new blastLine();
+                    bl.ID = id;
+                    bl.lineData = row;
+                    bl.speciedname = row[nameIndex];
+                    bl.comparisonValue = testValue;
+                    blastLines.Add(id, bl);
                 }
             }
-
-            List<string> keys = new List<string>();
-            Dictionary<string, List<SequenceHit>> dataBySpecies = new Dictionary<string, List<SequenceHit>>();
-            foreach (SequenceHit sh in dataToProcess.Values)
-            {
-                sh.SortData();
-                string firstname = sh.FirstName();
-                if (dataBySpecies.ContainsKey(firstname) == false)
-                { 
-                    dataBySpecies[firstname] = new List<SequenceHit>();
-                    keys.Add(firstname);
-                }
-                dataBySpecies[firstname].Add(sh);
-            }
-
-            keys.Sort();
-
 
             System.IO.StreamWriter fs = null;
 
@@ -230,24 +284,80 @@ namespace Taxonomic_NCBI
             {
                 fs = new System.IO.StreamWriter(filename);
 
-                foreach (string key in keys)
-                {
-                    List<SequenceHit> shs = dataBySpecies[key];
-                    foreach (SequenceHit sh in shs)
-                    {
-                        fs.Write(sh.ID + "\t");
-                        foreach (NameHit nh in sh.Data)
-                        {
-                            fs.Write(nh.Name + nh.HitString + nh.InListString + "\t");
-                        }
-                        fs.Write("\n");
-                    }
+                fs.Write(string.Join("\t", headers) + "\n");
 
+                foreach (blastLine bl in blastLines.Values)
+                {
+                    string line = string.Join("\t", bl.lineData) + "\n";
+                    fs.Write(line);
                 }
+
             }
             catch (Exception ex) { MessageBox.Show("An error occured creating the file: " + ex.Message, "Error"); }
             finally { fs?.Close(); }
 
+
+
         }
-    }
+        private void btnSelectDataFile_Click(object sender, EventArgs e)
+        {
+            string filename = FileString.OpenAs("Select annotated BLAST hit file", "tab delimited Text file (*.txt;*.csv:*.xls)|*.txt;*.csv:*.xls");
+            if (System.IO.File.Exists(filename) == false) { return; }
+
+
+            setActivity(false);
+
+            System.IO.StreamReader sf = null;
+
+            data = new List<List<string>>();
+            try
+            {
+                sf = new System.IO.StreamReader(filename);
+
+                string line = sf.ReadLine();
+                line = line.Replace("\"", "");
+                string[] items;
+                char splitOn = ',';
+                string extension = filename.Substring(filename.LastIndexOf('.')).ToLower();
+                if (extension == ".xls" || extension == ".txt")
+                { splitOn = '\t'; }
+                else
+                { splitOn = ','; }
+
+                items = line.Split(splitOn);
+                headers = items.ToList();
+
+                while (sf.Peek() > 0)
+                {
+                    line = sf.ReadLine();
+                    line = line.Replace("\"", "");
+                    items = line.Split(new char[] { splitOn });
+
+                    List<string> itemList = items.ToList();
+                    data.Add(itemList);
+                }
+
+                setActivity(data.Count > 0);
+
+                setCboLists(cboSpeciesName, headers);
+                setCboLists(cboColumnToFilter, headers);
+                setCboLists(cboSpeciesfilter, headers);
+                setCboLists(cboFastaName, headers);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening file: " + ex.Message);
+                return;
+            }
+            finally
+            { sf?.Close(); }
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+    }       
 }

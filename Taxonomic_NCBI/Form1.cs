@@ -296,7 +296,15 @@ namespace Taxonomic_NCBI
             {
                 if (fs != null) { fs.Close(); }
             }
+        }
 
+        private void btnFilterBlastHitsFile_Click(object sender, EventArgs e)
+        {
+            SpeciesSequenceLinker ssl = new SpeciesSequenceLinker();
+            if (ssl.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
 
         private bool errorFree = true;
