@@ -79,7 +79,7 @@ namespace Taxonomic_NCBI
             if (MessageBox.Show("Aggregation complete. " + dataByAggregatevalue.Count.ToString() + " rows in new list, " + data.Count.ToString() + " rows in original list.\nDo you want to keep the aggregated dataset?", "Filtering complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 List<string> newheaders = new List<string>();
-                for (int indexheader = 0; indexheader < index; indexheader++)
+                for (int indexheader = 0; indexheader - 1 < index; indexheader++)
                 { newheaders.Add(headers[indexheader]); }
 
                 List<List<string>> newList = new List<List<string>>();
@@ -87,8 +87,7 @@ namespace Taxonomic_NCBI
                 { newList.Add(values); }
                 data = newList;
                 headers = newheaders;
-                setCboLists(cboAggregateVlaues, headers);
-                fd.DisableGroupBox4();
+                setCboLists(cboAggregateVlaues, headers);              
             }
 
         }
@@ -96,7 +95,7 @@ namespace Taxonomic_NCBI
         private List<string> combineTwoRows(List<string> row1, List<string> row2, int startIndex, int endIndex, int aggregateIndex)
         {
             List<string> combined = new List<string>();
-            combined.AddRange(row1.GetRange(0, aggregateIndex));
+            combined.AddRange(row1.GetRange(0, aggregateIndex + 1));
             for (int index = startIndex; index < endIndex + 1; index++)
             {
                 string value1 = row1[index];

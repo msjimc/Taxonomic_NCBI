@@ -27,12 +27,6 @@ namespace Taxonomic_NCBI
             Close();
         }
 
-        public void DisableGroupBox4()
-        {
-            lblBlast.Enabled = false;
-            btnBlast.Enabled = false;
-        }
-
         private void btnSelectDataFile_Click(object sender, EventArgs e)
         {
             string filename = FileString.OpenAs("Select data file", "tab delimited Text file (*.txt;*.csv:*.xls)|*.txt;*.csv:*.xls");

@@ -26,7 +26,6 @@ mkdir -p "$saveToo"
 fileNumber=0
 
 
-# Read the FASTA file two lines at a time: header + sequence
 while IFS= read -r name
 do
     IFS= read -r sequence
@@ -35,6 +34,7 @@ do
     fileName=$fileNumber
 
     # Write the first sequence of the chunk
+	
     echo "$name" >  "$saveToo/$fileName.txt"
     echo "$sequence" >> "$saveToo/$fileName.txt"
 
@@ -48,14 +48,14 @@ do
         COUNTER=$((COUNTER+1))
     done
 
-    xmlOut="$saveToo/$fileName.xml"
-    echo "Output XML: $xmlOut"
-
+    txtOut=$saveToo/$fileName"_out.txt"
+    echo "Output text file: $txtOut"
+	echo "Fasta name	Percent identities	Mismatches	Gaps	Alignment length	e Value	BitScore	Hit accession id	Hit description" > "$txtOut"
     if [ -f "$xmlOut" ]; then
         echo "Already processed"
     else
         echo -n "Running BLAST..."
-         blastn -query $saveToo/$fileName".txt" -db $blastdb -dust no -outfmt 5 -num_alignments 10 -num_threads 3 > "$xmlOut"
+         ///mnt/scratch/msjimc/blast_db/ncbi-blast-2.17.0+/bin/blastn -query $saveToo/$fileName".txt" -db $blastdb -dust no -outfmt "6 qseqid pident mismatch gapopen length evalue bitscore sacc stitle" -num_alignments 20 -num_threads 3 >> "$txtOut"
         echo " done"
     fi
 

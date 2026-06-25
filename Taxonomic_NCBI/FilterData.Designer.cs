@@ -338,7 +338,7 @@
             this.btnBlast.Name = "btnBlast";
             this.btnBlast.Size = new System.Drawing.Size(75, 23);
             this.btnBlast.TabIndex = 3;
-            this.btnBlast.Text = "Blast";
+            this.btnBlast.Text = "Number";
             this.btnBlast.UseVisualStyleBackColor = true;
             this.btnBlast.Click += new System.EventHandler(this.btnBlast_Click);
             // 
@@ -347,9 +347,9 @@
             this.lblBlast.AutoSize = true;
             this.lblBlast.Location = new System.Drawing.Point(6, 53);
             this.lblBlast.Name = "lblBlast";
-            this.lblBlast.Size = new System.Drawing.Size(229, 13);
+            this.lblBlast.Size = new System.Drawing.Size(221, 13);
             this.lblBlast.TabIndex = 2;
-            this.lblBlast.Text = "To filter data by BLAST hit value press \'BLAST\'";
+            this.lblBlast.Text = "To filter data by numeric value press \'Number\'";
             // 
             // btnList
             // 
