@@ -75,9 +75,15 @@ To search with 100 sequences each to use:
 
 > while [ $COUNTER -lt 99 ]; do
 
-The results of each search are saved to an *.xml in a subfolder in the same folder as the FASTA file. If the BLAST search job times out, delete any empty *.xml files and rerun the job. This should start the analysis at the point where it stopped the last time. 
+The results of each search are saved to a *out.txt file in a subfolder in the same folder as the FASTA file. If the BLAST search job times out, delete any empty *out.txt files and rerun the job. This should start the analysis at the point where it stopped the last time. 
 
-The returned file format is set on line 58 with: __-outfmt 5__, chaging the value to __-outfmt 6__ will create a standard BLAST output file.
+___Note: the Path to the blastn application needs to be set on line 58.___
+
+The returned file format is set on line 58 with: 
+
+> -outfmt "6 qseqid pident mismatch gapopen length evalue bitscore sacc stitle"
+
+This will return the hit sequences description and accession ID as well as the hits length, e Score, bit score, percent identities	number of mismatches and gaps as well as the query sequence's name.
 
 Check that a job finished after completing all the searches and didn't run out of memory. If it did run out of memory either request more memory or reduce the number of sequences in each search.
 
@@ -104,32 +110,34 @@ __/mydbfolder/mydb.phr__, __/mydbfolder/mydb.pin__ and __/mydbfolder/mydb.psq__ 
 
 ---
 
-- ## p_Get_Blast_Data_From_Folder_of_Folders_pair.py
+- ## b_CombineBLASTHitFiles.sh
 
-This Python script will read all the *.xml files created by [__slurm_BlastSequencesTenHits.sh and sge_BlastSequencesTenHits.sh__](#slurm_blastsequencestenhitssh-and-sge_blastsequencestenhitssh) and create a pair of tab-delimited text files that contain the BLAST hit results in a format that __Taxonomic_NCBI__ can use. 
+This bash script will read all the *out.txt files created by [__slurm_BlastSequencesTenHits.sh and sge_BlastSequencesTenHits.sh__](#slurm_blastsequencestenhitssh-and-sge_blastsequencestenhitssh) and create a tab-delimited text files that contain the BLAST hit results in a format that __Taxonomic_NCBI__ can use. 
 
-The output consists of two files called _Alignment_Details_one_line.txt_ and _Alignment_Details.txt_. Both contain the columns shown in the table below.
+The output file consists containsthe columns shown in the table below.
 
 |Header|Description|
 |-|-|
 |Fasta name|The name of the sequence in the FASTA file|
-|Hit length|The length of the sequence in the FASTA file|
+|Percent identities|Percentage of positions that are the same between the FASTA file sequence and the hit sequence|
+|Mismatches|The number of mismatches in the alignment|
+|Gaps|The number of gaps in the alignment|
 |Alignment length|The length of the alignment|
-|Alignment Identities|Number of positions that are the same between the FASTA file sequence and the hit sequence|
-|Percent Identities|Percentage of positions that are the same between the FASTA file sequence and the hit sequence|
-|E score|The hits e score value as stated by blastn|
-|Hit accession|The GenBank accession ID of the hit|
-|Hit name|The description of the hit sequence|
+|3 Value|The hit's e score value as stated by blastn (smaller the better|
+|BitScore|he hit's e score value as stated by blastn (bigger the better)|
+|Hit accession id|The GenBank accession ID of the hit|
+|Hit description|The description of the hit sequence|
 
 The _Alignment_Details_one_line.txt_ only contains the first hit whose description doesn't start with the word "uncultured" (case insensitive). Ideally, this means that all sequences are mapped to a sequence linked to a species rather than as a sequence from an "uncultured" sample. If a sequence is linked to a GenBank entry whose description is uninformative, a better description may be found by looking through the _Alignment_Details.txt_ file which should have up to 10 hits in it for each sequence. To quickly find secondary hits in the _Alignment_Details.txt_ file, open it in Excel and search for results with the same name in the __Fasta name__ column.
 
 ### Usage:
 
-> python p_Get_Blast_Data_From_Folder_of_Folders_pair.py \<Folder of results XML files>
+> bash b_CombineBLASTHitFiles.sh \<Folder of results *out.txt* files> \<Name of output file>
 
 Where: 
 
-- \<Folder of results XML files> this is the folder that contains the original FASTA file with sequences extracted from the DADA2 read count file. The script will read XML files in any subfolder (or subfolder's subfolders).
+- \<Folder of results *out.txt* files> this is the folder that contains the original FASTA file with sequences extracted from the DADA2 read count file. The script will read *out.txt* files in any subfolder (or subfolder's subfolders).
+- \<Name of output file> is the name with path of the file to save the concatenated data to.
 
 ---
 
