@@ -105,6 +105,12 @@ namespace Taxonomic_NCBI
             string[] items = null;
             int counter = 0;
 
+            btnNameSearch.Enabled = false;
+            btnTaxoIDSearch.Enabled = false;
+            btnAnnotate.Enabled = false;
+            btnSave.Enabled = false;
+            btnSwitch.Enabled = false;
+
             try
             {
                 Text = "Counting names";
@@ -150,7 +156,7 @@ namespace Taxonomic_NCBI
                 btnTaxoIDSearch.Enabled = true;
                 btnAnnotate.Enabled = true;
                 btnSave.Enabled = true;
-
+                btnSwitch.Enabled = true;
             }
             catch { MessageBox.Show("Error reading data file", "Error"); }
             finally
@@ -392,7 +398,7 @@ namespace Taxonomic_NCBI
             return answer;
         }
 
-        private string GetTaxonomicData(string theName)
+        public string GetTaxonomicData(string theName)
         {
             string answer = "";
 
@@ -535,6 +541,7 @@ namespace Taxonomic_NCBI
             btnNameSearch.Enabled = false;
             btnTaxoIDSearch.Enabled = false;
             btnAnnotate.Enabled = false;
+            btnSwitch.Enabled = false;
             string title = Text;
             try
             {
@@ -593,6 +600,7 @@ namespace Taxonomic_NCBI
                 btnNameSearch.Enabled = true;
                 btnTaxoIDSearch.Enabled = true;
                 btnAnnotate.Enabled = true;
+                btnSwitch.Enabled = true;
             }
             catch (Exception ex)
             { MessageBox.Show("Error saving data to file: " + ex.Message); }
@@ -607,6 +615,18 @@ namespace Taxonomic_NCBI
         {
             FilterData fd = new FilterData();
             fd.ShowDialog();
+        }
+
+        private void btnNames_Click(object sender, EventArgs e)
+        {
+            GetNames gn = new GetNames();
+            gn.ShowDialog();
+        }
+
+        private void btnSwitch_Click(object sender, EventArgs e)
+        {
+            SwitchToxonomiclineage swl = new SwitchToxonomiclineage(leafs, fts, nodes, this);
+            swl.ShowDialog();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Taxonomic_NCBI
 {
-    class leaf
+    public class leaf
     {
         private int tax_ID = -1;
         private string name = "";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Taxonomic_NCBI
 {
-    class node
+    public class node
     {
         private int tax_id = -1;
         private int parent_tax_id = -1;

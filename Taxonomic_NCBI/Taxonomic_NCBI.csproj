@@ -127,6 +127,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetNames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetNames.Designer.cs">
+      <DependentUpon>GetNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="leaf.cs" />
     <Compile Include="leafBinarySearch.cs" />
     <Compile Include="leafComparer.cs" />
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="SpeciesSequenceLinker.Designer.cs">
       <DependentUpon>SpeciesSequenceLinker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SwitchToxonomiclineage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SwitchToxonomiclineage.Designer.cs">
+      <DependentUpon>SwitchToxonomiclineage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AggregateByTaxonomy.resx">
       <DependentUpon>AggregateByTaxonomy.cs</DependentUpon>
@@ -180,6 +192,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GetNames.resx">
+      <DependentUpon>GetNames.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -197,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SpeciesSequenceLinker.resx">
       <DependentUpon>SpeciesSequenceLinker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwitchToxonomiclineage.resx">
+      <DependentUpon>SwitchToxonomiclineage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

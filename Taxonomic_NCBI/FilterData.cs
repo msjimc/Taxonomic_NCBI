@@ -99,7 +99,6 @@ namespace Taxonomic_NCBI
                 btnList.Enabled = true;
                 btnRemoveColumns.Enabled = true;
                 btnRename.Enabled = true;
-                btnSwithcNames.Enabled = true;
                 answer++; 
             }
             if (cboDataStart.SelectedIndex != 0) { answer++; }

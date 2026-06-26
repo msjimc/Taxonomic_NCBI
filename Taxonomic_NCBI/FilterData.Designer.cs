@@ -42,8 +42,6 @@
             this.cboDataEnd = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.gbTasks = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnSwithcNames = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRename = new System.Windows.Forms.Button();
             this.btnRemoveColumns = new System.Windows.Forms.Button();
@@ -179,7 +177,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.Location = new System.Drawing.Point(12, 406);
+            this.btnClose.Location = new System.Drawing.Point(12, 374);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -189,8 +187,9 @@
             // 
             // gbTasks
             // 
-            this.gbTasks.Controls.Add(this.label11);
-            this.gbTasks.Controls.Add(this.btnSwithcNames);
+            this.gbTasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbTasks.Controls.Add(this.label9);
             this.gbTasks.Controls.Add(this.btnRename);
             this.gbTasks.Controls.Add(this.btnRemoveColumns);
@@ -207,29 +206,10 @@
             this.gbTasks.Controls.Add(this.label3);
             this.gbTasks.Location = new System.Drawing.Point(12, 143);
             this.gbTasks.Name = "gbTasks";
-            this.gbTasks.Size = new System.Drawing.Size(540, 254);
+            this.gbTasks.Size = new System.Drawing.Size(540, 223);
             this.gbTasks.TabIndex = 1;
             this.gbTasks.TabStop = false;
             this.gbTasks.Text = "Tasks";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 225);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Switch species name";
-            // 
-            // btnSwithcNames
-            // 
-            this.btnSwithcNames.Location = new System.Drawing.Point(459, 220);
-            this.btnSwithcNames.Name = "btnSwithcNames";
-            this.btnSwithcNames.Size = new System.Drawing.Size(75, 23);
-            this.btnSwithcNames.TabIndex = 15;
-            this.btnSwithcNames.Text = "Switch";
-            this.btnSwithcNames.UseVisualStyleBackColor = true;
-            this.btnSwithcNames.Click += new System.EventHandler(this.btnSwithcNames_Click);
             // 
             // label9
             // 
@@ -375,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 441);
+            this.ClientSize = new System.Drawing.Size(564, 409);
             this.Controls.Add(this.gbTasks);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
@@ -421,7 +401,5 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRename;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnSwithcNames;
     }
 }
