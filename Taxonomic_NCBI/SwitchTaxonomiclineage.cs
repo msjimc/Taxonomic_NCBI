@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace Taxonomic_NCBI
 {
-    public partial class SwitchToxonomiclineage : Form
+    public partial class SwitchTaxonomiclineage : Form
     {
         private leaf[] leafs;
         private fieldsToSearch fts;
@@ -19,7 +19,7 @@ namespace Taxonomic_NCBI
         private Form1 parent = null;
         private Dictionary<string, string> fields = new Dictionary<string, string>();
         private List<List<string>> data = new List<List<string>>();
-        public SwitchToxonomiclineage(leaf[] Leafs, fieldsToSearch FTS, Dictionary<int, node> Nodes, Form1 Parent)
+        public SwitchTaxonomiclineage(leaf[] Leafs, fieldsToSearch FTS, Dictionary<int, node> Nodes, Form1 Parent)
         {
             InitializeComponent();
 

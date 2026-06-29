@@ -625,7 +625,7 @@ namespace Taxonomic_NCBI
 
         private void btnSwitch_Click(object sender, EventArgs e)
         {
-            SwitchToxonomiclineage swl = new SwitchToxonomiclineage(leafs, fts, nodes, this);
+            SwitchTaxonomiclineage swl = new SwitchTaxonomiclineage(leafs, fts, nodes, this);
             swl.ShowDialog();
         }
     }

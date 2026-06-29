@@ -41,6 +41,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSwitch = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnNames = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnFilterBlastHitsFile = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.chkFolder = new System.Windows.Forms.CheckBox();
@@ -55,10 +59,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnNames = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnSwitch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -211,7 +211,48 @@
             this.groupBox2.Size = new System.Drawing.Size(804, 131);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Automated analysis";
+            this.groupBox2.Text = "Processing a BLAST hit file";
+            // 
+            // btnSwitch
+            // 
+            this.btnSwitch.Enabled = false;
+            this.btnSwitch.Location = new System.Drawing.Point(720, 73);
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.Size = new System.Drawing.Size(75, 23);
+            this.btnSwitch.TabIndex = 6;
+            this.btnSwitch.Text = "Switch";
+            this.btnSwitch.UseVisualStyleBackColor = true;
+            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(424, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "To swith names and taxonomic lineage data in a BLAST hits file press the \'Switch\'" +
+    " button";
+            // 
+            // btnNames
+            // 
+            this.btnNames.Location = new System.Drawing.Point(720, 44);
+            this.btnNames.Name = "btnNames";
+            this.btnNames.Size = new System.Drawing.Size(75, 23);
+            this.btnNames.TabIndex = 4;
+            this.btnNames.Text = "Names";
+            this.btnNames.UseVisualStyleBackColor = true;
+            this.btnNames.Click += new System.EventHandler(this.btnNames_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 49);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(386, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "To get list of species names in annotated BLAST hit file press the \'Names\' button" +
+    "";
             // 
             // btnFilterBlastHitsFile
             // 
@@ -365,47 +406,6 @@
             this.label7.Size = new System.Drawing.Size(339, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "To filter, annotate, or edit an annotated read count file press the \'Filter\' ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 49);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(386, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "To get list of species names in annotated BLAST hit file press the \'Names\' button" +
-    "";
-            // 
-            // btnNames
-            // 
-            this.btnNames.Location = new System.Drawing.Point(720, 44);
-            this.btnNames.Name = "btnNames";
-            this.btnNames.Size = new System.Drawing.Size(75, 23);
-            this.btnNames.TabIndex = 4;
-            this.btnNames.Text = "Names";
-            this.btnNames.UseVisualStyleBackColor = true;
-            this.btnNames.Click += new System.EventHandler(this.btnNames_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 78);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(424, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "To swith names and taxonomic lineage data in a BLAST hits file press the \'Switch\'" +
-    " button";
-            // 
-            // btnSwitch
-            // 
-            this.btnSwitch.Enabled = false;
-            this.btnSwitch.Location = new System.Drawing.Point(720, 73);
-            this.btnSwitch.Name = "btnSwitch";
-            this.btnSwitch.Size = new System.Drawing.Size(75, 23);
-            this.btnSwitch.TabIndex = 6;
-            this.btnSwitch.Text = "Switch";
-            this.btnSwitch.UseVisualStyleBackColor = true;
-            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
             // 
             // Form1
             // 

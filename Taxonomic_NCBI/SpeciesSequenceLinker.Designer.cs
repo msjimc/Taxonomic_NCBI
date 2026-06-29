@@ -33,6 +33,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnSelectDataFile = new System.Windows.Forms.Button();
             this.gbList = new System.Windows.Forms.GroupBox();
+            this.btnClearNotInList = new System.Windows.Forms.Button();
+            this.btnClearInList = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnListNotIn = new System.Windows.Forms.Button();
             this.chkList = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cboSpeciesfilter = new System.Windows.Forms.ComboBox();
@@ -54,10 +58,6 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnListNotIn = new System.Windows.Forms.Button();
-            this.btnClearInList = new System.Windows.Forms.Button();
-            this.btnClearNotInList = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbList.SuspendLayout();
@@ -83,7 +83,7 @@
             this.groupBox1.Size = new System.Drawing.Size(606, 393);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Identify species linked to each sequence";
+            this.groupBox1.Text = "Filter the annotated BLAST hit file";
             // 
             // label6
             // 
@@ -121,6 +121,48 @@
             this.gbList.Size = new System.Drawing.Size(594, 102);
             this.gbList.TabIndex = 26;
             this.gbList.TabStop = false;
+            // 
+            // btnClearNotInList
+            // 
+            this.btnClearNotInList.Enabled = false;
+            this.btnClearNotInList.Location = new System.Drawing.Point(513, 48);
+            this.btnClearNotInList.Name = "btnClearNotInList";
+            this.btnClearNotInList.Size = new System.Drawing.Size(75, 23);
+            this.btnClearNotInList.TabIndex = 24;
+            this.btnClearNotInList.Text = "Clear";
+            this.btnClearNotInList.UseVisualStyleBackColor = true;
+            this.btnClearNotInList.Click += new System.EventHandler(this.btnNotInList_Click);
+            // 
+            // btnClearInList
+            // 
+            this.btnClearInList.Enabled = false;
+            this.btnClearInList.Location = new System.Drawing.Point(513, 19);
+            this.btnClearInList.Name = "btnClearInList";
+            this.btnClearInList.Size = new System.Drawing.Size(75, 23);
+            this.btnClearInList.TabIndex = 23;
+            this.btnClearInList.Text = "Clear";
+            this.btnClearInList.UseVisualStyleBackColor = true;
+            this.btnClearInList.Click += new System.EventHandler(this.btnClearInList_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(348, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Select a file containing the list of unexpected species by pressing \'Not in\'";
+            // 
+            // btnListNotIn
+            // 
+            this.btnListNotIn.Enabled = false;
+            this.btnListNotIn.Location = new System.Drawing.Point(432, 47);
+            this.btnListNotIn.Name = "btnListNotIn";
+            this.btnListNotIn.Size = new System.Drawing.Size(75, 23);
+            this.btnListNotIn.TabIndex = 22;
+            this.btnListNotIn.Text = "Not in";
+            this.btnListNotIn.UseVisualStyleBackColor = true;
+            this.btnListNotIn.Click += new System.EventHandler(this.btnListNotIn_Click);
             // 
             // chkList
             // 
@@ -343,51 +385,11 @@
             // 
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(594, 34);
+            this.label1.Size = new System.Drawing.Size(588, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(348, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Select a file containing the list of unexpected species by pressing \'Not in\'";
-            // 
-            // btnListNotIn
-            // 
-            this.btnListNotIn.Enabled = false;
-            this.btnListNotIn.Location = new System.Drawing.Point(432, 47);
-            this.btnListNotIn.Name = "btnListNotIn";
-            this.btnListNotIn.Size = new System.Drawing.Size(75, 23);
-            this.btnListNotIn.TabIndex = 22;
-            this.btnListNotIn.Text = "Not in";
-            this.btnListNotIn.UseVisualStyleBackColor = true;
-            this.btnListNotIn.Click += new System.EventHandler(this.btnListNotIn_Click);
-            // 
-            // btnClearInList
-            // 
-            this.btnClearInList.Enabled = false;
-            this.btnClearInList.Location = new System.Drawing.Point(513, 19);
-            this.btnClearInList.Name = "btnClearInList";
-            this.btnClearInList.Size = new System.Drawing.Size(75, 23);
-            this.btnClearInList.TabIndex = 23;
-            this.btnClearInList.Text = "Clear";
-            this.btnClearInList.UseVisualStyleBackColor = true;
-            this.btnClearInList.Click += new System.EventHandler(this.btnClearInList_Click);
-            // 
-            // btnClearNotInList
-            // 
-            this.btnClearNotInList.Enabled = false;
-            this.btnClearNotInList.Location = new System.Drawing.Point(513, 48);
-            this.btnClearNotInList.Name = "btnClearNotInList";
-            this.btnClearNotInList.Size = new System.Drawing.Size(75, 23);
-            this.btnClearNotInList.TabIndex = 24;
-            this.btnClearNotInList.Text = "Clear";
-            this.btnClearNotInList.UseVisualStyleBackColor = true;
-            this.btnClearNotInList.Click += new System.EventHandler(this.btnNotInList_Click);
+            this.label1.Text = "To filter multiple hits to the same sequence, press the ‘Select’ button to import" +
+    " a BLAST hits file and then enter the required data to exclude annotations based" +
+    " on their hit quality and species name.";
             // 
             // btnClose
             // 
@@ -410,7 +412,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SpeciesSequenceLinker";
-            this.Text = "Species linked to a sequence";
+            this.Text = "Filter the annotated BLAST hit file";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbList.ResumeLayout(false);
