@@ -1,3 +1,16 @@
+
+## User Guide
+
+- [Main](README.md)
+   - [Manually search the taxonomy data](manualSearch.md)
+   - [Annotate BLAST hit file](annotateBlastHitFile.md)
+   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - Link annotated Blast hits to read-count file
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
+  
+
+
+
 # Combining the annotated BLAST hit file and the read count matrix file
 
 __Note:__ Once an annotated  BLAST hit file has been made, it can be combined with the linked read-count matrix file. Since this step does not require any taxonomic data from the NCBI taxonomy dataset, this step doesn't require you to import taxonomic data and so, is always available.
@@ -43,3 +56,15 @@ If the selected field in the BLAST hit annotated file contains the name of the s
 Pressing the ___Combine___ button will create a third file whose name is made from combining the names of the input files. This will contain the read matrix organised such that the sample data is in columns and the sequence data is on each row. The annotated BLAST hit data is appended to the end of each row with the same character used to split the read-count matrix data into individual fields (blue box in Figure 1).
 
 The first column will consist of the sequence's name in the species sequence ID appended to the end of the BLAST hit file's species sequence ID, allowing the accuracy of the combining to be determined. Figure 3 shows a combined data file opened in Excel in which only the first 4 sample data columns are shown along with the first 6 taxonomy divisions. 
+
+
+
+## User Guide
+
+- [Main](README.md)
+   - [Manually search the taxonomy data](manualSearch.md)
+   - [Annotate BLAST hit file](annotateBlastHitFile.md)
+   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - Link annotated Blast hits to read-count file
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
+  

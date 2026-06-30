@@ -1,3 +1,14 @@
+
+## User Guide
+
+- [Main](README.md)
+   - [Manually search the taxonomy data](manualSearch.md)
+   - [Annotate BLAST hit file](annotateBlastHitFile.md)
+   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
+   - Filtering, editing and aggregate the annotated read counts file 
+
+
 # Filtering and aggregating data
 
 Pressing the ___Filter___ button in the ___Filter and aggregate species data___ region of the ___Taxonomic_NCBI___ opens the ___Filter and aggregate species data___ window that allows the data to be filtered and aggregated before exporting to a tab-delimited text file.
@@ -23,10 +34,10 @@ ___
 The ___Tasks___ region contains five buttons, which, when pressed, open a new window that will perform a filtering, annotation, or aggregating task on the read-count data.
 
 - [Filter species by a list of species names](#filter-species-by-a-list-of-species-names)
-- [Filtering sequences data based on the quality of the BLAST hit](#filtering-sequence-data-based-on-the-quality-of-the-blast-hit)
+- [Filtering sequence data based on the quality of the BLAST hit](#filtering-sequence-data-based-on-the-quality-of-the-blast-hit)
 - [Exclude data based on its read-count across all samples](#exclude-data-based-on-its-read-count-across-all-samples)
 - [Combine read-count data based on its taxonomy grouping](#combine-read-count-data-based-on-its-taxonomy-grouping)
-- [Append taxonomic data from different source](#appending-taxonomic-data-from-a-different-source)
+- [Append taxonomic data from a different source](#appending-taxonomic-data-from-a-different-source)
 - [Deleting unwanted columns](#deleting-unwanted-columns)
 - [Renaming column names](#renaming-column-names)
 
@@ -369,3 +380,15 @@ Figure 21.
 ### Saving the analysis
 
 The results of the column name editing are initially stored within the __Rename columns__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore, to save the data, you must press the __Accept__ button (grey line in Figure 15). This will close the window and the results of the screening(s) will replace the data in the __Taxonomic_NCBI__ program. The data can then be saved to a file by pressing the __Save__ button (purple line in Figure 2) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
+
+
+
+## User Guide
+
+- [Main](README.md)
+   - [Manually search the taxonomy data](manualSearch.md)
+   - [Annotate BLAST hit file](annotateBlastHitFile.md)
+   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
+   - Filtering, editing and aggregate the annotated read counts file
+  

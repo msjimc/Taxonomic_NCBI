@@ -32,16 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSelectDataFile = new System.Windows.Forms.Button();
-            this.gbList = new System.Windows.Forms.GroupBox();
-            this.btnClearNotInList = new System.Windows.Forms.Button();
-            this.btnClearInList = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnListNotIn = new System.Windows.Forms.Button();
-            this.chkList = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboSpeciesfilter = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnList = new System.Windows.Forms.Button();
             this.gbQuality = new System.Windows.Forms.GroupBox();
             this.chkHitQuality = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -51,36 +41,41 @@
             this.lblFilterCutOff = new System.Windows.Forms.Label();
             this.rdoLowerThanCutOff = new System.Windows.Forms.RadioButton();
             this.cboColumnToFilter = new System.Windows.Forms.ComboBox();
-            this.cboSpeciesName = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cboFastaName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnList = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.chkList = new System.Windows.Forms.CheckBox();
+            this.cboSpeciesName = new System.Windows.Forms.ComboBox();
+            this.btnListNotIn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnClearInList = new System.Windows.Forms.Button();
+            this.btnClearNotInList = new System.Windows.Forms.Button();
+            this.gbList = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.gbList.SuspendLayout();
             this.gbQuality.SuspendLayout();
+            this.gbList.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnSelectDataFile);
             this.groupBox1.Controls.Add(this.gbList);
             this.groupBox1.Controls.Add(this.gbQuality);
-            this.groupBox1.Controls.Add(this.cboSpeciesName);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboFastaName);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnCreate);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(606, 393);
+            this.groupBox1.Size = new System.Drawing.Size(606, 366);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter the annotated BLAST hit file";
@@ -104,115 +99,6 @@
             this.btnSelectDataFile.Text = "Select";
             this.btnSelectDataFile.UseVisualStyleBackColor = true;
             this.btnSelectDataFile.Click += new System.EventHandler(this.btnSelectDataFile_Click);
-            // 
-            // gbList
-            // 
-            this.gbList.Controls.Add(this.btnClearNotInList);
-            this.gbList.Controls.Add(this.btnClearInList);
-            this.gbList.Controls.Add(this.label7);
-            this.gbList.Controls.Add(this.btnListNotIn);
-            this.gbList.Controls.Add(this.chkList);
-            this.gbList.Controls.Add(this.label8);
-            this.gbList.Controls.Add(this.cboSpeciesfilter);
-            this.gbList.Controls.Add(this.label3);
-            this.gbList.Controls.Add(this.btnList);
-            this.gbList.Location = new System.Drawing.Point(6, 183);
-            this.gbList.Name = "gbList";
-            this.gbList.Size = new System.Drawing.Size(594, 102);
-            this.gbList.TabIndex = 26;
-            this.gbList.TabStop = false;
-            // 
-            // btnClearNotInList
-            // 
-            this.btnClearNotInList.Enabled = false;
-            this.btnClearNotInList.Location = new System.Drawing.Point(513, 48);
-            this.btnClearNotInList.Name = "btnClearNotInList";
-            this.btnClearNotInList.Size = new System.Drawing.Size(75, 23);
-            this.btnClearNotInList.TabIndex = 24;
-            this.btnClearNotInList.Text = "Clear";
-            this.btnClearNotInList.UseVisualStyleBackColor = true;
-            this.btnClearNotInList.Click += new System.EventHandler(this.btnNotInList_Click);
-            // 
-            // btnClearInList
-            // 
-            this.btnClearInList.Enabled = false;
-            this.btnClearInList.Location = new System.Drawing.Point(513, 19);
-            this.btnClearInList.Name = "btnClearInList";
-            this.btnClearInList.Size = new System.Drawing.Size(75, 23);
-            this.btnClearInList.TabIndex = 23;
-            this.btnClearInList.Text = "Clear";
-            this.btnClearInList.UseVisualStyleBackColor = true;
-            this.btnClearInList.Click += new System.EventHandler(this.btnClearInList_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(348, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Select a file containing the list of unexpected species by pressing \'Not in\'";
-            // 
-            // btnListNotIn
-            // 
-            this.btnListNotIn.Enabled = false;
-            this.btnListNotIn.Location = new System.Drawing.Point(432, 47);
-            this.btnListNotIn.Name = "btnListNotIn";
-            this.btnListNotIn.Size = new System.Drawing.Size(75, 23);
-            this.btnListNotIn.TabIndex = 22;
-            this.btnListNotIn.Text = "Not in";
-            this.btnListNotIn.UseVisualStyleBackColor = true;
-            this.btnListNotIn.Click += new System.EventHandler(this.btnListNotIn_Click);
-            // 
-            // chkList
-            // 
-            this.chkList.AutoSize = true;
-            this.chkList.Location = new System.Drawing.Point(6, 0);
-            this.chkList.Name = "chkList";
-            this.chkList.Size = new System.Drawing.Size(207, 17);
-            this.chkList.TabIndex = 20;
-            this.chkList.Text = "Compare hit to list of expected species";
-            this.chkList.UseVisualStyleBackColor = true;
-            this.chkList.CheckedChanged += new System.EventHandler(this.chkList_CheckedChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(0, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(238, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Select the taxonomic level to use for comparison.";
-            // 
-            // cboSpeciesfilter
-            // 
-            this.cboSpeciesfilter.Enabled = false;
-            this.cboSpeciesfilter.FormattingEnabled = true;
-            this.cboSpeciesfilter.Location = new System.Drawing.Point(432, 75);
-            this.cboSpeciesfilter.Name = "cboSpeciesfilter";
-            this.cboSpeciesfilter.Size = new System.Drawing.Size(156, 21);
-            this.cboSpeciesfilter.TabIndex = 19;
-            this.cboSpeciesfilter.SelectedIndexChanged += new System.EventHandler(this.cboSpeciesfilter_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(326, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Select the file containing the list of expected species by pressing \'In\'";
-            // 
-            // btnList
-            // 
-            this.btnList.Enabled = false;
-            this.btnList.Location = new System.Drawing.Point(432, 19);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(75, 23);
-            this.btnList.TabIndex = 15;
-            this.btnList.Text = "In";
-            this.btnList.UseVisualStyleBackColor = true;
-            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // gbQuality
             // 
@@ -318,33 +204,12 @@
             this.cboColumnToFilter.TabIndex = 8;
             this.cboColumnToFilter.SelectedIndexChanged += new System.EventHandler(this.cboColumnToFilter_SelectedIndexChanged);
             // 
-            // cboSpeciesName
-            // 
-            this.cboSpeciesName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboSpeciesName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSpeciesName.FormattingEnabled = true;
-            this.cboSpeciesName.Location = new System.Drawing.Point(438, 303);
-            this.cboSpeciesName.Name = "cboSpeciesName";
-            this.cboSpeciesName.Size = new System.Drawing.Size(156, 21);
-            this.cboSpeciesName.TabIndex = 24;
-            this.cboSpeciesName.SelectedIndexChanged += new System.EventHandler(this.cboSpeciesName_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 306);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(230, 13);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Select the column containing the species name";
-            // 
             // cboFastaName
             // 
             this.cboFastaName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboFastaName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFastaName.FormattingEnabled = true;
-            this.cboFastaName.Location = new System.Drawing.Point(438, 330);
+            this.cboFastaName.Location = new System.Drawing.Point(438, 303);
             this.cboFastaName.Name = "cboFastaName";
             this.cboFastaName.Size = new System.Drawing.Size(156, 21);
             this.cboFastaName.TabIndex = 22;
@@ -354,7 +219,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 333);
+            this.label4.Location = new System.Drawing.Point(6, 306);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(254, 13);
             this.label4.TabIndex = 21;
@@ -363,7 +228,8 @@
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Location = new System.Drawing.Point(519, 357);
+            this.btnCreate.Enabled = false;
+            this.btnCreate.Location = new System.Drawing.Point(519, 330);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 6;
@@ -375,7 +241,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 362);
+            this.label2.Location = new System.Drawing.Point(6, 335);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(354, 13);
             this.label2.TabIndex = 5;
@@ -393,7 +259,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(24, 411);
+            this.btnClose.Location = new System.Drawing.Point(24, 380);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 13;
@@ -401,11 +267,121 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnList
+            // 
+            this.btnList.Enabled = false;
+            this.btnList.Location = new System.Drawing.Point(432, 19);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(75, 23);
+            this.btnList.TabIndex = 15;
+            this.btnList.Text = "In";
+            this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(326, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Select the file containing the list of expected species by pressing \'In\'";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(0, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(238, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Select the taxonomic level to use for comparison.";
+            // 
+            // chkList
+            // 
+            this.chkList.AutoSize = true;
+            this.chkList.Location = new System.Drawing.Point(6, 0);
+            this.chkList.Name = "chkList";
+            this.chkList.Size = new System.Drawing.Size(217, 17);
+            this.chkList.TabIndex = 20;
+            this.chkList.Text = "Compare hit to list(s) of taxonomic names";
+            this.chkList.UseVisualStyleBackColor = true;
+            this.chkList.CheckedChanged += new System.EventHandler(this.chkList_CheckedChanged);
+            // 
+            // cboSpeciesName
+            // 
+            this.cboSpeciesName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpeciesName.Enabled = false;
+            this.cboSpeciesName.FormattingEnabled = true;
+            this.cboSpeciesName.Location = new System.Drawing.Point(432, 75);
+            this.cboSpeciesName.Name = "cboSpeciesName";
+            this.cboSpeciesName.Size = new System.Drawing.Size(156, 21);
+            this.cboSpeciesName.TabIndex = 24;
+            this.cboSpeciesName.SelectedIndexChanged += new System.EventHandler(this.cboSpeciesName_SelectedIndexChanged);
+            // 
+            // btnListNotIn
+            // 
+            this.btnListNotIn.Enabled = false;
+            this.btnListNotIn.Location = new System.Drawing.Point(432, 47);
+            this.btnListNotIn.Name = "btnListNotIn";
+            this.btnListNotIn.Size = new System.Drawing.Size(75, 23);
+            this.btnListNotIn.TabIndex = 22;
+            this.btnListNotIn.Text = "Not in";
+            this.btnListNotIn.UseVisualStyleBackColor = true;
+            this.btnListNotIn.Click += new System.EventHandler(this.btnListNotIn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(348, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Select a file containing the list of unexpected species by pressing \'Not in\'";
+            // 
+            // btnClearInList
+            // 
+            this.btnClearInList.Enabled = false;
+            this.btnClearInList.Location = new System.Drawing.Point(513, 19);
+            this.btnClearInList.Name = "btnClearInList";
+            this.btnClearInList.Size = new System.Drawing.Size(75, 23);
+            this.btnClearInList.TabIndex = 23;
+            this.btnClearInList.Text = "Clear";
+            this.btnClearInList.UseVisualStyleBackColor = true;
+            this.btnClearInList.Click += new System.EventHandler(this.btnClearInList_Click);
+            // 
+            // btnClearNotInList
+            // 
+            this.btnClearNotInList.Enabled = false;
+            this.btnClearNotInList.Location = new System.Drawing.Point(513, 48);
+            this.btnClearNotInList.Name = "btnClearNotInList";
+            this.btnClearNotInList.Size = new System.Drawing.Size(75, 23);
+            this.btnClearNotInList.TabIndex = 24;
+            this.btnClearNotInList.Text = "Clear";
+            this.btnClearNotInList.UseVisualStyleBackColor = true;
+            this.btnClearNotInList.Click += new System.EventHandler(this.btnNotInList_Click);
+            // 
+            // gbList
+            // 
+            this.gbList.Controls.Add(this.btnClearNotInList);
+            this.gbList.Controls.Add(this.btnClearInList);
+            this.gbList.Controls.Add(this.label7);
+            this.gbList.Controls.Add(this.btnListNotIn);
+            this.gbList.Controls.Add(this.cboSpeciesName);
+            this.gbList.Controls.Add(this.chkList);
+            this.gbList.Controls.Add(this.label8);
+            this.gbList.Controls.Add(this.label3);
+            this.gbList.Controls.Add(this.btnList);
+            this.gbList.Location = new System.Drawing.Point(6, 183);
+            this.gbList.Name = "gbList";
+            this.gbList.Size = new System.Drawing.Size(594, 111);
+            this.gbList.TabIndex = 26;
+            this.gbList.TabStop = false;
+            // 
             // SpeciesSequenceLinker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 446);
+            this.ClientSize = new System.Drawing.Size(630, 416);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -415,10 +391,10 @@
             this.Text = "Filter the annotated BLAST hit file";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.gbList.ResumeLayout(false);
-            this.gbList.PerformLayout();
             this.gbQuality.ResumeLayout(false);
             this.gbQuality.PerformLayout();
+            this.gbList.ResumeLayout(false);
+            this.gbList.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -434,25 +410,23 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblFilterCutOff;
         private System.Windows.Forms.TextBox txtCutOff;
-        private System.Windows.Forms.Button btnList;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cboSpeciesfilter;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkHitQuality;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox chkList;
         private System.Windows.Forms.ComboBox cboFastaName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cboSpeciesName;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox gbList;
         private System.Windows.Forms.GroupBox gbQuality;
         private System.Windows.Forms.Button btnSelectDataFile;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnListNotIn;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.GroupBox gbList;
         private System.Windows.Forms.Button btnClearNotInList;
         private System.Windows.Forms.Button btnClearInList;
-        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnListNotIn;
+        private System.Windows.Forms.ComboBox cboSpeciesName;
+        private System.Windows.Forms.CheckBox chkList;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnList;
     }
 }

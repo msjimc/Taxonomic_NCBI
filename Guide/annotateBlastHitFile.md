@@ -1,3 +1,14 @@
+
+## User Guide
+
+- [Main](README.md)
+   - [Manually search the taxonomy data](manualSearch.md)
+   - Annotate BLAST hit file
+   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
+  
+
 # Annotating BLAST hit files with NCBI taxonomic data
 
 The annotation of a BLAST hit file is performed by pressing the ___Annotate___ button in the ___Automated analysis___ panel. Pressing this button prompts you to select a BLAST hit file. If the ___Process a folder of text files___ option is selected, ___Taxonomy_NCBI___ will process all the text files in the same folder, creating a single annotated BLAST hit file. When this option is used, ___Taxonomy_NCBI___ expects all the text files in the folder to be BLAST hit files containing sequences linked to a single read-counts matrix file. Once the input data has been selected, the ___Name location___ window will open, allowing you to specify the location of the species name in the description of sequences identified by BLAST as homologous to your amplicon sequence (Figure 1).
@@ -73,3 +84,15 @@ If the sequences were annotated against the BOLD data set, instruct ___Taxonomy_
 Finally, pressing the ___Accept___ button will process the entire BLAST hit file and create a new file with the same name as the BLAST hit file, but with ***_annotated*** appended to its name. In the new file, the field from which the search term is derived is removed, and the taxonomic string is appended to the end of the line after a text delimiter.
 
 Since not all entries contain all the taxonomic subdivisions, ___Taxonomic_NCBI____ pads missing fields using the previous taxonomic rank prefixed by a '.' character, for example, a search for ***Gyrodinium*** returns the name of a genus, but not a species name; Consequently, the taxonomic string ended with ***Gyrodinium***\<tab>***.Gyrodinium***. The term ***.Gyrodinium*** is substituted for a species name with the '.' character indicating the substitution. A value of ***Eucalanidae***\<tab>***.Eucalanidae***\<tab>***..Eucalanidae*** indicates that the two taxonomic rankings following ***Eucalanidae*** are absent.
+
+
+
+## User Guide
+
+- [Main](README.md)
+   - [Manually search the taxonomy data](manualSearch.md)
+   - Annotate BLAST hit file
+   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
+  

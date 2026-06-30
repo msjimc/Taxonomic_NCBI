@@ -16,7 +16,7 @@ namespace Taxonomic_NCBI
     {
         public List<string> lineData;
         public string ID;
-        public string speciedname;
+        //public string speciedname;
         public double comparisonValue;
     }
 
@@ -41,7 +41,6 @@ namespace Taxonomic_NCBI
         {
             gbQuality.Enabled = state;
             gbList.Enabled = state;
-            cboSpeciesName.Enabled = state;
             cboFastaName.Enabled = state;
             btnCreate.Enabled = state;
         }
@@ -152,11 +151,11 @@ namespace Taxonomic_NCBI
 
         private void chkList_CheckedChanged(object sender, EventArgs e)
         {
-            cboSpeciesfilter.Enabled = chkList.Checked;
             btnList.Enabled = chkList.Checked;
             btnListNotIn.Enabled = chkList.Checked;
             btnClearInList.Enabled = chkList.Checked;
             btnClearNotInList.Enabled = chkList.Checked;
+            cboSpeciesName.Enabled = chkList.Checked;
             setbtnFilterActivity();
         }
 
@@ -171,13 +170,13 @@ namespace Taxonomic_NCBI
 
             int answerList = 0;
             if (specieslist.Count + specieslistNot.Count > 0) { answerList++; }
-            if (cboSpeciesfilter.SelectedIndex > 0) { answerList++; }
+            if (cboSpeciesName.SelectedIndex > 0) { answerList++; }
             filterByList = ((answerList == 2) && (chkList.Checked == true));
 
-            btnCreate.Enabled = ((cboFastaName.SelectedIndex > 0) && (cboSpeciesName.SelectedIndex > 0));
+            btnCreate.Enabled = (cboFastaName.SelectedIndex > 0);
             if (chkHitQuality.Checked == true && filterByHitQuality == false) { btnCreate.Enabled = false; }
             if (chkList.Checked == true && filterByList == false) { btnCreate.Enabled = false; }
-
+            if (filterByList == false && filterByHitQuality == false) { btnCreate.Enabled = false; }
         }
 
         private void rdoHigherThanCutOff_CheckedChanged(object sender, EventArgs e)
@@ -220,9 +219,8 @@ namespace Taxonomic_NCBI
 
             int idIndex = cboFastaName.SelectedIndex - 1;
             int blastIndex = cboColumnToFilter.SelectedIndex - 1;
-            int speciesColumnIndex = cboSpeciesfilter.SelectedIndex - 1;
             int nameIndex = cboSpeciesName.SelectedIndex - 1;
-            bool higher = rdoHigherThanCutOff.Checked;
+            bool higher = !rdoLowerThanCutOff.Checked;
 
             Dictionary<string, blastLine> blastLines = new Dictionary<string, blastLine>();
 
@@ -254,7 +252,7 @@ namespace Taxonomic_NCBI
                 }
 
 
-                if (blastLines.ContainsKey(id) == true)
+                if (blastLines.ContainsKey(id) == true && filterByHitQuality == true)
                 {
                     if (higher == true && blastLines[id].comparisonValue <= testValue)
                     { continue; }
@@ -263,7 +261,6 @@ namespace Taxonomic_NCBI
                     blastLine bl = new blastLine();
                     bl.ID = id;
                     bl.lineData = row;
-                    bl.speciedname = row[nameIndex];
                     bl.comparisonValue = testValue;
                     blastLines[id] = bl;
                 }
@@ -272,7 +269,6 @@ namespace Taxonomic_NCBI
                     blastLine bl = new blastLine();
                     bl.ID = id;
                     bl.lineData = row;
-                    bl.speciedname = row[nameIndex];
                     bl.comparisonValue = testValue;
                     blastLines.Add(id, bl);
                 }
@@ -295,8 +291,6 @@ namespace Taxonomic_NCBI
             }
             catch (Exception ex) { MessageBox.Show("An error occured creating the file: " + ex.Message, "Error"); }
             finally { fs?.Close(); }
-
-
 
         }
         private void btnSelectDataFile_Click(object sender, EventArgs e)
@@ -341,7 +335,6 @@ namespace Taxonomic_NCBI
 
                 setCboLists(cboSpeciesName, headers);
                 setCboLists(cboColumnToFilter, headers);
-                setCboLists(cboSpeciesfilter, headers);
                 setCboLists(cboFastaName, headers);
 
             }
