@@ -22,13 +22,15 @@ This script will make one BLAST database for each multiple-sequence FASTA file i
 > bash b_MakeBlastdb.sh \<path to folder>
 
 Where:
-- \<path to folder> is the name with its path of the folder of FASTA files.
+- \<path to folder> is the name and path of the folder of FASTA files.
 
 ---
 
 - ## b_GetSequencesFromDADA2ReadCountFile.sh
 
-This BASH script reads the first line from a DADA2 read count file and creates a multiple-sequence FASTA file containing the sequence in the file. Each sequence's name is the index of the sequence in the DADA2 file, so the first is >1, the second is >2 and so on. Thsi file can then be used to search a BLAST database.
+__Note:__ This script reports all sequences in the read count file, if you want to remove sequences with very few hits in the read count matrix use the Python script [p_GetSequencesFromDADA2ReadCountFile_FilterByHits.py](#p_getsequencesfromdada2readcountfile_filterbyhitspy)
+
+This BASH script reads the first line from a DADA2 read count file and creates a multiple-sequence FASTA file containing the sequence in the file. Each sequence's name is the index of the sequence in the DADA2 file, so the first is >1, the second is >2 and so on. This file can then be used to search a BLAST database.
 
 ### Usage:
 
@@ -36,10 +38,26 @@ This BASH script reads the first line from a DADA2 read count file and creates a
 
 Where:
 
-- \<DADA2 File> is the name with its path of the read count matrix file created by DADA2.
-- \<fastaFile> is the name with its path of the FASTA file you wish to create and will contain each sequence in the read count file. If the FASTA file already exists, it will be overwritten.
+- \<DADA2 File> is the name and path of the read count matrix file created by DADA2.
+- \<fastaFile> is the name and path of the FASTA file you wish to create and will contain each sequence in the read count file. If the FASTA file already exists, it will be overwritten.
 
 ---
+
+- ## p_GetSequencesFromDADA2ReadCountFile_FilterByHits.py
+
+This Python script reads the a DADA2 read counts files and counts the reads linked to each sequence. It then exports the sequences whose read count is above the user-defined cutoff value. Each sequence's name in the FASTA file is the sequence's index in the DADA2 file, so the first is >1, the second is >2 and so on. This file can then be used to search a BLAST database.
+
+The script first counts the reads and then displays the total number of reads in the read-count file. The size of this cutoff value will depend on the number of reads in the file, so 1,000 may be OK for a small dataset of 5 million reads (0.02% of reads), but too low for a larger dataset of 300 million reads (0.0033% of reads).
+
+Usage:
+python p_GetSequencesFromDADA2ReadCountFile_FilterByHits.py \<DADA2 File> \<fastaFile> \<cutoff value>
+
+Where:
+
+- \<DADA2 File> is the name and path of the read count matrix file created by DADA2.  
+- \<fastaFile> is the name and path of the FASTA file you wish to create and will contain each retained sequence in the read count file. If the FASTA file already exists, it will be overwritten.  
+- \<cutoff value> is the minimum number of hits that a sequence must have for it to be saved to the FASTA file. 
+
 
 - ## b_CutUpFasta.sh
 
@@ -51,7 +69,7 @@ When searching a BLAST database for sequences identified by a DADA2 pipeline, th
 
 Where:
 
-- \<fastaFile> is the name with its path of the multiple-sequence FASTA to process. The new FASTA files will be saved to a folder named after the input FASTA file, with its file extension replaced by ___fa_single__. So a file called /data/mySequences.fa will have its child files placed in a folder called /data/mySequences_fa_single. Each of the child FASTA files will be named: 1.fa, 2.fa, 3.fa...
+- \<fastaFile> is the name and path of the multiple-sequence FASTA to process. The new FASTA files will be saved to a folder named after the input FASTA file, with its file extension replaced by ___fa_single__. So a file called /data/mySequences.fa will have its child files placed in a folder called /data/mySequences_fa_single. Each of the child FASTA files will be named: 1.fa, 2.fa, 3.fa...
 
 The script save 200 sequences to each child FASTA file, this can be changed to any value by changing line 28:
 
@@ -103,7 +121,7 @@ For SGE:
 
 Where:
 - --array=1-n or 1-n sets the number of different searches to be performed; this number should be equal to the number of child FASTA files created by [__b_CutUpFasta.sh__](#b_cutupfastash).
-- \<folder of FASTA files> is the name with its path of the folder of FASTA files.
+- \<folder of FASTA files> is the name and path of the folder of FASTA files.
 - \<BLAST database> is the name of the BLAST database to be screened. If the database is from the NCBI, its name is the same as the files in the database minus their file extension. So a database containing the files:
 __/mydbfolder/mydb.phr__, __/mydbfolder/mydb.pin__ and __/mydbfolder/mydb.psq__ is called __/mydbfolder/mydb__.
 - \<program> is the name and path of the blastn executable.

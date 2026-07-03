@@ -158,8 +158,6 @@ namespace Taxonomic_NCBI
             int index = cboSpeciesfilter.SelectedIndex - 1;
             List<List<string>> newdata = new List<List<string>>();
 
-            int removed = 0;
-
             foreach (List<string> dataRow in data)
             {
                 if (dataRow.Count > index)

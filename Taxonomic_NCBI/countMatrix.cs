@@ -77,7 +77,7 @@ namespace Taxonomic_NCBI
                     rowCount++;
                 }
 
-                if (rdoColumn.Checked == false)
+                if (rdoColumn.Checked == true)
                 {
                     sampleNames = rowNames;
                     speciesName = columnNames;
