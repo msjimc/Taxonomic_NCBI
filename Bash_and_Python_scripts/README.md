@@ -28,7 +28,7 @@ Where:
 
 - ## b_GetSequencesFromDADA2ReadCountFile.sh
 
-__Note:__ This script reports all sequences in the read count file, if you want to remove sequences with very few hits in the read count matrix use the Python script [p_GetSequencesFromDADA2ReadCountFile_FilterByHits.py](#p_getsequencesfromdada2readcountfile_filterbyhitspy)
+__Note:__ This script reports all sequences in the read count file, if you want to remove sequences with very few hits in the read count matrix use the Python script [GetSequencesFromDADA2ReadCountFile_FilterByHits.py](#getsequencesfromdada2readcountfile_filterbyhitspy)
 
 This BASH script reads the first line from a DADA2 read count file and creates a multiple-sequence FASTA file containing the sequence in the file. Each sequence's name is the index of the sequence in the DADA2 file, so the first is >1, the second is >2 and so on. This file can then be used to search a BLAST database.
 
@@ -43,14 +43,14 @@ Where:
 
 ---
 
-- ## p_GetSequencesFromDADA2ReadCountFile_FilterByHits.py
+- ## GetSequencesFromDADA2ReadCountFile_FilterByHits.py
 
 This Python script reads the a DADA2 read counts files and counts the reads linked to each sequence. It then exports the sequences whose read count is above the user-defined cutoff value. Each sequence's name in the FASTA file is the sequence's index in the DADA2 file, so the first is >1, the second is >2 and so on. This file can then be used to search a BLAST database.
 
 The script first counts the reads and then displays the total number of reads in the read-count file. The size of this cutoff value will depend on the number of reads in the file, so 1,000 may be OK for a small dataset of 5 million reads (0.02% of reads), but too low for a larger dataset of 300 million reads (0.0033% of reads).
 
 Usage:
-python p_GetSequencesFromDADA2ReadCountFile_FilterByHits.py \<DADA2 File> \<fastaFile> \<cutoff value>
+python GetSequencesFromDADA2ReadCountFile_FilterByHits.py \<DADA2 File> \<fastaFile> \<cutoff value>
 
 Where:
 
@@ -245,6 +245,25 @@ __Note:__ If the subgenus is left in the name, it means that the data can't be u
 See the section [CreateTaxonomyFileFromBOLDTSVFile.py](#createtaxonomyfilefromboldtsvfilepy) below.
 
 ---
+
+
+- ## GetGBIFSpeciesAndTaxonomyData.py
+
+This script reads a tab-delimited plaine text GBIF file downloaded from the GBIF data portal. These data sets are generally prefiltered for a specific parameter, such as, geographic location. 
+
+GBIF website: [https://www.gbif.org/](https://www.gbif.org/)
+
+### Usage:
+
+> python GetGBIFSpeciesAndTaxonomyData.py \<GBIF data file> \<Species list.txt> \<TaxonomicList.txt> 
+
+Where:
+
+- \<GBIF data file> is the path and name of the tab-delimited file from the GBIF data portal.
+- \<Species list.txt> is the name with path of the file to save the list of species names too.
+- \<TaxonomicList.txt> is the path and name of the file to save taxonomic data too.
+
+__Note:__ Their are 3 different columns containing species data: _scientificName_, _acceptedScientificName_ and _species_. Since the first two contain data on the first occurency of the description and may have a three word name, they are ignored and the name in the _species_ column that is part of the taxonomic linear is used.
 
 - ## BOLD specific Python scripts
 

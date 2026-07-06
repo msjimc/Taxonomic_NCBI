@@ -1,30 +1,30 @@
 
 import sys , os
 
-#if (len(sys.argv)) != 4:
-#    print("Usage:  python p_GetGBIFSpeciesAndTaxonomyData.py GBIFDataFile SpeciesNameFile TaxonomyDataFile")
-#    print("The first parameter should be the taxonomic data file from the GBIF website")
-#    print("the second parameter is the name of the file to save the species names too")
-#    print("The third parameter is the file where the taxonomy data will be saved")
-#    sys.exit(1)
+if (len(sys.argv)) != 4:
+    print("Usage:  python p_GetGBIFSpeciesAndTaxonomyData.py GBIFDataFile SpeciesNameFile TaxonomyDataFile")
+    print("The first parameter should be the taxonomic data file from the GBIF website")
+    print("the second parameter is the name of the file to save the species names too")
+    print("The third parameter is the file where the taxonomy data will be saved")
+    sys.exit(1)
 
 
 try:
-    dataFileName = "L:\\gbif\\0013309-260623161305970.xls" #sys.argv[1]
+    dataFileName = sys.argv[1]
     dataFile = open(dataFileName, "r", encoding="utf-8")
 except Exception as ex:
     print("Could not open file: " + dataFileName)
     sys.exit(1)
 
 try:
-    exportSpeciesFileName = "L:\\gbif\\exportSpecies.txt" #sys.argv[2]
+    exportSpeciesFileName = sys.argv[2]
     exportSpeciesFile = open(exportSpeciesFileName, "w", encoding="utf-8")
 except Exception as ex:
     print("Could not open/create file: " + exportSpeciesFileName)
     sys.exit(1)
 
 try:
-    exportTaxonomyFileName = "L:\\gbif\\exportTaxonomy.txt" #   sys.argv[3]
+    exportTaxonomyFileName = sys.argv[3]
     exportTaxonomyFile = open(exportTaxonomyFileName, "w", encoding="utf-8")
 except Exception as ex:
     print("Could not open/create file: " + exportTaxonomyFileName)
