@@ -62,8 +62,8 @@ namespace Taxonomic_NCBI
                     if (items.Length > 0)
                     {
                         List<string> datum = items.ToList();
-                        
-                        string name = items[items.Length -1].ToLower();
+
+                        string name = items[items.Length - 1].ToLower();
                         if (fields.ContainsKey(name) == true)
                         {
                             string newData = fields[name];
@@ -78,15 +78,43 @@ namespace Taxonomic_NCBI
                                     int count = 0;
                                     for (int place = index; place < datum.Count; place++)
                                     {
-                                        datum[place] = newTaxonomy[count]; 
-                                        count++; 
+                                        datum[place] = newTaxonomy[count];
+                                        count++;
                                     }
                                     datum.Add("Original name: " + name);
                                 }
                             }
                         }
-                        else { datum.Add("No change"); }
-                        
+                        else
+                        {
+                            string[] bits = name.Split(' ');
+                            if (fields.ContainsKey(bits[0]) == true)
+                            {
+                                string originalName = name;
+                                name = bits[0];
+                                string newData = fields[name];
+                                if (newData == "No infomation")
+                                { datum.Add(name + ": not found"); }
+                                else
+                                {
+                                    List<string> newTaxonomy = newData.Split('\t').ToList();
+                                    int index = datum.Count - newTaxonomy.Count;
+                                    if (index > 0)
+                                    {
+                                        int count = 0;
+                                        for (int place = index; place < datum.Count; place++)
+                                        {
+                                            datum[place] = newTaxonomy[count];
+                                            count++;
+                                        }
+                                        datum.Add("Original name: " + originalName);
+                                    }
+                                }                               
+                            }
+                            else { datum.Add("No change"); }
+                            
+                        }
+
                         data.Add(datum);
                     }
                 }
@@ -148,6 +176,16 @@ namespace Taxonomic_NCBI
                         string wrong = items[0].Trim().ToLower();
                         string right = items[1].Trim().ToLower();
 
+                        if (fields.ContainsKey(wrong) == true) { continue; }
+
+                        string taxonomyLineage = parent.GetTaxonomicData(right);
+                        fields[wrong] = taxonomyLineage;
+                    }
+                    else if (items.Length == 1)                    
+                    {
+                        string[] bits = items[0].Split(' ');
+                        string wrong = bits[0].Trim().ToLower();
+                        string right = items[0].Trim().ToLower();
                         if (fields.ContainsKey(wrong) == true) { continue; }
 
                         string taxonomyLineage = parent.GetTaxonomicData(right);

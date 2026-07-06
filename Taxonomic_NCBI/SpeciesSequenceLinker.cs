@@ -211,7 +211,7 @@ namespace Taxonomic_NCBI
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string filename = FileString.SaveAs("Entar the name of the file to save the data to", "Text file (*.txt)|*.txt");
+            string filename = FileString.SaveAs("Enter the name of the file to save the data to", "Text file (*.txt)|*.txt");
             if (filename == "Cancel") { return; }
 
             double cutoffValue = 0;
