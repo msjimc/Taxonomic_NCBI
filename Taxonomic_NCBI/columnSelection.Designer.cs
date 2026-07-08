@@ -93,7 +93,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(611, 544);
+            this.groupBox1.Size = new System.Drawing.Size(611, 448);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Name field select";
@@ -137,7 +137,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 408);
+            this.label8.Location = new System.Drawing.Point(5, 379);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 13);
             this.label8.TabIndex = 21;
@@ -159,7 +159,7 @@
             this.txtLine.Location = new System.Drawing.Point(9, 325);
             this.txtLine.Multiline = true;
             this.txtLine.Name = "txtLine";
-            this.txtLine.Size = new System.Drawing.Size(596, 80);
+            this.txtLine.Size = new System.Drawing.Size(596, 51);
             this.txtLine.TabIndex = 20;
             // 
             // btnNext
@@ -202,10 +202,10 @@
             this.txtSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSelected.Location = new System.Drawing.Point(9, 424);
+            this.txtSelected.Location = new System.Drawing.Point(9, 395);
             this.txtSelected.Multiline = true;
             this.txtSelected.Name = "txtSelected";
-            this.txtSelected.Size = new System.Drawing.Size(596, 115);
+            this.txtSelected.Size = new System.Drawing.Size(596, 48);
             this.txtSelected.TabIndex = 22;
             this.txtSelected.TextChanged += new System.EventHandler(this.txtSelected_TextChanged);
             // 
@@ -407,7 +407,7 @@
             // 
             this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Location = new System.Drawing.Point(463, 561);
+            this.btnAccept.Location = new System.Drawing.Point(463, 465);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
@@ -420,7 +420,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(542, 561);
+            this.btnCancel.Location = new System.Drawing.Point(542, 465);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -432,15 +432,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 598);
+            this.ClientSize = new System.Drawing.Size(635, 502);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(651, 637);
+            this.MinimumSize = new System.Drawing.Size(651, 541);
             this.Name = "columnSelection";
-            this.Text = "Name location";
+            this.Text = "BLAST hit file annotation";
             this.Load += new System.EventHandler(this.columnSelection_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

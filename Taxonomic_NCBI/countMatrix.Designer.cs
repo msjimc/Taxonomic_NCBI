@@ -356,7 +356,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(631, 489);
             this.Name = "countMatrix";
-            this.Text = "Combine files";
+            this.Text = "Combine taxonomy data with read counts data";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbCombine.ResumeLayout(false);

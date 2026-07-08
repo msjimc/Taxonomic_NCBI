@@ -1,6 +1,27 @@
-# Python and Bash scripts
+# Python, Bash and R scripts
 
 This folder contains a number of Python and BASH scripts that may be helpful in the analysis of eDNA. The BASH scripts focus on performing BLAST searches, while the Python scripts can be used to create data that may be imported by ___Taxonomic_NCBI___.
+
+## R scripts
+
+- ## DADA2_R_Script.r
+
+This R script directs the creation of a reads count file by DADA2 after the quality trimming of the data with Cutadapt. The script doesn't have any submission parameters, with all variables declared in the script. Consequently, the script must be edited for each analysis. These variable and there current values are described in the table below.
+
+|Line|Current statement|Description|Change required|
+|-|-|-|-|
+|5|fileBaseName <- "18S_NorthAtlantic"|Text that will identify this analysis|Yes|
+|7|workingFolder <- "/msjimc/Taxonomy/"|The path to the folder the results file will be save too|Yes|
+|9|dataFolder <- "msjimc/Taxonomy/data/"|The path to the folder containing the sequencing data|Yes|
+|11|forwardFileNamePatern="_1.fastq.gz"|Text plus file extension used to identify forward reads. Illumina formatted file names may need "_L001_R1_001.fastq.gz"|Optional|
+|13|reverseFileNamePatern="_2.fastq.gz"|Text plus file extension used to identify reverse reads. Illumina formatted file names may need "_L001_R2_001.fastq.gz"|Optional|
+|16|trimReads=TRUE|Determines is the raw data is filtered and trimmed by DADA2. May be set to false if the analysis has been performed before. The data is save to a folder called __filtN__|Optional|
+|16|cutadaptTrim=TRUE|Determines is the filtered and trimmed data is processed by Cutadapt. May be set to false if the analysis has been performed before. The data is save to a folder called __cutadapt__|Optional|
+|19|FWD <- "GTACACACCGCCCGTC"|Sequence of forward primer used to amplify sequence|Yes|
+|20|REV <- "TGATCCTTCTGCAGGTTCACCTAC"|Sequence of reverse primer used to amplify sequence|Yes|
+|24|.libPaths('/users/username/R/')|Sets the location of your R libraries. If you are using a computer used by others, you may need to set this to your library folder, otherwise the line could be removed.|Optional|
+
+
 
 ## BLAST related scripts
 
