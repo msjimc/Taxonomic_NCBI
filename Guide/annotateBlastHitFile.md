@@ -3,11 +3,11 @@
 
 - [Main](README.md)
    - [Manually search the taxonomy data](manualSearch.md)
-   - Annotate BLAST hit file
-   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+        - Annotate BLAST hit file
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
-   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
-  
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)  
 
 # Annotating BLAST hit files with NCBI taxonomic data
 

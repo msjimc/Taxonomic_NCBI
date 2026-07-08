@@ -14,6 +14,7 @@ namespace Taxonomic_NCBI
     {
         leaf[] leafs = null;
         Dictionary<int, node> nodes = null;
+        private bool hasTaxonomyData = false;
         List<string> filesToProcesss = null;
         string[] order = { "(superkingdom)", "(kingdom)", "(phylum)", "(subphylum)", "(superclass)", "(class)", "(subclass)", "(superorder)", "(order)", "(suborder)", "(infraorder)", "(parvorder)", "(superfamily)", "(family)", "(subfamily)", "(supertride)", "(tribe)", "(subtribe)", "(genus)", "(species)" };
         Dictionary<string, string> data = null;
@@ -29,6 +30,8 @@ namespace Taxonomic_NCBI
 
             string nodeFile = FileString.OpenAs("Select the NCBI taxonomy nodes.dmp file", "*.dmp|*.dmp");
             if (System.IO.File.Exists(nodeFile) == false) { return; }
+
+            hasTaxonomyData = false;
 
             System.IO.StreamReader fr = null;
             string formText = Text;
@@ -93,6 +96,8 @@ namespace Taxonomic_NCBI
                 if (fr != null) { fr.Close(); }
                 Text = formText;
             }
+
+            lblHasTaxonomyData.Visible = !hasTaxonomyData;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -107,9 +112,8 @@ namespace Taxonomic_NCBI
 
             btnNameSearch.Enabled = false;
             btnTaxoIDSearch.Enabled = false;
-            btnAnnotate.Enabled = false;
             btnSave.Enabled = false;
-            btnSwitch.Enabled = false;
+            hasTaxonomyData = false;
 
             try
             {
@@ -153,10 +157,9 @@ namespace Taxonomic_NCBI
                 Array.Sort(leafs, new leafComparer());
 
                 btnNameSearch.Enabled = true;
-                btnTaxoIDSearch.Enabled = true;
-                btnAnnotate.Enabled = true;
+                btnTaxoIDSearch.Enabled = true;                
                 btnSave.Enabled = true;
-                btnSwitch.Enabled = true;
+                hasTaxonomyData = true;
             }
             catch { MessageBox.Show("Error reading data file", "Error"); }
             finally
@@ -164,6 +167,8 @@ namespace Taxonomic_NCBI
                 if (fr != null) { fr.Close(); }
                 Text = formText;
             }
+
+            lblHasTaxonomyData.Visible = !hasTaxonomyData; ;
 
 
         }
@@ -268,8 +273,10 @@ namespace Taxonomic_NCBI
 
         }
 
-        private void btnNamesFile_Click(object sender, EventArgs e)
+
+        public void NamesFile(bool isFolder)
         {
+
             string fileName = FileString.OpenAs("Select the file containing the Blast hit descriptions", "Tab-delimited text file (*.txt; *.xls)|*.txt;*.xls");
             if (System.IO.File.Exists(fileName) == false) { return; }
 
@@ -285,7 +292,7 @@ namespace Taxonomic_NCBI
                 fts = cs.getFieldsToSearch();
 
                 filesToProcesss = new List<string>();
-                if (chkFolder.Checked == true)
+                if (isFolder == true)
                 {
                     string folder = fileName.Substring(0, fileName.LastIndexOf("\\"));
                     string[] files = System.IO.Directory.GetFiles(folder, "*.txt");
@@ -304,15 +311,7 @@ namespace Taxonomic_NCBI
             }
         }
 
-        private void btnFilterBlastHitsFile_Click(object sender, EventArgs e)
-        {
-            SpeciesSequenceLinker ssl = new SpeciesSequenceLinker();
-            if (ssl.ShowDialog() == DialogResult.OK)
-            {
-                
-            }
-        }
-
+        
         private bool errorFree = true;
         private void ProcessFile()
         {
@@ -540,8 +539,7 @@ namespace Taxonomic_NCBI
 
             btnNameSearch.Enabled = false;
             btnTaxoIDSearch.Enabled = false;
-            btnAnnotate.Enabled = false;
-            btnSwitch.Enabled = false;
+            hasTaxonomyData = false;
             string title = Text;
             try
             {
@@ -599,8 +597,7 @@ namespace Taxonomic_NCBI
                 }
                 btnNameSearch.Enabled = true;
                 btnTaxoIDSearch.Enabled = true;
-                btnAnnotate.Enabled = true;
-                btnSwitch.Enabled = true;
+                hasTaxonomyData = true;
             }
             catch (Exception ex)
             { MessageBox.Show("Error saving data to file: " + ex.Message); }
@@ -609,6 +606,7 @@ namespace Taxonomic_NCBI
                 if (sf != null) { sf.Close(); }
                 Text = title;
             }
+            lblHasTaxonomyData.Visible = !hasTaxonomyData;
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -617,16 +615,20 @@ namespace Taxonomic_NCBI
             fd.ShowDialog();
         }
 
-        private void btnNames_Click(object sender, EventArgs e)
-        {
-            GetNames gn = new GetNames();
-            gn.ShowDialog();
-        }
-
-        private void btnSwitch_Click(object sender, EventArgs e)
+        public void SwitchNames()
         {
             SwitchTaxonomiclineage swl = new SwitchTaxonomiclineage(leafs, fts, nodes, this);
             swl.ShowDialog();
+        }
+
+        private void btnAnnotate_Click(object sender, EventArgs e)
+        {
+            bool hastaxonomyData = false;
+            if (nodes == null || leafs == null)
+            { hastaxonomyData = false; }
+            else if (nodes.Count > 0 && leafs.Length > 0) { hastaxonomyData = true; }
+            BlastHitTasks bht = new BlastHitTasks(this, hastaxonomyData);
+            bht.ShowDialog();
         }
     }
 }

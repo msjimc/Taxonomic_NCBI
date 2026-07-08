@@ -263,7 +263,7 @@ Where:
 - \<Species list.txt> is the name with path of the file to save the list of species names too.
 - \<TaxonomicList.txt> is the path and name of the file to save taxonomic data too.
 
-__Note:__ Their are 3 different columns containing species data: _scientificName_, _acceptedScientificName_ and _species_. Since the first two contain data on the first occurency of the description and may have a three word name, they are ignored and the name in the _species_ column that is part of the taxonomic linear is used.
+__Note:__ Their are 3 different columns containing species data: _scientificName_, _acceptedScientificName_ and _species_. Since the first two contain data on the first occurency of the description and may have a three word name, they are ignored and the name in the _species_ colum,n that is part of the taxonomic lineaage, is used.
 
 - ## BOLD specific Python scripts
 

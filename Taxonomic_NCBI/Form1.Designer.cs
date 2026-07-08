@@ -41,13 +41,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSwitch = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnNames = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnFilterBlastHitsFile = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.chkFolder = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -59,6 +52,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblHasTaxonomyData = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,7 +101,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(161, 241);
+            this.textBox1.Size = new System.Drawing.Size(161, 183);
             this.textBox1.TabIndex = 3;
             this.textBox1.WordWrap = false;
             // 
@@ -120,7 +114,7 @@
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
             this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtData.Size = new System.Drawing.Size(626, 241);
+            this.txtData.Size = new System.Drawing.Size(626, 183);
             this.txtData.TabIndex = 4;
             this.txtData.WordWrap = false;
             // 
@@ -139,14 +133,13 @@
             // btnAnnotate
             // 
             this.btnAnnotate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnotate.Enabled = false;
             this.btnAnnotate.Location = new System.Drawing.Point(720, 16);
             this.btnAnnotate.Name = "btnAnnotate";
             this.btnAnnotate.Size = new System.Drawing.Size(75, 23);
             this.btnAnnotate.TabIndex = 2;
-            this.btnAnnotate.Text = "Annotate";
+            this.btnAnnotate.Text = "BLAST";
             this.btnAnnotate.UseVisualStyleBackColor = true;
-            this.btnAnnotate.Click += new System.EventHandler(this.btnNamesFile_Click);
+            this.btnAnnotate.Click += new System.EventHandler(this.btnAnnotate_Click);
             // 
             // label1
             // 
@@ -177,9 +170,9 @@
             this.groupBox1.Controls.Add(this.txtData);
             this.groupBox1.Controls.Add(this.btnTaxoIDSearch);
             this.groupBox1.Controls.Add(this.btnNameSearch);
-            this.groupBox1.Location = new System.Drawing.Point(17, 312);
+            this.groupBox1.Location = new System.Drawing.Point(17, 231);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(810, 293);
+            this.groupBox1.Size = new System.Drawing.Size(810, 235);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Manual search";
@@ -197,104 +190,23 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.btnSwitch);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.btnNames);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.btnFilterBlastHitsFile);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.chkFolder);
+            this.groupBox2.Controls.Add(this.lblHasTaxonomyData);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnAnnotate);
             this.groupBox2.Location = new System.Drawing.Point(17, 75);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(804, 131);
+            this.groupBox2.Size = new System.Drawing.Size(804, 50);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Processing a BLAST hit file";
             // 
-            // btnSwitch
-            // 
-            this.btnSwitch.Enabled = false;
-            this.btnSwitch.Location = new System.Drawing.Point(720, 73);
-            this.btnSwitch.Name = "btnSwitch";
-            this.btnSwitch.Size = new System.Drawing.Size(75, 23);
-            this.btnSwitch.TabIndex = 6;
-            this.btnSwitch.Text = "Switch";
-            this.btnSwitch.UseVisualStyleBackColor = true;
-            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 78);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(424, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "To swith names and taxonomic lineage data in a BLAST hits file press the \'Switch\'" +
-    " button";
-            // 
-            // btnNames
-            // 
-            this.btnNames.Location = new System.Drawing.Point(720, 44);
-            this.btnNames.Name = "btnNames";
-            this.btnNames.Size = new System.Drawing.Size(75, 23);
-            this.btnNames.TabIndex = 4;
-            this.btnNames.Text = "Names";
-            this.btnNames.UseVisualStyleBackColor = true;
-            this.btnNames.Click += new System.EventHandler(this.btnNames_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 49);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(386, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "To get list of species names in annotated BLAST hit file press the \'Names\' button" +
-    "";
-            // 
-            // btnFilterBlastHitsFile
-            // 
-            this.btnFilterBlastHitsFile.Location = new System.Drawing.Point(720, 102);
-            this.btnFilterBlastHitsFile.Name = "btnFilterBlastHitsFile";
-            this.btnFilterBlastHitsFile.Size = new System.Drawing.Size(75, 23);
-            this.btnFilterBlastHitsFile.TabIndex = 8;
-            this.btnFilterBlastHitsFile.Text = "Filter";
-            this.btnFilterBlastHitsFile.UseVisualStyleBackColor = true;
-            this.btnFilterBlastHitsFile.Click += new System.EventHandler(this.btnFilterBlastHitsFile_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 107);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(435, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "To filter a Blast Hits file that contains multiple hits for each sequence press t" +
-    "he \'Filter\' button";
-            // 
-            // chkFolder
-            // 
-            this.chkFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkFolder.AutoSize = true;
-            this.chkFolder.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkFolder.Location = new System.Drawing.Point(559, 20);
-            this.chkFolder.Name = "chkFolder";
-            this.chkFolder.Size = new System.Drawing.Size(155, 17);
-            this.chkFolder.TabIndex = 1;
-            this.chkFolder.Text = "Process a folder of text files";
-            this.chkFolder.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 15);
+            this.label3.Location = new System.Drawing.Point(6, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(550, 30);
+            this.label3.Size = new System.Drawing.Size(295, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Press the Annotate button to identify the species name in the blast hit file.  To" +
-    " combine and annotate a series of blast result files in the same folder tick the" +
-    " box";
+            this.label3.Text = "To process a BLAST hit results file press the \'BLAST\' button";
             // 
             // groupBox3
             // 
@@ -361,7 +273,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.btnCombine);
-            this.groupBox4.Location = new System.Drawing.Point(17, 212);
+            this.groupBox4.Location = new System.Drawing.Point(17, 131);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(804, 44);
             this.groupBox4.TabIndex = 2;
@@ -381,7 +293,7 @@
             // 
             this.groupBox5.Controls.Add(this.btnFilter);
             this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Location = new System.Drawing.Point(17, 262);
+            this.groupBox5.Location = new System.Drawing.Point(17, 181);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(804, 44);
             this.groupBox5.TabIndex = 3;
@@ -407,19 +319,30 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "To filter, annotate, or edit an annotated read count file press the \'Filter\' ";
             // 
+            // lblHasTaxonomyData
+            // 
+            this.lblHasTaxonomyData.AutoSize = true;
+            this.lblHasTaxonomyData.ForeColor = System.Drawing.Color.Red;
+            this.lblHasTaxonomyData.Location = new System.Drawing.Point(465, 21);
+            this.lblHasTaxonomyData.Name = "lblHasTaxonomyData";
+            this.lblHasTaxonomyData.Size = new System.Drawing.Size(249, 13);
+            this.lblHasTaxonomyData.TabIndex = 3;
+            this.lblHasTaxonomyData.Text = "You must import taxonomy data to use all the option";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 617);
+            this.ClientSize = new System.Drawing.Size(839, 478);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(855, 656);
+            this.MaximumSize = new System.Drawing.Size(855, 517);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "NCBI Taxonomic data";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -457,16 +380,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox chkFolder;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnFilterBlastHitsFile;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnSwitch;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnNames;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblHasTaxonomyData;
     }
 }
 

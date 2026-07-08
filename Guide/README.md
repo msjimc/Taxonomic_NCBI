@@ -5,12 +5,11 @@
 
 - Main
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Annotate BLAST hit file](annotateBlastHitFile.md)
-   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
-   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md) 
-
-
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
 ## Prerequisites 
 
 ### NCBI taxonomy data
@@ -95,17 +94,9 @@ Once the taxonomic data has been imported, you can manually look up taxonomic in
 
 ### Processing a BLAST hit file
 
-The __processing of a hits file consists of two basic functions, the initial annotation and then the filtering and editing of the annotation based on the correctness of the annotation, i.e., is the linked species present in the sampled habitat or is the quality of the hit sufficient to justify the annotation.
+The BLAST hits file can be annotated with taxonomic data by pressing the __BLAST__ button which opens the ___Blast hit results task___ window. Once annotated, The BLAST hit file can be filtered and taxonomic lineages switched using other options on this window.
 
-#### Step 1: Annotating the BLAST hit file
-
-The annotation of a BLAST hit file is performed as described in the [annotateBlastHitFile.md](../Guide/annotateBlastHitFile.md) file. 
-
-#### Step 2: Editing the annotation
-
-The editing of the taxonomic annotation file is performed as described in the [editingTheBlastAnnotationFile.md](editingTheBlastAnnotationFile.md) file.
-
-
+These function are described in the [processABLASTHitFile.md](processABLASTHitFile.md) file.
 
 ## Combining the annotated BLAST hit file and the read count matrix file
 

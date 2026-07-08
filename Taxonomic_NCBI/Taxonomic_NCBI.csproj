@@ -83,6 +83,12 @@
     <Compile Include="AppendTaxonomicData.Designer.cs">
       <DependentUpon>AppendTaxonomicData.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlastHitTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlastHitTasks.Designer.cs">
+      <DependentUpon>BlastHitTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="columnSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppendTaxonomicData.resx">
       <DependentUpon>AppendTaxonomicData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlastHitTasks.resx">
+      <DependentUpon>BlastHitTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="columnSelection.resx">
       <DependentUpon>columnSelection.cs</DependentUpon>
