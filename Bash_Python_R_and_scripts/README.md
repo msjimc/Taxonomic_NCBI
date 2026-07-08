@@ -6,7 +6,7 @@ This folder contains a number of Python and BASH scripts that may be helpful in 
 
 - ## DADA2_R_Script.r
 
-This R script directs the creation of a reads count file by DADA2 after the quality trimming of the data with Cutadapt. The script doesn't have any submission parameters, with all variables declared in the script. Consequently, the script must be edited for each analysis. These variable and there current values are described in the table below.
+This R script directs the creation of a reads count file by DADA2. This entails the use of Cutadapt which must be installed on the computer. The script doesn't have any submission parameters, with all variables declared in the script. Consequently, the script must be edited for each analysis. These variable and there current values are described in the table below.
 
 |Line|Current statement|Description|Change required|
 |-|-|-|-|
