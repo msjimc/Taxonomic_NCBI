@@ -338,7 +338,7 @@
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(75, 23);
             this.btnList.TabIndex = 1;
-            this.btnList.Text = "List";
+            this.btnList.Text = "Names";
             this.btnList.UseVisualStyleBackColor = true;
             this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
@@ -347,9 +347,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 13);
+            this.label3.Size = new System.Drawing.Size(284, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "To filter species by a list of species names press \'List\'";
+            this.label3.Text = "To filter species by a list of taxonomic names press \'Names\'";
             // 
             // FilterData
             // 
@@ -363,7 +363,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "FilterData";
-            this.Text = "Filter and aggregate species data";
+            this.Text = "Edit annotated read count data";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbTasks.ResumeLayout(false);
