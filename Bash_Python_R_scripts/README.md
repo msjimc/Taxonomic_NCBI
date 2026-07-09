@@ -23,26 +23,25 @@ This R script directs the creation of a reads count file by DADA2. This entails 
 
 - ## Apptainer definition file
 
-While the R script DADA2_R_Script.r should work in any R environment (4.5), when analysing the data described in this guide and linked publication, the script was run as a R batch command on a HPC. This required R and Cutadapt to be installed in an Apptainer (1.3.6) environment. The environment was created with the command:
+While the R script DADA2_R_Script.r should work in any Renvironment (tested  with 4.5); however, when analysing the data described in this guide and linked publication, the script was run as a R batch command on an HPC. This required R and Cutadapt to be installed in an apptainer (1.3.6) container, which was created with the command:
 
 > apptainer build dada2_and_Cutadapt.sif apptainer_dada2_and_Cutadapt.def
 
 Where:
-- apptainer build instructs Apptianer to create and environment
-- dada2_and_Cutadapt.sif is the name and path to store the environment
-= apptainer_dada2_and_Cutadapt.def is the definition file to describe the environment
+- apptainer build instructs Apptianer to create a container
+- dada2_and_Cutadapt.sif is the name and path of the container file
+= apptainer_dada2_and_Cutadapt.def is the definition file to describe the container
 
 The R script was then run using the following command:
 > apptainer exec --bind \<working folder> dada2_and_Cutadapt.sif R CMD BATCH  DADA2_R_Script.r DADA2_R_Script.r.Rout
 
 Where: 
-- apptainer exec instructs Apptianer to run the environment
+- apptainer exec instructs Apptianer to run the container
 - --bind \<working folder> sets the root of virtual filesystem used by the apptainer (all files and folders used by the script must be in this folder)
-- dada2_and_Cutadapt.sif is the environment to be used
+- dada2_and_Cutadapt.sif is the container to be used
 - "R CMD BATCH" starts R directs it to process a R script.
 - DADA2_R_Script.r is the script file with its path to be processed by R
 - DADA2_R_Script.r.Rout is the file with it path that stores all the comments made by R as it processes the script.
-
 
 
 ## BLAST related scripts
