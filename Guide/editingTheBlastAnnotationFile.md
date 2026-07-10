@@ -3,7 +3,7 @@
 
 - [Main](README.md)
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
         - [Annotate BLAST hit file](annotateBlastHitFile.md)
         - Edit annotated BLAST hit file
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
@@ -173,10 +173,10 @@ If the hits are filtered by name and a hit quality score, the hits are filtered 
 
 ## User Guide
 
-- [Main](README.md)
+- Main
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Annotate BLAST hit file](annotateBlastHitFile.md)
-   - Edit annotated BLAST hit file
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
    - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
-  

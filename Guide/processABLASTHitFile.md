@@ -23,10 +23,21 @@ Figure 1a: If taxonomic data has been imported the ___Annotate___ and ___Switch_
 
 __Note:__ To annotate a BLAST hits file taxonomic lineage data you must have loaded the NCBI taxonomic data.
 
-The annotation of a BLAST hit file is performed as described in the [annotateBlastHitFile.md](../Guide/annotateBlastHitFile.md) file. 
+The annotation of a BLAST hit file is performed as described e [here](../Guide/annotateBlastHitFile.md). 
 
 ## Editing the annotation
 
 __Note:__ To switch taxonomic lineage data from one species to another, you must have loaded the NCBI taxonomic data.
 
-The editing of the taxonomic annotation file is performed as described in the [editingTheBlastAnnotationFile.md](editingTheBlastAnnotationFile.md) file.
+The editing of the taxonomic annotation file is performed as described [here](editingTheBlastAnnotationFile.md).
+
+
+## User Guide
+
+- Main
+   - [Manually search the taxonomy data](manualSearch.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)

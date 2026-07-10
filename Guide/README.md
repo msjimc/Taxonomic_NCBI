@@ -5,11 +5,12 @@
 
 - Main
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
         - [Annotate BLAST hit file](annotateBlastHitFile.md)
         - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
    - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
+
 ## Prerequisites 
 
 ### NCBI taxonomy data
@@ -89,31 +90,31 @@ Loading the data from the "_nodes.dmp_" and "_names.dmp_" files is slow because 
 
 ### Manually searching the taxonomy data
 
-Once the taxonomic data has been imported, you can manually look up taxonomic information by entering a list of species names or NCBI taxonomic IDs as described in the [manualSearch.md file.](manualSearch.md)
+Once the taxonomic data has been imported, you can manually look up taxonomic information by entering a list of species names or NCBI taxonomic IDs as described in the [here.](manualSearch.md)
 
 
 ### Processing a BLAST hit file
 
 The BLAST hits file can be annotated with taxonomic data by pressing the __BLAST__ button which opens the ___Blast hit results task___ window. Once annotated, The BLAST hit file can be filtered and taxonomic lineages switched using other options on this window.
 
-These function are described in the [processABLASTHitFile.md](processABLASTHitFile.md) file.
+These function are described in the [here](processABLASTHitFile.md).
 
 ## Combining the annotated BLAST hit file and the read count matrix file
 
-The annotated BLAST hits file can be linked to a read count file as described in the [linkRecountsToTaxonomicData.md](linkRecountsToTaxonomicData.md) file.
+The annotated BLAST hits file can be linked to a read count file as described in the [here](linkRecountsToTaxonomicData.md).
 
 
 ## Filtering and aggregating data
 
-The annotated read-count data can be filtered, edited and aggregated as described in the [filteringAndAggregatingData.md](filteringAndAggregatingData.md) file.
+The annotated read-count data can be filtered, edited and aggregated as described in the [here.md](filteringAndAggregatingData.md).
 
 
 ## User Guide
 
 - Main
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Annotate BLAST hit file](annotateBlastHitFile.md)
-   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
    - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
-  

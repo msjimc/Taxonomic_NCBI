@@ -3,7 +3,7 @@
 
 - [Main](README.md)
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
         - [Annotate BLAST hit file](annotateBlastHitFile.md)
         - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
@@ -382,13 +382,13 @@ Figure 21.
 The results of the column name editing are initially stored within the __Rename columns__ window and are not accessible by the rest of __Taxonomic_NCBI__. Therefore, to save the data, you must press the __Accept__ button (grey line in Figure 15). This will close the window and the results of the screening(s) will replace the data in the __Taxonomic_NCBI__ program. The data can then be saved to a file by pressing the __Save__ button (purple line in Figure 2) or processed further by other functions on the ___Filter and aggregate species data___ window. Pressing the __Cancel__ button will discard the results and retain the original data.
 
 
-
 ## User Guide
 
-- [Main](README.md)
+- Main
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Annotate BLAST hit file](annotateBlastHitFile.md)
-   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
-   - Filtering, editing and aggregate the annotated read counts file
-  
+   - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
+

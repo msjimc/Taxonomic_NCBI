@@ -41,6 +41,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblHasTaxonomyData = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblHasTaxonomyData = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -200,6 +200,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Processing a BLAST hit file";
             // 
+            // lblHasTaxonomyData
+            // 
+            this.lblHasTaxonomyData.AutoSize = true;
+            this.lblHasTaxonomyData.ForeColor = System.Drawing.Color.Red;
+            this.lblHasTaxonomyData.Location = new System.Drawing.Point(465, 21);
+            this.lblHasTaxonomyData.Name = "lblHasTaxonomyData";
+            this.lblHasTaxonomyData.Size = new System.Drawing.Size(249, 13);
+            this.lblHasTaxonomyData.TabIndex = 3;
+            this.lblHasTaxonomyData.Text = "You must import taxonomy data to use all the option";
+            // 
             // label3
             // 
             this.label3.Location = new System.Drawing.Point(6, 21);
@@ -319,16 +329,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "To filter, annotate, or edit an annotated read count file press the \'Filter\' ";
             // 
-            // lblHasTaxonomyData
-            // 
-            this.lblHasTaxonomyData.AutoSize = true;
-            this.lblHasTaxonomyData.ForeColor = System.Drawing.Color.Red;
-            this.lblHasTaxonomyData.Location = new System.Drawing.Point(465, 21);
-            this.lblHasTaxonomyData.Name = "lblHasTaxonomyData";
-            this.lblHasTaxonomyData.Size = new System.Drawing.Size(249, 13);
-            this.lblHasTaxonomyData.TabIndex = 3;
-            this.lblHasTaxonomyData.Text = "You must import taxonomy data to use all the option";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,7 +343,7 @@
             this.MaximumSize = new System.Drawing.Size(855, 517);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "NCBI Taxonomic data";
+            this.Text = "MetaTaxAssign";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

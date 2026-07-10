@@ -3,7 +3,7 @@
 
 - [Main](README.md)
    - [Manually search the taxonomy data](manualSearch.md)
-   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
         - Annotate BLAST hit file
         - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
@@ -11,11 +11,11 @@
 
 # Annotating BLAST hit files with NCBI taxonomic data
 
-The annotation of a BLAST hit file is performed by pressing the ___Annotate___ button in the ___Automated analysis___ panel. Pressing this button prompts you to select a BLAST hit file. If the ___Process a folder of text files___ option is selected, ___Taxonomy_NCBI___ will process all the text files in the same folder, creating a single annotated BLAST hit file. When this option is used, ___Taxonomy_NCBI___ expects all the text files in the folder to be BLAST hit files containing sequences linked to a single read-counts matrix file. Once the input data has been selected, the ___Name location___ window will open, allowing you to specify the location of the species name in the description of sequences identified by BLAST as homologous to your amplicon sequence (Figure 1).
+The annotation of a BLAST hit file is performed by pressing the ___Annotate___ button in the ___Automated analysis___ panel. Pressing this button prompts you to select a BLAST hit file. If the ___Process a folder of text files___ option is selected, ___Taxonomy_NCBI___ will process all the text files in the same folder, creating a single annotated BLAST hit file. When this option is used, ___Taxonomy_NCBI___ expects all the text files in the folder to be BLAST hit files containing sequences linked to a single read-counts matrix file. Once the input data has been selected, the ___Blast hit file annotation___ window will open, allowing you to specify the location of the species name in the description of sequences identified by BLAST as homologous to your amplicon sequence (Figure 1).
 
 ![](images/figure4.jpg)
 
-Figure 1: The ___Name location___ form allows you to select the hit sequence's name.
+Figure 1: The ___Blast hit file annotation___ form allows you to select the hit sequence's name.
 
 Due to the diverse sources of BLAST databases, the description of each sequence can vary widely. For example, the SILVA database of 16S and 18S sequences has a sequence name format of:
 
@@ -89,10 +89,10 @@ Since not all entries contain all the taxonomic subdivisions, ___Taxonomic_NCBI_
 
 ## User Guide
 
-- [Main](README.md)
+- Main
    - [Manually search the taxonomy data](manualSearch.md)
-   - Annotate BLAST hit file
-   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
    - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
-  

@@ -3,7 +3,7 @@
 
 - [Main](README.md)
    - Manually search the taxonomy data
-   - [Process a BLAST hits result file](Guide/processABLASTHitFile.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
         - [Annotate BLAST hit file](annotateBlastHitFile.md)
         - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
@@ -35,10 +35,11 @@ These functions are particularly useful when annotating species in an Excel file
 
 ## User Guide
 
-- [Main](README.md)
-   - Manually search the taxonomy data
-   - [Annotate BLAST hit file](annotateBlastHitFile.md)
-   - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
+- Main
+   - [Manually search the taxonomy data](manualSearch.md)
+   - [Process a BLAST hits result file](processABLASTHitFile.md)
+        - [Annotate BLAST hit file](annotateBlastHitFile.md)
+        - [Edit annotated BLAST hit file](editingTheBlastAnnotationFile.md)
    - [Link annotated Blast hits to read-count file](linkReadCountsToTaxonomicData.md)
    - [Filtering, editing and aggregate the annotated read counts file](filteringAndAggregatingData.md)
   

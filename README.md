@@ -4,6 +4,7 @@
 - [Introduction](#Introduction)
 - [Guide](#guide)
 - [Download](#download)
+- [Usefule scripts](Bash_Python_R_scripts)
 - [Running on macOS, Linux and BSD PCs](#running-on-macos-linux-or-bsd-computers)
 
 ## Introduction
@@ -34,6 +35,10 @@ As well as allowing the automated annotation of a file, ```Taxonomic NCBI``` wil
 ## Guide
 
 The ```Taxonomic NCBI``` guide is [here](Guide/README.md).
+
+## Useful scripts
+
+A folder of  useful scripts for the formatting data that could be imported in to ___Taxonomy_NCBI___ as well as scripts that automate the searching of a BLAST database with OTU/AVS sequences from a DADA2 read count file is [here.](Bash_Python_R_scripts)
 
 ## Download
 
