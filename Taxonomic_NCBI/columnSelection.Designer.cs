@@ -55,6 +55,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.chkNCBIClassification = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondSecondColumn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondFirstColumn)).BeginInit();
@@ -67,6 +68,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.chkNCBIClassification);
             this.groupBox1.Controls.Add(this.chkIgnoreNones);
             this.groupBox1.Controls.Add(this.chkReverseOrder);
             this.groupBox1.Controls.Add(this.chkCombinefields);
@@ -211,6 +213,7 @@
             // 
             // chkSecondFromEnd
             // 
+            this.chkSecondFromEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkSecondFromEnd.AutoSize = true;
             this.chkSecondFromEnd.Location = new System.Drawing.Point(282, 190);
             this.chkSecondFromEnd.Margin = new System.Windows.Forms.Padding(2);
@@ -223,6 +226,7 @@
             // 
             // chkFirstFromEnd
             // 
+            this.chkFirstFromEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkFirstFromEnd.AutoSize = true;
             this.chkFirstFromEnd.Location = new System.Drawing.Point(282, 146);
             this.chkFirstFromEnd.Margin = new System.Windows.Forms.Padding(2);
@@ -428,6 +432,18 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // chkNCBIClassification
+            // 
+            this.chkNCBIClassification.AutoSize = true;
+            this.chkNCBIClassification.Checked = true;
+            this.chkNCBIClassification.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNCBIClassification.Location = new System.Drawing.Point(14, 190);
+            this.chkNCBIClassification.Name = "chkNCBIClassification";
+            this.chkNCBIClassification.Size = new System.Drawing.Size(137, 17);
+            this.chkNCBIClassification.TabIndex = 23;
+            this.chkNCBIClassification.Text = "Remove NCBI classifier";
+            this.chkNCBIClassification.UseVisualStyleBackColor = true;
+            // 
             // columnSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,5 +496,6 @@
         private System.Windows.Forms.CheckBox chkCombinefields;
         private System.Windows.Forms.CheckBox chkReverseOrder;
         private System.Windows.Forms.CheckBox chkIgnoreNones;
+        private System.Windows.Forms.CheckBox chkNCBIClassification;
     }
 }

@@ -65,7 +65,7 @@ When working with GenBank descriptions, the data line is split into fields using
 
 Figure 4: Using a space character (or \\s) will break a GenBank description into single words. Selecting the first four fields/words (blue box) should allow the analysis of a sequence prefixed with a generic phrase. Finally, selecting the ***Combine two terms*** option (red box) creates search terms consisting of two words.
 
-When searching taxonomic data in the NCBI dataset, ___Taxonomic data___ processes the terms from right to left; for example, in Figure 4 it would first search for matches to ***strain CCAP***, then ***micans strain*** and finally ***Prorocentrum micans***. If it finds a match, it returns it and stops searching for possibly better ones. Consequently, it is important to check whether the search order is appropriate: if the probable best search term is at the start of the text in the lower text area, select the reverse search term option  (blue box in Figure 5a) to reverse the order (green box in Figure 5a).
+When searching taxonomic data in the NCBI dataset, ___Taxonomic data___ processes the terms from right to left; for example, in Figure 4 it would first search for matches to ***strain CCAP***, then ***micans strain*** and finally ***Prorocentrum micans***. If it finds a match, it returns it and stops searching for possibly better ones. Consequently, it is important to check whether the search order is appropriate: if the probable best search term is at the end of the text in the lower text area, select the reverse search term option  (blue box in Figure 5a) to reverse the order (green box in Figure 5a).
 
 ![](images/figure8.jpg)
 
@@ -85,6 +85,20 @@ Finally, pressing the ___Accept___ button will process the entire BLAST hit file
 
 Since not all entries contain all the taxonomic subdivisions, ___Taxonomic_NCBI____ pads missing fields using the previous taxonomic rank prefixed by a '.' character, for example, a search for ***Gyrodinium*** returns the name of a genus, but not a species name; Consequently, the taxonomic string ended with ***Gyrodinium***\<tab>***.Gyrodinium***. The term ***.Gyrodinium*** is substituted for a species name with the '.' character indicating the substitution. A value of ***Eucalanidae***\<tab>***.Eucalanidae***\<tab>***..Eucalanidae*** indicates that the two taxonomic rankings following ***Eucalanidae*** are absent.
 
+
+When working with GenBank accession sequence description, they may start with a classifier such as _PREDICTED:_, _TPA\_asm:_, or _MAG:_. This text may then be followed by a suitable taxonomic term that would be missed because of the prefix. By default, ___Taxonomy_NCBI___ removes any the first word of a description is it ends with a _':'_. For example, _PREDICTED:_ will be ignored, but _PREDICTED_ will not. Unchecking the __Remove NCBI classifier__ will stop this behaviour (see Figures 6a and 6b). 
+
+![](images/figureNCBI1a.jpg)
+
+Figure 6a: If __Remove NCBI classifier__ is checked the _TPA\_asm_ will be ignored.
+
+<hr />
+
+![](images/figureNCBI1b.jpg)
+
+Figure 6bIf __Remove NCBI classifier__ is unchecked the _TPA\_asm_ will be present in the text used to identify the correct taxonomic lineage.
+
+<hr />
 
 
 ## User Guide

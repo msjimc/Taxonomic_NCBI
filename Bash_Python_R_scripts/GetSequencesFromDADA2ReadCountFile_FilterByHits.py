@@ -2,14 +2,14 @@
 import sys , os
 
 if (len(sys.argv)) != 4:
-    print("Usage:  python p_FilterDADA2SequenceByCount.py dada2_read count.txt  <cutoff>")
+    print("Usage:  python p_FilterDADA2SequenceByCount.py <dada2 read count.txt> <exported sequence fasta file> <cutoff>")
     print("The first file should be the read count text file exported by DADA2 and")
     print("the second is file is the new fasta file that holds the sequences")
     print("The third argument is the cutoff value for filtering sequences based on the total read counts for that sequence")
     sys.exit(1)
 
 try:
-    readCountFileName = #sys.argv[1]
+    readCountFileName = sys.argv[1]
     readCounts = open(readCountFileName, "r", encoding="utf-8") 
 except Exception as ex:
     print("Could not open file: " + readCountFileName)

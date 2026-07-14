@@ -21,8 +21,9 @@ namespace Taxonomic_NCBI
         private bool combinetwoFields = false;
         private bool reverseOrder = false;
         private bool ignoreNones;
+        private bool removeNCBIClassifier = false;
 
-        public fieldsToSearch(char First, bool SecondPresent, char Second, bool FirstFromEnd, int FirstFirstIndex, int FirstSecondIndex, bool SecondFromEnd, int SecondFirstIndex, int SecondSecondIndex, int ItemsCount, bool CombinetwoFields, bool ReverseOrder, bool IgnoreNones)
+        public fieldsToSearch(char First, bool SecondPresent, char Second, bool FirstFromEnd, int FirstFirstIndex, int FirstSecondIndex, bool SecondFromEnd, int SecondFirstIndex, int SecondSecondIndex, int ItemsCount, bool CombinetwoFields, bool ReverseOrder, bool IgnoreNones, bool RemoveNCBIClassifier)
         {
             first = First;
             secondPresent = SecondPresent;
@@ -37,6 +38,7 @@ namespace Taxonomic_NCBI
             combinetwoFields = CombinetwoFields;
             reverseOrder = ReverseOrder;
             ignoreNones = IgnoreNones;
+            removeNCBIClassifier = RemoveNCBIClassifier;
         }
 
         public int ItemsCount { get { return itemsCount; } }
@@ -67,6 +69,15 @@ namespace Taxonomic_NCBI
             {
  
                 items = items[localFF].Split(second);
+                if (removeNCBIClassifier == true)
+                {
+                    if (items[0].EndsWith(":") == true && items.Length > 1)
+                    {
+                        string[] newitems = new string[items.Length - 1];
+                        Array.Copy(items, 1, newitems, 0, newitems.Length);
+                        items = newitems;
+                    }
+                }
 
                 if (ignoreNones == true) { items = RemoveNones(items); }
 
