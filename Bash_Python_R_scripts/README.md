@@ -13,10 +13,11 @@ This R script directs the creation of a reads count file by DADA2. This entails 
 |5|fileBaseName <- "18S_NorthAtlantic"|Text that will identify this analysis|Yes|
 |7|workingFolder <- "/msjimc/Taxonomy/"|The path to the folder the results file will be save too|Yes|
 |9|dataFolder <- "msjimc/Taxonomy/data/"|The path to the folder containing the sequencing data|Yes|
-|11|forwardFileNamePatern="_1.fastq.gz"|Text plus file extension used to identify forward reads. Illumina formatted file names may need "_L001_R1_001.fastq.gz"|Optional|
-|13|reverseFileNamePatern="_2.fastq.gz"|Text plus file extension used to identify reverse reads. Illumina formatted file names may need "_L001_R2_001.fastq.gz"|Optional|
+|11|forwardFileNamePattern ="_1.fastq.gz"|Text plus file extension used to identify forward reads. Illumina formatted file names may need "_L001_R1_001.fastq.gz"|Optional|
+|13|reverseFileNamePattern ="_2.fastq.gz"|Text plus file extension used to identify reverse reads. Illumina formatted file names may need "_L001_R2_001.fastq.gz"|Optional|
 |16|trimReads=TRUE|Determines is the raw data is filtered and trimmed by DADA2. May be set to false if the analysis has been performed before. The data is save to a folder called __filtN__|Optional|
-|16|cutadaptTrim=TRUE|Determines is the filtered and trimmed data is processed by Cutadapt. May be set to false if the analysis has been performed before. The data is save to a folder called __cutadapt__|Optional|
+|17|cutadaptTrim=TRUE|Determines is the filtered and trimmed data is processed by Cutadapt. May be set to false if the analysis has been performed before. The data is save to a folder called __cutadapt__|Optional|
+|18|minimumReadCount = 20|This filters the denoised sequences, such that each sequence must be linked to minimumReadCount or more reads to be included in the final read-count table from which chimeric sequences have been excluded. If the If the data was tens of million reads this may be useful to make the final data set manageable and not populated by lots of sequences with very few reads|yes|
 |19|FWD <- "GTACACACCGCCCGTC"|Sequence of forward primer used to amplify sequence|Yes|
 |20|REV <- "TGATCCTTCTGCAGGTTCACCTAC"|Sequence of reverse primer used to amplify sequence|Yes|
 |24|.libPaths('/users/username/R/')|Sets the location of your R libraries. If you are using a computer used by others, you may need to set this to your library folder, otherwise the line could be removed.|Optional|
@@ -68,15 +69,15 @@ Where:
 
 ---
 
-- ## b_GetSequencesFromDADA2ReadCountFile.sh
+- ## b_GetASVFromDADA2Table.sh
 
-__Note:__ This script reports all sequences in the read count file, if you want to remove sequences with very few hits in the read count matrix use the Python script [GetSequencesFromDADA2ReadCountFile_FilterByHits.py](#getsequencesfromdada2readcountfile_filterbyhitspy)
+__Note:__ This script reports all sequences in the read count file, if you want to remove sequences with very few hits in the read count matrix use the Python script [GetFilteredASVFromDADA2Table.py](#GetFilteredASVFromDADA2Table)
 
 This BASH script reads the first line from a DADA2 read count file and creates a multiple-sequence FASTA file containing the sequence in the file. Each sequence's name is the index of the sequence in the DADA2 file, so the first is >1, the second is >2 and so on. This file can then be used to search a BLAST database.
 
 ### Usage:
 
-> bash b_GetSequencesFromDADA2ReadCountFile.sh \<DADA2 File> \<fastaFile>
+> bash b_GetASVFromDADA2Table.sh \<DADA2 File> \<fastaFile>
 
 Where:
 
@@ -85,14 +86,14 @@ Where:
 
 ---
 
-- ## GetSequencesFromDADA2ReadCountFile_FilterByHits.py
+- ## GetFilteredASVFromDADA2Table.py
 
 This Python script reads the a DADA2 read counts files and counts the reads linked to each sequence. It then exports the sequences whose read count is above the user-defined cutoff value. Each sequence's name in the FASTA file is the sequence's index in the DADA2 file, so the first is >1, the second is >2 and so on. This file can then be used to search a BLAST database.
 
 The script first counts the reads and then displays the total number of reads in the read-count file. The size of this cutoff value will depend on the number of reads in the file, so 1,000 may be OK for a small dataset of 5 million reads (0.02% of reads), but too low for a larger dataset of 300 million reads (0.0033% of reads).
 
 Usage:
-python GetSequencesFromDADA2ReadCountFile_FilterByHits.py \<DADA2 File> \<fastaFile> \<cutoff value>
+python GetFilteredASVFromDADA2Table.py \<DADA2 File> \<fastaFile> \<cutoff value>
 
 Where:
 
@@ -123,7 +124,7 @@ To save 300 sequences per file use the following:
 
 ---
 
-- ## slurm_BlastSequencesTenHits.sh and sge_BlastSequencesTenHits.sh
+- ## slurm_BlastSequencesTwentyHits.sh and sge_BlastSequencesTwentyHits.sh
 
 These scripts should be used on an HPC system that uses either SLURM or SGE as the queuing system. Both require the blastn executable to be present on the system along with a BLAST database. The database may be a custom one created using [___b_MakeBlastdb.sh___](#b_makeblastdbsh) described above or a pre-made database from the NCBI site. 
 
@@ -168,6 +169,9 @@ Where:
 __/mydbfolder/mydb.phr__, __/mydbfolder/mydb.pin__ and __/mydbfolder/mydb.psq__ is called __/mydbfolder/mydb__.
 - \<program> is the name and path of the blastn executable.
 
+
+The output of a blastn search consists of 
+
 ---
 
 - ## b_CombineBLASTHitFiles.sh
@@ -183,6 +187,7 @@ The output file consists containsthe columns shown in the table below.
 |Mismatches|The number of mismatches in the alignment|
 |Gaps|The number of gaps in the alignment|
 |Alignment length|The length of the alignment|
+|Query length|The length of the query sequence|
 |3 Value|The hit's e score value as stated by blastn (smaller the better|
 |BitScore|he hit's e score value as stated by blastn (bigger the better)|
 |Hit accession id|The GenBank accession ID of the hit|

@@ -1,30 +1,31 @@
 #!/bin/bash
-#$ -N blast_chunks
-#$ -l h_rt=24:00:00
-#$ -l h_vmem=5G
-#$ -pe smp 3
-#$ -t 1-n
-#$ -o BLAST-$JOB_ID_$TASK_ID.out
-#$ -e BLAST-$JOB_ID_$TASK_ID.err
-#$ -cwd
+#SBATCH --job-name=blast_chunks
+#SBATCH --time=24:00:00
+#SBATCH --mem=5G
+#SBATCH --cpus-per-task=3
+#SBATCH --array=1-n
+#SBATCH --output=slurm-%A_%a.out
+#SBATCH --error=slurm-%A_%a.err
 
 # Usage example:
-# qsub -t 1-n -v folder=/path/to/fasta,blastdb=/path/to/db,,blastN=executible blast_sge.sh
+# sbatch --array=1-20 --export=folder=/path/to/fasta,blastdb=/path/to/db,blastn=executible blast_slurm.sh
 
 echo "Folder: $folder"
 echo "Database: $blastdb"
+echo "Application: $blastn"
 
 # Select the FASTA file for this array task
-file=$(ls "$folder"/*.fa | sed -n "${SGE_TASK_ID}p")
+file=$(ls "$folder"/*.fa | sed -n "${SLURM_ARRAY_TASK_ID}p")
 echo "Fasta file: $file"
 
 # Output directory
 saveTool=$(echo "$file" | sed 's/.fa/_fa/')
-saveToo="${saveTool}_DNA_10_hits/"
+saveToo="${saveTool}_DNA_20_hits/"
 echo "Output folder: $saveToo"
 mkdir -p "$saveToo"
 
 fileNumber=0
+
 
 while IFS= read -r name
 do
@@ -50,12 +51,12 @@ do
 
     txtOut=$saveToo/$fileName"_out.txt"
     echo "Output text file: $txtOut"
-	echo "Fasta name	Percent identities	Mismatches	Gaps	Alignment length	e Value	BitScore	Hit accession id	Hit description" > "$txtOut"
+	echo "Fasta name	Percent identities	Mismatches	Gaps	Alignment length	Query length	e Value	BitScore	Hit accession id	Hit description" > "$txtOut"
     if [ -f "$xmlOut" ]; then
         echo "Already processed"
     else
         echo -n "Running BLAST..."
-         ///mnt/scratch/msjimc/blast_db/ncbi-blast-2.17.0+/bin/blastn -query $saveToo/$fileName".txt" -db $blastdb -dust no -outfmt "6 qseqid pident mismatch gapopen length evalue bitscore sacc stitle" -num_alignments 20 -num_threads 3 >> "$txtOut"
+         $blastn -query $saveToo/$fileName".txt" -db $blastdb -dust no -outfmt "6 qseqid pident mismatch gapopen length qlen evalue bitscore sacc stitle" -num_alignments 20 -num_threads 3 >> "$txtOut"
         echo " done"
     fi
 

@@ -1,21 +1,21 @@
 ##Tested on R/4.5.0
 
-##Setting to be chaged for specific task
+##Setting to be changed for specific task
 print("setting parameters: 1");print("Time:");print(Sys.time()) 
 fileBaseName <- "18S_NorthAtlantic"
 print(fileBaseName)
-workingFolder <- "/msjimc/Taxonomy/"
+workingFolder <- "/Taxonomy/"
 print(workingFolder)
-dataFolder <- "msjimc/Taxonomy/data/"
+dataFolder <- "/Taxonomy/data/"
 print(dataFolder)
-forwardFileNamePatern="_1.fastq.gz"
-print(forwardFileNamePatern)
-reverseFileNamePatern="_2.fastq.gz"
-print(reverseFileNamePatern)
+forwardFileNamePattern="_1.fastq.gz"
+print(forwardFileNamePattern)
+reverseFileNamePattern="_2.fastq.gz"
+print(reverseFileNamePattern)
 
 trimReads=TRUE
 cutadaptTrim=TRUE
-
+minimumReadCount = 20
 FWD <- "GTACACACCGCCCGTC"  
 REV <- "TGATCCTTCTGCAGGTTCACCTAC"  
 
@@ -50,7 +50,7 @@ dir.create(workingFolder, recursive = TRUE)
 setwd(workingFolder)
 
 #create file to write description in
-print("Create file to write descripstion in: 2");print("Time:");print(Sys.time())
+print("Create file to write description in: 2");print("Time:");print(Sys.time())
 fileKey <- file(paste(workingFolder, "AnalysisDescription.txt", sep="/"), open = "wt")
 print(fileKey)
 
@@ -62,8 +62,8 @@ head(list.files(path))
 dataFolder
 # Forward and reverse fastq filenames editing
 print("Forward and reverse fastq filenames editing : 4");print("Time:");print(Sys.time())
-fnFs <- sort(list.files(path, pattern=forwardFileNamePatern, full.names = TRUE))
-fnRs <- sort(list.files(path, pattern=reverseFileNamePatern, full.names = TRUE))
+fnFs <- sort(list.files(path, pattern=forwardFileNamePattern, full.names = TRUE))
+fnRs <- sort(list.files(path, pattern=reverseFileNamePattern, full.names = TRUE))
 
 head(fnFs)
 head(fnRs)
@@ -104,7 +104,6 @@ rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.filtN[[1]]), 
           fn = fnFs.filtN[[1]]), REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs.filtN[[1]]))
 
 
-#cutadapt <- "/mnt/scratch/msjimc/dada2/mv3/cutadapt-venv/bin/cutadapt"
 system2("cutadapt", args = "--version")
 system2("cutadapt", c("--version"))
 
@@ -135,8 +134,8 @@ rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.cut[[1]]), FW
         fn = fnFs.cut[[1]]), REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs.cut[[1]]))
 
 path.cut
-cutFs <- sort(list.files(path.cut, pattern = forwardFileNamePatern, full.names = TRUE))
-cutRs <- sort(list.files(path.cut, pattern = reverseFileNamePatern, full.names = TRUE))
+cutFs <- sort(list.files(path.cut, pattern = forwardFileNamePattern, full.names = TRUE))
+cutRs <- sort(list.files(path.cut, pattern = reverseFileNamePattern, full.names = TRUE))
 head(cutFs)
 head(cutRs)
 
@@ -148,7 +147,7 @@ head(sample.names)
 ##Inspect read quality profiles
 print("Inspect read quality profiles: 5");print("Time:");print(Sys.time())
 
-number = length(list.files(path, pattern=forwardFileNamePatern, full.names = TRUE))
+number = length(list.files(path, pattern=forwardFileNamePattern, full.names = TRUE))
 print("Number of files is:")
 print(number)
 #for (i in 1:number){
@@ -237,6 +236,10 @@ write.table(as.data.frame(table(nchar(getSequences(seqtab)))), file = paste(file
             eol = "\n", na = "NA", dec = ".", row.names = TRUE,
             col.names = TRUE, qmethod = c("escape", "double"),
             fileEncoding = "")
+
+##Trim the number of AVS in the data set.
+if (minimumReadCount > 0){
+ seqtab <- seqtab[, colSums(seqtab) >= minimumReadCount]
 
 ## Remove chimeras
 print("Removing chimeras: 13");print("Time:");print(Sys.time())

@@ -3,5 +3,5 @@
 folder=$1
 results=$2
 
-echo "Fasta name	Percent identities	Mismatches	Gaps	Alignment length	e Value	BitScore	Hit accession id	Hit description" > "$results"
+echo "Fasta name	Percent identities	Mismatches	Gaps	Alignment length	Query length	e Value	BitScore	Hit accession id	Hit description" > "$results"
 find $folder -type f -name "*out.txt" -exec grep -v -h "Fasta name" {} + >> $results
