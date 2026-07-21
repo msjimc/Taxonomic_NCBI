@@ -202,6 +202,7 @@
             // 
             // lblHasTaxonomyData
             // 
+            this.lblHasTaxonomyData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHasTaxonomyData.AutoSize = true;
             this.lblHasTaxonomyData.ForeColor = System.Drawing.Color.Red;
             this.lblHasTaxonomyData.Location = new System.Drawing.Point(465, 21);
@@ -340,7 +341,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(855, 517);
+            this.MinimumSize = new System.Drawing.Size(855, 517);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "MetaTaxAssign";
