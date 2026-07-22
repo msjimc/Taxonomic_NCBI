@@ -17,7 +17,7 @@ This R script directs the creation of a reads count file by DADA2. This entails 
 |13|reverseFileNamePattern ="_2.fastq.gz"|Text plus file extension used to identify reverse reads. Illumina formatted file names may need "_L001_R2_001.fastq.gz"|Optional|
 |16|trimReads=TRUE|Determines is the raw data is filtered and trimmed by DADA2. May be set to false if the analysis has been performed before. The data is save to a folder called __filtN__|Optional|
 |17|cutadaptTrim=TRUE|Determines is the filtered and trimmed data is processed by Cutadapt. May be set to false if the analysis has been performed before. The data is save to a folder called __cutadapt__|Optional|
-|18|minimumReadCount = 20|This filters the denoised sequences, such that each sequence must be linked to minimumReadCount or more reads to be included in the final read-count table from which chimeric sequences have been excluded. If the If the data was tens of million reads this may be useful to make the final data set manageable and not populated by lots of sequences with very few reads|yes|
+|18|minimumReadCount = 10|This filters the denoised sequences, such that each sequence must be linked to __minimumReadCount__ or more reads. These filtered sequences are then screened for chimeric sequences which are then used to create the final read-count table from which chimeric sequences have been excluded. Datasets of consisting of tens of million raw may result in a very large number of OTU/ASVs which if not filtered, may significantly impact the process of detecting chimeric sequences causing the pipeline to timeout on HPC systems.|yes|
 |19|FWD <- "GTACACACCGCCCGTC"|Sequence of forward primer used to amplify sequence|Yes|
 |20|REV <- "TGATCCTTCTGCAGGTTCACCTAC"|Sequence of reverse primer used to amplify sequence|Yes|
 |24|.libPaths('/users/username/R/')|Sets the location of your R libraries. If you are using a computer used by others, you may need to set this to your library folder, otherwise the line could be removed.|Optional|
@@ -124,9 +124,14 @@ To save 300 sequences per file use the following:
 
 ---
 
-- ## slurm_BlastSequencesTwentyHits.sh and sge_BlastSequencesTwentyHits.sh
+- ## bash_BlastSequencesTwentyHits.sh, slurm_BlastSequencesTwentyHits.sh and sge_BlastSequencesTwentyHits.sh
 
-These scripts should be used on an HPC system that uses either SLURM or SGE as the queuing system. Both require the blastn executable to be present on the system along with a BLAST database. The database may be a custom one created using [___b_MakeBlastdb.sh___](#b_makeblastdbsh) described above or a pre-made database from the NCBI site. 
+__Note:__ 
+- These scripts expect the FASTA file to contain just two lines per sequence: the first contains the name and the second contains the whole sequence. 
+- The file should not contain any empty lines or comments. 
+- The FASTA file must use Unix end of line characters (\\n) and not windows aor masOS.  
+
+The slurm_BlastSequencesTwentyHits.sh and sge_BlastSequencesTwentyHits.sh scripts should be used on an HPC system that uses either SLURM or SGE as the queuing system, while bash_BlastSequencesTwentyHits.sh can automate the BLAST searches on a standard server. They require the blastn executable to be present on the system along with a BLAST database. The database may be a custom one created using [___b_MakeBlastdb.sh___](#b_makeblastdbsh) described above or a pre-made database from the NCBI site. 
 
 When these scripts run, they will search the database with a subset of the sequences in the selected FASTA file. The number of sequences in each search is currently set to 50 in line 43:
 
@@ -138,29 +143,39 @@ To search with 100 sequences each to use:
 
 The results of each search are saved to a *out.txt file in a subfolder in the same folder as the FASTA file. If the BLAST search job times out, delete any empty *out.txt files and rerun the job. This should start the analysis at the point where it stopped the last time. 
 
-___Note: the Path to the blastn application needs to be set on line 58.___
 
 The returned file format is set on line 58 with: 
 
-> -outfmt "6 qseqid pident mismatch gapopen length evalue bitscore sacc stitle"
+> -outfmt "6 qseqid pident mismatch gapopen length qlen evalue bitscore sacc stitle"
 
 This will return the hit sequences description and accession ID as well as the hits length, e Score, bit score, percent identities	number of mismatches and gaps as well as the query sequence's name.
 
 Check that a job finished after completing all the searches and didn't run out of memory. If it did run out of memory either request more memory or reduce the number of sequences in each search.
 
-These scripts return the top 10 results for each sequence. This value is set on line 58 with __-num_alignments 10__. Changing this value will change the number of hits returned for each sequence.
+These scripts return the top 20 results for each sequence. This value is set on line 58 with __-num_alignments 20__. Changing this value will change the number of hits returned for each sequence.
 
 These scripts use 3 processors per job (line 58: __-num_threads 3__). It may be tempting to increase this number, but the analysis bottleneck is the reading of the BLAST databases and if you have a lot of concurrent BLAST jobs running, each using a lot of processors, they may swamp up the file system's read/write queue and the whole HPC may be negatively impacted - ___the system admins will not be impressed!___
 
 ### Usage:
 
+For BASH:
+
+>  bash bash_BlastSequencesTwentyHits.sh \<fFASTA files> \<BLAST database> \<program> 
+
+Where:
+- bash bash_BlastSequencesTwentyHits.sh instructs the server to process the script
+- \<FASTA files> is the name and path of the FASTA file to process.
+- \<BLAST database> is the name of the BLAST database to be screened. If the database is from the NCBI, its name is the same as the files in the database minus their file extension. So a database containing the files:
+__/mydbfolder/mydb.phr__, __/mydbfolder/mydb.pin__ and __/mydbfolder/mydb.psq__ is called __/mydbfolder/mydb__.
+- \<program> is the name and path of the blastn executable.
+
 For SLURM:
 
->  sbatch --array=1-n --export=folder=\<folder of FASTA files>,blastdb=\<BLAST database>,blastn=\<program> lurm_BlastSequencesTenHits.sh
+>  sbatch --array=1-n --export=folder=\<folder of FASTA files>,blastdb=\<BLAST database>,blastn=\<program> slurm_BlastSequencesTwentyHits.sh
 
 For SGE:
 
-> qsub -t 1-n -v folder=\<folder of FASTA files>,blastdb=\<BLAST database>,blastn=\<program> sge_BlastSequencesTenHits.sh
+> qsub -t 1-n -v folder=\<folder of FASTA files>,blastdb=\<BLAST database>,blastn=\<program> sge_BlastSequencesTwentyHits.sh
 
 Where:
 - --array=1-n or 1-n sets the number of different searches to be performed; this number should be equal to the number of child FASTA files created by [__b_CutUpFasta.sh__](#b_cutupfastash).

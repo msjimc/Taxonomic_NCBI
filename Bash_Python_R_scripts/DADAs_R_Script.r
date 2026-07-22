@@ -15,7 +15,7 @@ print(reverseFileNamePattern)
 
 trimReads=TRUE
 cutadaptTrim=TRUE
-minimumReadCount = 20
+minimumReadCount = 10
 FWD <- "GTACACACCGCCCGTC"  
 REV <- "TGATCCTTCTGCAGGTTCACCTAC"  
 
